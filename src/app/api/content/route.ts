@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getDraftContent, getPublishedContent, getStore } from '@/lib/store';
+import { fetchDraftContentFromDB, fetchPublishedContentFromDB } from '@/lib/supabase/service';
+import { getStore } from '@/lib/store';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -8,14 +9,23 @@ export async function GET(request: Request) {
 
   if (full) {
     const store = getStore();
-    return NextResponse.json({ success: true, store });
+    const draft = await fetchDraftContentFromDB();
+    const published = await fetchPublishedContentFromDB();
+    return NextResponse.json({
+      success: true,
+      store: {
+        ...store,
+        draft,
+        published,
+      },
+    });
   }
 
   if (mode === 'draft') {
-    const content = getDraftContent();
+    const content = await fetchDraftContentFromDB();
     return NextResponse.json({ success: true, mode: 'draft', content });
   }
 
-  const content = getPublishedContent();
+  const content = await fetchPublishedContentFromDB();
   return NextResponse.json({ success: true, mode: 'published', content });
 }

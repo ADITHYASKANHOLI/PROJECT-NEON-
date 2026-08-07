@@ -12,7 +12,7 @@ interface NavbarProps {
   siteTitle?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'AURA' }) => {
+export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'PROJECT NEON' }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
@@ -43,30 +43,30 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'AURA' }) => 
       <div
         className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl transition-all duration-300 ${
           scrolled
-            ? 'glass-panel shadow-2xl py-3 px-6 bg-slate-950/80 backdrop-blur-2xl border border-white/15'
+            ? 'glass-panel-neon shadow-2xl py-3 px-6 bg-slate-950/85 backdrop-blur-2xl'
             : 'bg-transparent py-4 px-4'
         }`}
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold tracking-wider text-white group-hover:text-indigo-300 transition-colors">
-              {siteTitle.split(' ')[0]}
+            <span className="text-lg sm:text-xl font-black tracking-widest text-white group-hover:text-cyan-400 transition-colors uppercase">
+              PROJECT <span className="text-cyan-400">NEON</span>
             </span>
           </Link>
 
           {/* Desktop Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-cyan-500/20 rounded-full px-4 py-1.5 backdrop-blur-md">
             {items
               .sort((a, b) => a.order - b.order)
               .map((item) => (
                 <a
                   key={item.id}
                   href={item.url}
-                  className="px-4 py-1.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                  className="px-4 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-400 hover:bg-white/10 rounded-full transition-all"
                 >
                   {item.label}
                 </a>
@@ -77,10 +77,10 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'AURA' }) => 
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors"
+              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-cyan-500/20 text-slate-300 hover:text-white transition-colors"
               title="Toggle Theme"
             >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />}
             </button>
 
             <Link href="/admin">
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'AURA' }) => 
                 onClick={toggleTheme}
                 className="px-4 py-2 text-sm text-slate-300 flex items-center gap-2"
               >
-                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />} Toggle Theme
+                {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />} Toggle Theme
               </button>
               <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
                 <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>

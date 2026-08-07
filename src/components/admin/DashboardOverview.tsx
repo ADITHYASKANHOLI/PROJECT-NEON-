@@ -14,7 +14,6 @@ import {
   MessageSquare,
   ArrowRight,
   ExternalLink,
-  ShieldAlert,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -57,14 +56,14 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
   return (
     <div className="space-y-8">
       {/* Welcome Banner */}
-      <div className="rounded-3xl glass-panel p-8 border border-white/20 relative overflow-hidden bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-950">
+      <div className="rounded-3xl glass-panel-neon p-8 relative overflow-hidden bg-gradient-to-r from-cyan-950/40 via-purple-950/30 to-slate-950">
         <div className="relative z-10 space-y-4 max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
-            AURA LIVE CMS DASHBOARD
+          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+            PROJECT NEON • SUPABASE CMS
           </span>
           <h2 className="text-3xl font-extrabold text-white">Central Content Store Active</h2>
           <p className="text-slate-300 text-sm font-light leading-relaxed">
-            Edit content in real-time using split-screen preview mode. Click <span className="font-semibold text-emerald-400">Publish Live</span> to push your draft directly to the public website.
+            Edit content in real-time using split-screen preview mode. Click <span className="font-semibold text-emerald-400">Publish Live</span> to push your draft directly to the public website route <span className="font-mono text-cyan-300">/</span>.
           </p>
           <div className="pt-2 flex items-center gap-4">
             <GlassButton variant="primary" size="md" onClick={onPublishLive} icon={<CheckCircle2 className="w-4 h-4" />}>
@@ -85,7 +84,7 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
           <div className="space-y-2">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Website Status</span>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping" />
+              <div className="w-3 h-3 rounded-full bg-cyan-400 animate-ping" />
               <span className="text-xl font-extrabold text-white">LIVE ONLINE</span>
             </div>
             <p className="text-xs text-slate-400">Public route: /</p>
@@ -95,7 +94,7 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
         <GlassCard>
           <div className="space-y-2">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Published Sections</span>
-            <div className="text-3xl font-black text-indigo-400">{countVisible()} / 9</div>
+            <div className="text-3xl font-black text-cyan-400">{countVisible()} / 9</div>
             <p className="text-xs text-slate-400">Active public sections</p>
           </div>
         </GlassCard>
@@ -104,7 +103,7 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
           <div className="space-y-2">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Last Draft Saved</span>
             <div className="text-sm font-bold text-slate-200 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-indigo-400" />
+              <Clock className="w-4 h-4 text-cyan-400" />
               <span>{lastSavedAt ? new Date(lastSavedAt).toLocaleTimeString() : 'Just now'}</span>
             </div>
             <p className="text-xs text-slate-400">Draft store synced</p>
@@ -118,7 +117,7 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               <span>{lastPublishedAt ? new Date(lastPublishedAt).toLocaleTimeString() : 'Just now'}</span>
             </div>
-            <p className="text-xs text-slate-400">Public store synced</p>
+            <p className="text-xs text-slate-400">Database store synced</p>
           </div>
         </GlassCard>
       </div>
@@ -137,15 +136,15 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
                 className="group cursor-pointer flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h4 className="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+                  <h4 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
                     {item.label}
                   </h4>
                   <p className="text-xs text-slate-400">{item.count} items active in draft</p>
                 </div>
-                <div className="pt-4 flex items-center gap-1 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform">
+                <div className="pt-4 flex items-center gap-1 text-xs font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform">
                   <span>Edit Content</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>

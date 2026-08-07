@@ -32,9 +32,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
   return (
     <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-8 flex flex-col justify-center items-center overflow-hidden">
-      {/* Ambient Radial Background Glows */}
-      <div className="aura-glow-primary top-10 left-1/2 -translate-x-1/2" />
-      <div className="aura-glow-secondary top-40 right-10" />
+      {/* Ambient Neon Radial Diffusions */}
+      <div className="neon-aura-cyan top-10 left-1/2 -translate-x-1/2" />
+      <div className="neon-aura-violet top-40 right-10" />
 
       <div className="max-w-6xl mx-auto text-center z-10 space-y-8">
         {/* Badge */}
@@ -43,9 +43,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-semibold tracking-widest text-indigo-300 border-indigo-500/30"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-bold tracking-widest text-cyan-300 border-cyan-500/30"
           >
-            <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
             <span>{data.badgeText}</span>
           </motion.div>
         )}
@@ -57,9 +57,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="space-y-2"
         >
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-none">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none">
             {data.headline}{' '}
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent">
               {data.highlightText}
             </span>
           </h1>
@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           )}
           {data.secondaryCtaText && (
             <Link href={data.secondaryCtaUrl}>
-              <GlassButton variant="secondary" size="lg" icon={<Shield className="w-4 h-4 text-indigo-400" />}>
+              <GlassButton variant="secondary" size="lg" icon={<Shield className="w-4 h-4 text-cyan-400" />}>
                 {data.secondaryCtaText}
               </GlassButton>
             </Link>
@@ -109,26 +109,26 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className="relative rounded-3xl p-3 glass-panel border border-white/20 shadow-2xl transition-transform duration-200 ease-out overflow-hidden group"
+              className="relative rounded-3xl p-3 glass-panel-neon transition-transform duration-200 ease-out overflow-hidden group"
               style={{
                 transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
                 transformStyle: 'preserve-3d',
               }}
             >
-              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-900">
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-950">
                 <img
                   src={data.imageUrl}
                   alt={data.headline}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-8">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-8">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-xl">
+                    <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 backdrop-blur-xl border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-xl">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                     <div className="text-left">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-indigo-300">Live Preview Engine</p>
-                      <p className="text-sm text-slate-200 font-medium">Real-Time CMS Sync Active</p>
+                      <p className="text-xs font-bold uppercase tracking-widest text-cyan-400">PROJECT NEON ENGINE</p>
+                      <p className="text-sm text-slate-200 font-medium">Supabase Database Sync Active</p>
                     </div>
                   </div>
                 </div>
@@ -145,10 +145,10 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors"
         >
-          <span>SCROLL TO EXPLORE</span>
-          <ChevronDown className="w-4 h-4" />
+          <span>EXPLORE PROJECT NEON</span>
+          <ChevronDown className="w-4 h-4 text-cyan-400" />
         </motion.a>
       )}
     </section>

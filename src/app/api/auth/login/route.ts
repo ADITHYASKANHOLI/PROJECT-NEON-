@@ -1,19 +1,15 @@
 import { NextResponse } from 'next/server';
-import { verifyAdminCredentials, setAdminSessionCookie } from '@/lib/auth';
+import { loginAdminUser } from '@/lib/supabase/auth';
 
 export async function POST(request: Request) {
   try {
     const { email, password } = await request.json();
 
-    const isValid = await verifyAdminCredentials(email, password);
-    if (!isValid) {
-      return NextResponse.json(
-        { success: false, error: 'Invalid email or password. Hint: admin@aura.design / admin123' },
-        { status: 401 }
-      );
+    const result = await loginAdminUser(email, password);
+    if (!result.success) {
+      return NextResponse.json({ success: false, error: result.error }, { status: 401 });
     }
 
-    await setAdminSessionCookie();
     return NextResponse.json({ success: true, message: 'Logged in successfully' });
   } catch (err) {
     console.error('Login route error:', err);

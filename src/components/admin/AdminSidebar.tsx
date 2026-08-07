@@ -80,7 +80,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
 
   return (
     <aside
-      className={`h-screen flex flex-col justify-between glass-panel border-r border-white/10 bg-slate-950/90 transition-all duration-300 z-30 shrink-0 ${
+      className={`h-screen flex flex-col justify-between glass-panel border-r border-cyan-500/20 bg-slate-950/95 transition-all duration-300 z-30 shrink-0 ${
         collapsed ? 'w-20' : 'w-64'
       }`}
     >
@@ -88,13 +88,13 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       <div>
         <div className="p-5 flex items-center justify-between border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-indigo-500/30">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-cyan-500/30">
               <Sparkles className="w-5 h-5" />
             </div>
             {!collapsed && (
               <div>
-                <h2 className="text-base font-extrabold tracking-wider text-white">AURA</h2>
-                <p className="text-[10px] font-semibold text-indigo-400 uppercase tracking-widest">LIVE CMS OS</p>
+                <h2 className="text-sm font-black tracking-wider text-white uppercase">PROJECT <span className="text-cyan-400">NEON</span></h2>
+                <p className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">SUPABASE CMS</p>
               </div>
             )}
           </div>
@@ -112,7 +112,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
           {menuGroups.map((group, idx) => (
             <div key={idx} className="space-y-1">
               {!collapsed && (
-                <h4 className="px-3 text-[10px] font-extrabold tracking-widest text-slate-300 uppercase mb-2">
+                <h4 className="px-3 text-[10px] font-extrabold tracking-widest text-slate-400 uppercase mb-2">
                   {group.title}
                 </h4>
               )}
@@ -125,7 +125,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                     onClick={() => onTabChange(item.id)}
                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                       isActive
-                        ? 'bg-indigo-600/90 text-white shadow-md shadow-indigo-600/30 border border-indigo-400/30'
+                        ? 'bg-cyan-600/90 text-white shadow-md shadow-cyan-600/30 border border-cyan-400/40'
                         : 'text-slate-300 hover:text-white hover:bg-white/10 border border-transparent'
                     } ${collapsed ? 'justify-center px-0' : ''}`}
                     title={collapsed ? item.label : undefined}
@@ -150,7 +150,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
           }`}
           title="View Public Website"
         >
-          <ExternalLink className="w-4 h-4 text-indigo-400 shrink-0" />
+          <ExternalLink className="w-4 h-4 text-cyan-400 shrink-0" />
           {!collapsed && <span>Public Website</span>}
         </Link>
 

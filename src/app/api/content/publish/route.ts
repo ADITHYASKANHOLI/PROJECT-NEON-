@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { publishDraftContent } from '@/lib/store';
+import { publishDraftToDB } from '@/lib/supabase/service';
 import { isAuthenticatedAdmin } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 
@@ -10,16 +10,16 @@ export async function POST() {
   }
 
   try {
-    const updatedStore = publishDraftContent();
+    const updatedStore = await publishDraftToDB();
     revalidatePath('/');
     return NextResponse.json({
       success: true,
-      message: 'Published content live successfully',
+      message: 'Published content live to database successfully',
       lastPublishedAt: updatedStore.lastPublishedAt,
       store: updatedStore,
     });
   } catch (err) {
-    console.error('Publish content error:', err);
+    console.error('Publish DB error:', err);
     return NextResponse.json({ success: false, error: 'Failed to publish content' }, { status: 500 });
   }
 }
