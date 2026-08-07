@@ -1,155 +1,113 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { HeroSection } from '@/lib/types';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { ArrowRight, Sparkles, ChevronDown, Shield, Play } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRight, ChevronDown, Sparkles } from 'lucide-react';
 
 interface HeroProps {
   data: HeroSection;
 }
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-
-  if (!data || !data.isVisible) return null;
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    setRotateX(-y / 25);
-    setRotateY(x / 25);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
+  if (!data?.isVisible) return null;
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-8 flex flex-col justify-center items-center overflow-hidden">
-      {/* Ambient Neon Radial Diffusions */}
-      <div className="neon-aura-cyan top-10 left-1/2 -translate-x-1/2" />
-      <div className="neon-aura-violet top-40 right-10" />
+    <section className="relative min-h-[90vh] sm:min-h-screen pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 flex items-center justify-center overflow-hidden">
+      {/* Background Neon Glow Diffusions */}
+      <div className="neon-aura-cyan -top-20 -left-20 opacity-75" />
+      <div className="neon-aura-violet top-1/3 -right-20 opacity-75" />
 
-      <div className="max-w-6xl mx-auto text-center z-10 space-y-8">
-        {/* Badge */}
-        {data.badgeText && (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+          {/* Badge Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill border border-cyan-500/30 text-[11px] sm:text-xs font-semibold text-cyan-300"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            <span className="truncate">{data.badgeText}</span>
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight leading-[1.15] sm:leading-[1.1]"
+          >
+            {data.headline}{' '}
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
+              {data.highlightText}
+            </span>
+          </motion.h1>
+
+          {/* Subtitle Statement */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto px-2"
+          >
+            {data.subtitle}
+          </motion.p>
+
+          {/* Touch-Friendly Action CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill text-xs font-bold tracking-widest text-cyan-300 border-cyan-500/30"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto px-4 sm:px-0"
           >
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-            <span>{data.badgeText}</span>
-          </motion.div>
-        )}
-
-        {/* Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="space-y-2"
-        >
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none">
-            {data.headline}{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent">
-              {data.highlightText}
-            </span>
-          </h1>
-        </motion.div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-300 leading-relaxed font-light"
-        >
-          {data.subtitle}
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-4 pt-4"
-        >
-          {data.primaryCtaText && (
-            <a href={data.primaryCtaUrl}>
-              <GlassButton variant="primary" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            <a href={data.primaryCtaUrl} className="w-full sm:w-auto">
+              <GlassButton
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto min-h-[48px] justify-center text-sm sm:text-base font-bold shadow-lg shadow-cyan-500/25"
+                icon={<ArrowRight className="w-4 h-4" />}
+              >
                 {data.primaryCtaText}
               </GlassButton>
             </a>
-          )}
-          {data.secondaryCtaText && (
-            <Link href={data.secondaryCtaUrl}>
-              <GlassButton variant="secondary" size="lg" icon={<Shield className="w-4 h-4 text-cyan-400" />}>
+            <a href={data.secondaryCtaUrl} className="w-full sm:w-auto">
+              <GlassButton
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto min-h-[48px] justify-center text-sm sm:text-base font-semibold"
+              >
                 {data.secondaryCtaText}
               </GlassButton>
-            </Link>
-          )}
-        </motion.div>
+            </a>
+          </motion.div>
 
-        {/* 3D Mouse Tilt Hero Visual */}
-        {data.imageUrl && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="pt-10 max-w-4xl mx-auto perspective-1000"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div
-              className="relative rounded-3xl p-3 glass-panel-neon transition-transform duration-200 ease-out overflow-hidden group"
-              style={{
-                transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-                transformStyle: 'preserve-3d',
-              }}
+          {/* Visual Showcase Graphic Container */}
+          {data.imageUrl && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="pt-6 sm:pt-10"
             >
-              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-950">
+              <div className="relative rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 glass-panel-neon overflow-hidden border border-cyan-500/30 max-w-4xl mx-auto shadow-2xl">
                 <img
                   src={data.imageUrl}
-                  alt={data.headline}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  alt="PROJECT NEON Showcase"
+                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 backdrop-blur-xl border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-xl">
-                      <Play className="w-5 h-5 fill-current ml-0.5" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xs font-bold uppercase tracking-widest text-cyan-400">PROJECT NEON ENGINE</p>
-                      <p className="text-sm text-slate-200 font-medium">Supabase Database Sync Active</p>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </div>
       </div>
 
       {/* Scroll Down Indicator */}
       {data.showScrollIndicator && (
-        <motion.a
-          href="#about"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors"
-        >
-          <span>EXPLORE PROJECT NEON</span>
-          <ChevronDown className="w-4 h-4 text-cyan-400" />
-        </motion.a>
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-slate-400 animate-bounce hidden sm:block">
+          <ChevronDown className="w-5 h-5 text-cyan-400" />
+        </div>
       )}
     </section>
   );

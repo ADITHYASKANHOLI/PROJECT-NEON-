@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { NavItem } from '@/lib/types';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { Sparkles, Sun, Moon, Shield, Menu, X } from 'lucide-react';
+import { Sparkles, Sun, Moon, Shield, Menu, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface NavbarProps {
@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   useEffect(() => {
     if (isPreviewMode) return;
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -45,30 +45,30 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   const headerPositionClass = isPreviewMode
-    ? 'sticky top-0 left-0 right-0 z-20 px-4 pt-3 pb-2'
-    : 'fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 pt-4 pb-2 pointer-events-none';
+    ? 'sticky top-0 left-0 right-0 z-30 px-3 sm:px-6 pt-3 pb-2'
+    : 'fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-3 sm:pt-4 pb-2 pointer-events-none';
 
   return (
     <header className={headerPositionClass}>
       <div
-        className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl transition-all duration-300 ${
+        className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl sm:rounded-3xl transition-all duration-300 ${
           scrolled || isPreviewMode
-            ? 'glass-panel-neon shadow-2xl py-3 px-6 bg-slate-950/85 backdrop-blur-2xl'
-            : 'bg-transparent py-4 px-4'
+            ? 'glass-panel-neon shadow-2xl py-2.5 px-4 sm:px-6 bg-slate-950/85 backdrop-blur-2xl border border-cyan-500/30'
+            : 'bg-transparent py-3 px-3 sm:px-4'
         }`}
       >
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <span className="text-lg sm:text-xl font-black tracking-widest text-white group-hover:text-cyan-400 transition-colors uppercase">
+            <span className="text-base sm:text-xl font-black tracking-widest text-white group-hover:text-cyan-400 transition-colors uppercase">
               PROJECT <span className="text-cyan-400">NEON</span>
             </span>
           </Link>
 
-          {/* Desktop Links */}
+          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-cyan-500/20 rounded-full px-4 py-1.5 backdrop-blur-md">
             {items
               .sort((a, b) => a.order - b.order)
@@ -83,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               ))}
           </nav>
 
-          {/* Actions */}
+          {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={toggleTheme}
@@ -102,50 +102,58 @@ export const Navbar: React.FC<NavbarProps> = ({
             )}
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl bg-white/10 border border-white/10 text-white"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile Right Controls */}
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300"
+              title="Toggle Theme"
+            >
+              {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />}
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-white"
+              aria-label="Toggle Mobile Navigation Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-cyan-400" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Dropdown */}
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pt-4 border-t border-white/10 flex flex-col gap-2"
-          >
-            {items.map((item) => (
-              <a
-                key={item.id}
-                href={item.url}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm text-slate-200 hover:bg-white/10 rounded-xl"
-              >
-                {item.label}
-              </a>
-            ))}
-            <div className="pt-2 flex items-center justify-between border-t border-white/10">
-              <button
-                onClick={toggleTheme}
-                className="px-4 py-2 text-sm text-slate-300 flex items-center gap-2"
-              >
-                {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />} Toggle Theme
-              </button>
+        {/* Mobile App-Like Menu Overlay */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden mt-3 pt-3 border-t border-white/10 flex flex-col gap-1.5"
+            >
+              {items.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-3 text-sm font-semibold text-slate-200 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-xl transition-all flex items-center justify-between"
+                >
+                  <span>{item.label}</span>
+                  <ArrowRight className="w-4 h-4 text-slate-500" />
+                </a>
+              ))}
               {!isPreviewMode && (
-                <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
-                  <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>
-                    Admin CMS
-                  </GlassButton>
-                </Link>
+                <div className="pt-2 border-t border-white/10 mt-1">
+                  <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
+                    <GlassButton variant="primary" size="md" className="w-full justify-center" icon={<Shield className="w-4 h-4" />}>
+                      Access Admin CMS
+                    </GlassButton>
+                  </Link>
+                </div>
               )}
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

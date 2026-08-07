@@ -2,75 +2,62 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FeatureSection } from '@/lib/types';
+import { FeatureSection, FeatureItem } from '@/lib/types';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DynamicIcon } from '@/components/ui/IconPicker';
-import { ArrowUpRight } from 'lucide-react';
 
 interface FeaturesProps {
   data: FeatureSection;
 }
 
 export const Features: React.FC<FeaturesProps> = ({ data }) => {
-  if (!data || !data.isVisible) return null;
+  if (!data?.isVisible) return null;
 
-  const visibleItems = data.items
-    .filter((item) => item.isVisible)
-    .sort((a, b) => a.order - b.order);
+  const visibleItems: FeatureItem[] = (data.items || []).filter((item: FeatureItem) => item.isVisible);
 
   return (
-    <section id="features" className="py-28 px-4 sm:px-8 relative z-10">
-      <div className="max-w-7xl mx-auto space-y-16">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+    <section id="features" className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-slate-950/40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header Block */}
+        <div className="text-center space-y-4 max-w-3xl mx-auto mb-12 sm:mb-16">
+          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20 inline-block">
+            CAPABILITIES
+          </span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
             {data.title}
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 font-light leading-relaxed px-2">
             {data.subtitle}
           </p>
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleItems.map((item, idx) => (
+        {/* Spacious Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {visibleItems.map((item: FeatureItem, idx: number) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
-              <GlassCard hoverEffect glow className="h-full flex flex-col justify-between group">
+              <GlassCard hoverEffect className="h-full p-6 sm:p-8 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  {/* Top Row: Icon + Badge */}
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 group-hover:bg-indigo-500/20 transition-all duration-300">
-                      <DynamicIcon name={item.iconName} className="w-6 h-6" />
-                    </div>
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                    <DynamicIcon name={item.iconName} className="w-6 h-6" />
+                  </div>
+                  <div className="space-y-2">
                     {item.badge && (
-                      <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-indigo-300">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
                         {item.badge}
                       </span>
                     )}
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">{item.title}</h3>
                   </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                     {item.description}
                   </p>
                 </div>
-
-                {/* Optional Link */}
-                {item.linkText && (
-                  <div className="pt-6 flex items-center gap-1.5 text-xs font-semibold text-indigo-400 group-hover:text-indigo-300 transition-colors">
-                    <span>{item.linkText}</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
-                )}
               </GlassCard>
             </motion.div>
           ))}
