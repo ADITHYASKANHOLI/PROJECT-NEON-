@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { fetchPublishedContentFromDB } from '@/lib/supabase/service';
 import { Navbar } from '@/components/public/Navbar';
 import { Hero } from '@/components/public/Hero';
@@ -12,6 +13,27 @@ import { CTA } from '@/components/public/CTA';
 import { Footer } from '@/components/public/Footer';
 
 export const revalidate = 0; // Dynamic rendering for instant live publish updates
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await fetchPublishedContentFromDB();
+  const siteTitle = content.settings?.siteTitle || 'PROJECT NEON — Next-Gen AI Technology Platform';
+  const siteDescription =
+    content.settings?.siteDescription ||
+    'PROJECT NEON is a futuristic AI technology platform and dynamic content engine powered by Next.js 16 and Supabase.';
+
+  return {
+    title: siteTitle,
+    description: siteDescription,
+    openGraph: {
+      title: siteTitle,
+      description: siteDescription,
+    },
+    twitter: {
+      title: siteTitle,
+      description: siteDescription,
+    },
+  };
+}
 
 export default async function HomePage() {
   const content = await fetchPublishedContentFromDB();
