@@ -35,15 +35,15 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
 
   const variantStyles = {
     primary:
-      'bg-gradient-to-r from-slate-900 via-blue-950 to-sky-600 hover:from-blue-900 hover:to-sky-500 text-white border border-sky-400/40 border-t-white/60 shadow-lg shadow-blue-950/40 hover:shadow-sky-500/35',
+      'bg-gradient-to-r from-slate-900 via-blue-950 to-sky-600 hover:from-blue-900 hover:to-sky-500 text-white border border-white/12 border-t-white/30 shadow-lg shadow-blue-950/40 hover:shadow-sky-500/30',
     secondary:
-      'bg-white/10 hover:bg-white/18 text-white border border-white/20 border-t-white/50 shadow-sm shadow-slate-950/40',
+      'bg-white/8 hover:bg-white/14 text-white border border-white/12 border-t-white/25 shadow-sm shadow-slate-950/40',
     ghost:
-      'bg-transparent hover:bg-white/10 text-slate-300 hover:text-white border border-transparent hover:border-white/15',
+      'bg-transparent hover:bg-white/8 text-slate-300 hover:text-white border border-transparent hover:border-white/10',
     danger:
-      'bg-gradient-to-r from-rose-700 to-rose-600 hover:from-rose-600 text-white border border-rose-400/35 border-t-white/50 shadow-md shadow-rose-950/40',
+      'bg-gradient-to-r from-rose-900 to-rose-700 hover:from-rose-800 text-white border border-white/12 border-t-white/25 shadow-md shadow-rose-950/40',
     success:
-      'bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 text-white border border-emerald-400/35 border-t-white/50 shadow-md shadow-emerald-950/40',
+      'bg-gradient-to-r from-emerald-900 to-emerald-700 hover:from-emerald-800 text-white border border-white/12 border-t-white/25 shadow-md shadow-emerald-950/40',
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -63,7 +63,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
     <motion.button
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: disabled || isLoading ? 1 : 1.02, y: disabled || isLoading ? 0 : -1.5 }}
+      whileHover={{ scale: disabled || isLoading ? 1 : 1.015, y: disabled || isLoading ? 0 : -1.5 }}
       whileTap={{ scale: disabled || isLoading ? 1 : 0.96 }}
       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       disabled={disabled || isLoading}
@@ -76,8 +76,8 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
       )}
       {...props}
     >
-      {/* Top Specular Edge Light Trapping Overlay */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none z-20" />
+      {/* Soft Edge Radial Light Diffusion Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15),transparent_65%)] pointer-events-none z-20" />
 
       {isLoading ? (
         <Loader2 className="w-4 h-4 animate-spin text-current relative z-10" />
