@@ -22,11 +22,14 @@ import {
   SettingsEditor,
 } from '@/components/admin/SectionEditors';
 
+export type WorkspaceMode = 'editor' | 'preview';
+
 export default function AdminDashboardPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<AdminTab>('overview');
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('editor');
   const [collapsed, setCollapsed] = useState(false);
-  const [showPreview, setShowPreview] = useState(true);
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
   const [storeData, setStoreData] = useState<DataStore | null>(null);
@@ -129,7 +132,7 @@ export default function AdminDashboardPage() {
       const data = await res.json();
       if (data.success) {
         setStoreData(data.store);
-        addToast('success', 'Published Live!', 'Website content has been updated on the public route /');
+        addToast('success', 'Published Live!', 'Website content updated live on public route /');
       } else {
         addToast('error', 'Publish Failed', data.error || 'Could not publish content.');
       }
@@ -156,7 +159,7 @@ export default function AdminDashboardPage() {
     );
   }
 
-  // Render Active Section Editor
+  // Render Editor Component based on Active Tab
   const renderEditorContent = () => {
     switch (activeTab) {
       case 'overview':
@@ -167,6 +170,7 @@ export default function AdminDashboardPage() {
             lastPublishedAt={storeData.lastPublishedAt}
             onNavigateTab={setActiveTab}
             onPublishLive={handlePublishLive}
+            onSwitchToPreview={() => setWorkspaceMode('preview')}
           />
         );
       case 'hero':
@@ -201,18 +205,44 @@ export default function AdminDashboardPage() {
       {/* Toast Notifications */}
       <ToastContainer toasts={toasts} onDismiss={dismissToast} />
 
-      {/* Application Sidebar (Independent vertical scroll) */}
-      <AdminSidebar
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-        onLogout={handleLogout}
-        collapsed={collapsed}
-        onToggleCollapse={() => setCollapsed(!collapsed)}
-      />
+      {/* Desktop Sidebar (Fixed 250px, Independent Scroll) */}
+      <div className="hidden lg:block h-full shrink-0">
+        <AdminSidebar
+          activeTab={activeTab}
+          onTabChange={(tab) => {
+            setActiveTab(tab);
+            if (tab === 'media') {
+              // Stay in main workspace
+            }
+          }}
+          onLogout={handleLogout}
+          collapsed={collapsed}
+          onToggleCollapse={() => setCollapsed(!collapsed)}
+        />
+      </div>
 
-      {/* Main Workspace Frame */}
+      {/* Mobile Drawer Sidebar */}
+      {mobileDrawerOpen && (
+        <div className="fixed inset-0 z-50 flex bg-slate-950/80 backdrop-blur-xl lg:hidden">
+          <div className="w-72 h-full bg-[#06080e] border-r border-white/10">
+            <AdminSidebar
+              activeTab={activeTab}
+              onTabChange={(tab) => {
+                setActiveTab(tab);
+                setMobileDrawerOpen(false);
+              }}
+              onLogout={handleLogout}
+              collapsed={false}
+              onToggleCollapse={() => setMobileDrawerOpen(false)}
+            />
+          </div>
+          <div className="flex-1" onClick={() => setMobileDrawerOpen(false)} />
+        </div>
+      )}
+
+      {/* Main App Workspace Area (Top Header + Single Full Workspace) */}
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
-        {/* Sticky Header */}
+        {/* Top Header */}
         <AdminHeader
           activeTabTitle={activeTab}
           hasUnsavedChanges={hasUnsavedChanges}
@@ -222,32 +252,37 @@ export default function AdminDashboardPage() {
           lastPublishedAt={storeData.lastPublishedAt}
           onSaveDraft={handleSaveDraft}
           onPublishLive={handlePublishLive}
-          showPreview={showPreview}
-          onTogglePreview={() => setShowPreview(!showPreview)}
+          workspaceMode={workspaceMode}
+          onWorkspaceModeChange={setWorkspaceMode}
           previewDevice={previewDevice}
           onDeviceChange={setPreviewDevice}
+          onOpenMobileDrawer={() => setMobileDrawerOpen(true)}
+          isMediaTab={activeTab === 'media'}
         />
 
-        {/* Content Editor & Live Preview Split Screen Container */}
-        <div className="flex-1 flex overflow-hidden p-6 gap-6 bg-[#06080e]">
-          {/* Main Editor Workspace Panel */}
-          <div
-            className={`h-full overflow-y-auto custom-scrollbar space-y-6 transition-all duration-300 ${
-              showPreview ? 'w-full lg:w-1/2' : 'w-full max-w-5xl mx-auto'
-            }`}
-          >
-            <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-white/15 bg-slate-950/70 shadow-2xl">
-              {renderEditorContent()}
+        {/* Workspace Display: ONLY ONE FULL WORKSPACE VISIBLE AT A TIME */}
+        <main className="flex-1 overflow-y-auto custom-scrollbar p-6 sm:p-10 bg-[#06080e]">
+          {activeTab === 'media' ? (
+            /* Media Vault Workspace */
+            <div className="max-w-7xl mx-auto">
+              <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-white/15 bg-slate-950/80 shadow-2xl">
+                <MediaManager />
+              </div>
             </div>
-          </div>
-
-          {/* Live Preview Panel (Independent Scroll) */}
-          {showPreview && (
-            <div className="hidden lg:block w-1/2 h-full">
+          ) : workspaceMode === 'preview' ? (
+            /* Large Full-Width Live Preview Workspace */
+            <div className="max-w-6xl mx-auto h-[calc(100vh-140px)]">
               <LivePreview draft={workingDraft} device={previewDevice} />
             </div>
+          ) : (
+            /* Centered Single Editor Workspace (Max Width 960px - Spacious Breathing Room) */
+            <div className="max-w-4xl mx-auto">
+              <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-white/15 bg-slate-950/80 shadow-2xl">
+                {renderEditorContent()}
+              </div>
+            </div>
           )}
-        </div>
+        </main>
       </div>
     </div>
   );

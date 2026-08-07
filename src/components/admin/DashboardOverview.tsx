@@ -14,6 +14,7 @@ import {
   MessageSquare,
   ArrowRight,
   ExternalLink,
+  Eye,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -23,6 +24,7 @@ interface OverviewProps {
   lastPublishedAt: string;
   onNavigateTab: (tab: AdminTab) => void;
   onPublishLive: () => void;
+  onSwitchToPreview?: () => void;
 }
 
 export const DashboardOverview: React.FC<OverviewProps> = ({
@@ -31,6 +33,7 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
   lastPublishedAt,
   onNavigateTab,
   onPublishLive,
+  onSwitchToPreview,
 }) => {
   const countVisible = () => {
     let count = 0;
@@ -56,22 +59,27 @@ export const DashboardOverview: React.FC<OverviewProps> = ({
   return (
     <div className="space-y-8">
       {/* Welcome Banner */}
-      <div className="rounded-3xl glass-panel-neon p-8 relative overflow-hidden bg-gradient-to-r from-cyan-950/40 via-purple-950/30 to-slate-950">
+      <div className="rounded-3xl glass-panel-neon p-8 sm:p-10 relative overflow-hidden bg-gradient-to-r from-cyan-950/40 via-purple-950/30 to-slate-950">
         <div className="relative z-10 space-y-4 max-w-2xl">
           <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
             PROJECT NEON • SUPABASE CMS
           </span>
           <h2 className="text-3xl font-extrabold text-white">Central Content Store Active</h2>
           <p className="text-slate-300 text-sm font-light leading-relaxed">
-            Edit content in real-time using split-screen preview mode. Click <span className="font-semibold text-emerald-400">Publish Live</span> to push your draft directly to the public website route <span className="font-mono text-cyan-300">/</span>.
+            Select a section from the sidebar to edit content in a dedicated workspace, or switch to <span className="font-semibold text-purple-300">Live Preview</span> mode to inspect your draft in full viewport scale.
           </p>
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-3 flex flex-wrap items-center gap-4">
             <GlassButton variant="primary" size="md" onClick={onPublishLive} icon={<CheckCircle2 className="w-4 h-4" />}>
               Publish Live Changes
             </GlassButton>
+            {onSwitchToPreview && (
+              <GlassButton variant="secondary" size="md" onClick={onSwitchToPreview} icon={<Eye className="w-4 h-4 text-purple-400" />}>
+                Large Live Preview
+              </GlassButton>
+            )}
             <Link href="/" target="_blank">
-              <GlassButton variant="secondary" size="md" icon={<ExternalLink className="w-4 h-4" />}>
-                View Public Website
+              <GlassButton variant="ghost" size="md" icon={<ExternalLink className="w-4 h-4 text-cyan-400" />}>
+                Public Website
               </GlassButton>
             </Link>
           </div>
