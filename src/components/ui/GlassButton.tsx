@@ -24,7 +24,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all focus:outline-none cursor-pointer select-none backdrop-blur-xl relative overflow-hidden';
+  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all focus:outline-none cursor-pointer select-none backdrop-blur-xl relative overflow-hidden liquid-bubble-container';
   
   const sizeStyles = {
     sm: 'px-3.5 py-1.5 text-xs gap-1.5 rounded-xl',
@@ -40,8 +40,23 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
     success: 'bg-gradient-to-r from-emerald-600/80 to-emerald-500/80 hover:from-emerald-500 text-white border border-emerald-400/30 border-t-white/40 shadow-md shadow-emerald-600/25',
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+    e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+    e.currentTarget.style.setProperty('--mouse-opacity', '1');
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.currentTarget.style.setProperty('--mouse-opacity', '0');
+  };
+
   return (
     <motion.button
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       whileHover={{ scale: disabled || isLoading ? 1 : 1.02, y: disabled || isLoading ? 0 : -1 }}
       whileTap={{ scale: disabled || isLoading ? 1 : 0.97 }}
       disabled={disabled || isLoading}
@@ -55,11 +70,11 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
       {...props}
     >
       {isLoading ? (
-        <Loader2 className="w-4 h-4 animate-spin text-current" />
+        <Loader2 className="w-4 h-4 animate-spin text-current relative z-10" />
       ) : (
-        icon && <span className="shrink-0">{icon}</span>
+        icon && <span className="shrink-0 relative z-10">{icon}</span>
       )}
-      <span>{children}</span>
+      <span className="relative z-10">{children}</span>
     </motion.button>
   );
 };
