@@ -4,26 +4,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { Sliders, ShieldCheck, Zap, Layers, Activity, Eye, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Sliders, ShieldCheck, Zap, Layers, Activity, Eye, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const CommandCenter: React.FC = () => {
   const capabilities = [
     {
       id: 'content',
-      icon: <Sliders className="w-5 h-5 text-cyan-400" />,
+      icon: <Sliders className="w-5 h-5 text-sky-400" />,
       title: 'Content Control',
       description: 'Update headlines, text content, image assets, and promotional banners remotely without touching code.',
     },
     {
       id: 'campaign',
-      icon: <Zap className="w-5 h-5 text-purple-400" />,
+      icon: <Zap className="w-5 h-5 text-blue-400" />,
       title: 'Campaign Management',
       description: 'Launch seasonal promotions, product announcements, and event landing pages instantly on global edge nodes.',
     },
     {
       id: 'monitoring',
-      icon: <Activity className="w-5 h-5 text-cyan-300" />,
+      icon: <Activity className="w-5 h-5 text-sky-300" />,
       title: 'Platform Monitoring',
       description: 'Real-time telemetry showing website health SLA, sub-second sync speeds, and Supabase cloud security status.',
     },
@@ -37,7 +37,7 @@ export const CommandCenter: React.FC = () => {
 
   return (
     <section id="command-center" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
-      {/* Background Ambient Neon Radial Glow */}
+      {/* Background Ambient Executive Sapphire Radial Glow */}
       <div className="neon-aura-cyan top-1/2 left-1/3 -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -47,7 +47,7 @@ export const CommandCenter: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold tracking-wider uppercase"
           >
             CLIENT EXPERIENCE
           </motion.div>
@@ -59,7 +59,7 @@ export const CommandCenter: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase"
           >
-            YOUR DIGITAL <span className="text-cyan-400">COMMAND CENTER</span>
+            YOUR DIGITAL <span className="text-sky-400">COMMAND CENTER</span>
           </motion.h2>
 
           <motion.p
@@ -83,7 +83,7 @@ export const CommandCenter: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <GlassCard className="glass-panel-neon border-cyan-500/40 p-6 sm:p-8 shadow-2xl space-y-6">
+            <GlassCard className="glass-panel-neon border-sky-500/40 p-6 sm:p-8 shadow-2xl space-y-6">
               {/* Mock Dashboard Top Control Bar */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3">
@@ -106,7 +106,7 @@ export const CommandCenter: React.FC = () => {
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
                   <div className="flex items-center justify-between text-xs text-slate-400">
                     <span>Active Mode</span>
-                    <span className="text-cyan-400 font-mono">LIVE PUBLISHED</span>
+                    <span className="text-sky-400 font-mono">LIVE PUBLISHED</span>
                   </div>
                   <div className="text-sm font-bold text-white flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -117,27 +117,27 @@ export const CommandCenter: React.FC = () => {
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
                   <div className="flex items-center justify-between text-xs text-slate-400">
                     <span>Sync Speed</span>
-                    <span className="text-cyan-400 font-mono">340ms SLA</span>
+                    <span className="text-sky-400 font-mono">340ms SLA</span>
                   </div>
                   <div className="text-sm font-bold text-white flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-cyan-400" />
+                    <Zap className="w-4 h-4 text-sky-400" />
                     <span>Edge Node Distributed</span>
                   </div>
                 </div>
               </div>
 
               {/* Mock Campaign Editor Preview Box */}
-              <div className="p-5 rounded-2xl bg-slate-950/80 border border-cyan-500/30 space-y-3">
+              <div className="p-5 rounded-2xl bg-slate-950/80 border border-sky-500/30 space-y-3">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-slate-400 font-medium">Hero Headline Campaign Text</span>
-                  <span className="text-cyan-400 font-mono bg-cyan-500/10 px-2 py-0.5 rounded">Remote Editable</span>
+                  <span className="text-sky-400 font-mono bg-sky-500/10 px-2 py-0.5 rounded">Remote Editable</span>
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 font-mono text-xs text-cyan-300 border border-white/10">
+                <div className="p-3 rounded-xl bg-white/5 font-mono text-xs text-sky-300 border border-white/10">
                   "YOUR DIGITAL PLATFORM, ALWAYS LIVE."
                 </div>
                 <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
                   <div className="flex items-center gap-1.5">
-                    <Eye className="w-3.5 h-3.5 text-cyan-400" />
+                    <Eye className="w-3.5 h-3.5 text-sky-400" />
                     <span>Live Preview Isolation Active</span>
                   </div>
                   <span className="text-slate-500 text-[11px]">Last edited 2m ago</span>

@@ -35,15 +35,15 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
 
   const variantStyles = {
     primary:
-      'bg-gradient-to-r from-cyan-500/90 via-cyan-600/90 to-purple-600/90 hover:from-cyan-400 hover:to-purple-500 text-white border border-cyan-400/40 border-t-white/60 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/45',
+      'bg-gradient-to-r from-slate-900 via-blue-950 to-sky-600 hover:from-blue-900 hover:to-sky-500 text-white border border-sky-400/40 border-t-white/60 shadow-lg shadow-blue-950/40 hover:shadow-sky-500/35',
     secondary:
       'bg-white/10 hover:bg-white/18 text-white border border-white/20 border-t-white/50 shadow-sm shadow-slate-950/40',
     ghost:
       'bg-transparent hover:bg-white/10 text-slate-300 hover:text-white border border-transparent hover:border-white/15',
     danger:
-      'bg-gradient-to-r from-rose-600/85 to-rose-500/85 hover:from-rose-500 text-white border border-rose-400/35 border-t-white/50 shadow-md shadow-rose-600/30',
+      'bg-gradient-to-r from-rose-700 to-rose-600 hover:from-rose-600 text-white border border-rose-400/35 border-t-white/50 shadow-md shadow-rose-950/40',
     success:
-      'bg-gradient-to-r from-emerald-600/85 to-emerald-500/85 hover:from-emerald-500 text-white border border-emerald-400/35 border-t-white/50 shadow-md shadow-emerald-600/30',
+      'bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 text-white border border-emerald-400/35 border-t-white/50 shadow-md shadow-emerald-950/40',
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {

@@ -11,7 +11,7 @@ export const Solutions: React.FC = () => {
   const tiers = [
     {
       id: 'launch',
-      icon: <Rocket className="w-6 h-6 text-cyan-400" />,
+      icon: <Rocket className="w-6 h-6 text-sky-400" />,
       badge: 'FOR STARTUPS',
       name: 'Launch Platform',
       target: 'Startups and emerging brands',
@@ -27,7 +27,7 @@ export const Solutions: React.FC = () => {
     },
     {
       id: 'growth',
-      icon: <TrendingUp className="w-6 h-6 text-purple-400" />,
+      icon: <TrendingUp className="w-6 h-6 text-blue-400" />,
       badge: 'MOST POPULAR',
       name: 'Growth Platform',
       target: 'Growing businesses & marketing teams',
@@ -44,7 +44,7 @@ export const Solutions: React.FC = () => {
     },
     {
       id: 'enterprise',
-      icon: <Building2 className="w-6 h-6 text-cyan-300" />,
+      icon: <Building2 className="w-6 h-6 text-amber-400" />,
       badge: 'ENTERPRISE WaaS',
       name: 'Enterprise Platform',
       target: 'Large organizations & global brands',
@@ -63,7 +63,7 @@ export const Solutions: React.FC = () => {
 
   return (
     <section id="solutions" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
-      {/* Background Ambient Neon Glow */}
+      {/* Background Ambient Sapphire Glow */}
       <div className="neon-aura-violet top-1/3 right-1/4 -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -73,7 +73,7 @@ export const Solutions: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold tracking-wider uppercase"
           >
             ENTERPRISE SOLUTIONS
           </motion.div>
@@ -85,7 +85,7 @@ export const Solutions: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase"
           >
-            PROJECT NEON <span className="text-cyan-400">SOLUTIONS</span>
+            PROJECT NEON <span className="text-sky-400">SOLUTIONS</span>
           </motion.h2>
 
           <motion.p
@@ -112,7 +112,7 @@ export const Solutions: React.FC = () => {
             >
               <GlassCard
                 className={`w-full flex flex-col justify-between relative ${
-                  tier.isPopular ? 'glass-panel-neon border-cyan-500/50 shadow-2xl' : ''
+                  tier.isPopular ? 'glass-panel-neon border-sky-500/50 shadow-2xl' : ''
                 }`}
               >
                 <div>
@@ -122,7 +122,7 @@ export const Solutions: React.FC = () => {
                     <span
                       className={`text-[11px] font-bold tracking-wider px-3 py-1 rounded-full uppercase ${
                         tier.isPopular
-                          ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/30'
+                          ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30'
                           : 'bg-white/10 text-slate-300 border border-white/10'
                       }`}
                     >
@@ -132,7 +132,7 @@ export const Solutions: React.FC = () => {
 
                   {/* Title & Target */}
                   <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
-                  <p className="text-xs text-cyan-400 font-medium mb-4">{tier.target}</p>
+                  <p className="text-xs text-sky-400 font-medium mb-4">{tier.target}</p>
                   <p className="text-xs sm:text-sm text-slate-300 font-light mb-6 leading-relaxed">
                     {tier.description}
                   </p>
@@ -141,7 +141,7 @@ export const Solutions: React.FC = () => {
                   <div className="space-y-3 pt-6 border-t border-white/10 mb-8">
                     {tier.features.map((feat, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-xs text-slate-200">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}

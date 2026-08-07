@@ -68,23 +68,23 @@ export const Navbar: React.FC<NavbarProps> = ({
         onMouseLeave={handleMouseLeave}
         className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl sm:rounded-3xl liquid-bubble-container transition-all duration-300 ${
           scrolled || isPreviewMode
-            ? 'glass-panel-neon shadow-2xl py-2.5 px-4 sm:px-6 bg-slate-950/85 backdrop-blur-2xl border border-cyan-500/30'
+            ? 'glass-panel-neon shadow-2xl py-2.5 px-4 sm:px-6 bg-slate-950/85 backdrop-blur-2xl border border-sky-500/30'
             : 'glass-panel py-3 px-4 sm:px-6'
         }`}
       >
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-blue-700 to-slate-900 flex items-center justify-center shadow-lg shadow-sky-500/25 group-hover:scale-105 transition-transform border border-sky-400/30">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <span className="text-base sm:text-xl font-black tracking-widest text-white group-hover:text-cyan-400 transition-colors uppercase">
-              PROJECT <span className="text-cyan-400">NEON</span>
+            <span className="text-base sm:text-xl font-black tracking-widest text-white group-hover:text-sky-400 transition-colors uppercase">
+              PROJECT <span className="text-sky-400">NEON</span>
             </span>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-cyan-500/20 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-sky-500/20 rounded-full px-4 py-1.5 backdrop-blur-md">
             {items
               .sort((a, b) => a.order - b.order)
               .map((item) => (
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   href={item.url}
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
-                  className="px-4 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-400 hover:bg-white/10 rounded-full liquid-bubble-container transition-all"
+                  className="px-4 py-1.5 text-xs font-medium text-slate-300 hover:text-sky-400 hover:bg-white/10 rounded-full liquid-bubble-container transition-all"
                 >
                   {item.label}
                 </a>
@@ -106,10 +106,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={toggleTheme}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-cyan-500/20 text-slate-300 hover:text-white liquid-bubble-container transition-colors"
+              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-sky-500/20 text-slate-300 hover:text-white liquid-bubble-container transition-colors"
               title="Toggle Theme"
             >
-              {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />}
+              {isDark ? <Sun className="w-4 h-4 text-sky-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
             </button>
 
             {!isPreviewMode && (
@@ -128,15 +128,15 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300"
               title="Toggle Theme"
             >
-              {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />}
+              {isDark ? <Sun className="w-4 h-4 text-sky-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-white"
+              className="p-2 rounded-xl bg-sky-500/10 border border-sky-500/30 text-white"
               aria-label="Toggle Mobile Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-cyan-400" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-sky-400" /> : <Menu className="w-5 h-5 text-sky-400" />}
             </button>
           </div>
         </div>
@@ -155,7 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.id}
                   href={item.url}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 text-sm font-semibold text-slate-200 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-xl transition-all flex items-center justify-between"
+                  className="px-4 py-3 text-sm font-semibold text-slate-200 hover:text-sky-400 hover:bg-sky-500/10 rounded-xl transition-all flex items-center justify-between"
                 >
                   <span>{item.label}</span>
                   <ArrowRight className="w-4 h-4 text-slate-500" />
