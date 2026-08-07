@@ -13,11 +13,11 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ data }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const layer1BgRef = useRef<HTMLDivElement>(null);
-  const layer2GlassRef = useRef<HTMLDivElement>(null);
+  const masterGlassRef = useRef<HTMLDivElement>(null);
   const layer4ContentRef = useRef<HTMLImageElement>(null);
   const layer5BadgeRef = useRef<HTMLDivElement>(null);
 
-  // Physics Controller State (No React re-renders)
+  // Optical Realism Physics State (Zero React re-renders)
   const targetX = useRef(0);
   const targetY = useRef(0);
   const currentX = useRef(0);
@@ -27,42 +27,50 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
   useEffect(() => {
     const updatePhysics = () => {
-      // Linear Interpolation / Spring Damping (0.08 factor for physical inertia)
-      const lerpFactor = 0.08;
+      // Physical Inertia Damping Factor (0.07 for heavy titanium glass mass response)
+      const lerpFactor = 0.07;
       currentX.current += (targetX.current - currentX.current) * lerpFactor;
       currentY.current += (targetY.current - currentY.current) * lerpFactor;
 
       const rotX = currentX.current;
       const rotY = currentY.current;
 
-      // Single Physics Controller driving all 5 layers in perfect sync
-      if (layer2GlassRef.current) {
-        layer2GlassRef.current.style.transform = `perspective(1400px) rotateX(${rotX.toFixed(3)}deg) rotateY(${rotY.toFixed(3)}deg) translateZ(16px) scale3d(1.012, 1.012, 1.012)`;
+      // Master Glass Container 3D Rotation + Floating Z-axis Lift
+      if (masterGlassRef.current) {
+        // Opposite Drop-Shadow Shift (Physical light source direction response)
+        const shadowX = (-rotY * 4.5).toFixed(2);
+        const shadowY = (rotX * 4.5 + 30).toFixed(2);
+
+        masterGlassRef.current.style.transform = `perspective(1400px) rotateX(${rotX.toFixed(3)}deg) rotateY(${rotY.toFixed(3)}deg) translateZ(16px) scale3d(1.012, 1.012, 1.012)`;
+        masterGlassRef.current.style.boxShadow = `inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45), inset 0 -1.5px 3px 0 rgba(0, 0, 0, 0.6), ${shadowX}px ${shadowY}px 70px -15px rgba(0, 0, 0, 0.85), 0 0 45px -10px rgba(56, 189, 248, 0.22)`;
       }
 
+      // Layer 1: Environmental Background Drift (-80px Z-depth)
       if (layer1BgRef.current) {
-        const bgShiftX = (rotY / 4) * 10;
-        const bgShiftY = (-rotX / 2.5) * 10;
+        const bgShiftX = (rotY / 4) * 8;
+        const bgShiftY = (-rotX / 2.5) * 8;
         layer1BgRef.current.style.transform = `translate3d(${bgShiftX.toFixed(2)}px, ${bgShiftY.toFixed(2)}px, -80px)`;
       }
 
+      // Layer 4: Display Content Image (45px Z-depth)
       if (layer4ContentRef.current) {
-        const contentShiftX = (rotY / 4) * 5;
-        const contentShiftY = (-rotX / 2.5) * 5;
-        layer4ContentRef.current.style.transform = `translate3d(${contentShiftX.toFixed(2)}px, ${contentShiftY.toFixed(2)}px, 50px)`;
+        const contentShiftX = (rotY / 4) * 4;
+        const contentShiftY = (-rotX / 2.5) * 4;
+        layer4ContentRef.current.style.transform = `translate3d(${contentShiftX.toFixed(2)}px, ${contentShiftY.toFixed(2)}px, 45px)`;
       }
 
+      // Layer 5: Anchored Spatial Badge (75px Z-depth)
       if (layer5BadgeRef.current) {
-        const badgeShiftX = (rotY / 4) * 8;
-        const badgeShiftY = (-rotX / 2.5) * 8;
-        layer5BadgeRef.current.style.transform = `translate3d(${badgeShiftX.toFixed(2)}px, ${badgeShiftY.toFixed(2)}px, 80px)`;
+        const badgeShiftX = (rotY / 4) * 7;
+        const badgeShiftY = (-rotX / 2.5) * 7;
+        layer5BadgeRef.current.style.transform = `translate3d(${badgeShiftX.toFixed(2)}px, ${badgeShiftY.toFixed(2)}px, 75px)`;
       }
 
-      // Continue loop if hovering or settling
+      // Continue rAF loop if hovering or settling
       if (
         isHovering.current ||
-        Math.abs(targetX.current - currentX.current) > 0.01 ||
-        Math.abs(targetY.current - currentY.current) > 0.01
+        Math.abs(targetX.current - currentX.current) > 0.008 ||
+        Math.abs(targetY.current - currentY.current) > 0.008
       ) {
         animFrameId.current = requestAnimationFrame(updatePhysics);
       } else {
@@ -77,10 +85,9 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!layer2GlassRef.current) return;
-      const rect = layer2GlassRef.current.getBoundingClientRect();
+      if (!masterGlassRef.current) return;
+      const rect = masterGlassRef.current.getBoundingClientRect();
 
-      // Ensure cursor is within bounds
       if (
         e.clientX < rect.left ||
         e.clientX > rect.right ||
@@ -97,25 +104,24 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      // Normalized offset (-1 to 1)
-      let normX = (rawX - centerX) / centerX;
-      let normY = (rawY - centerY) / centerY;
+      // Normalized offset from center (-1 to 1)
+      const normX = (rawX - centerX) / centerX;
+      const normY = (rawY - centerY) / centerY;
 
-      // Dead Zone Falloff near outer 15% edge to eliminate corner jitter
+      // Natural Edge Physical Mass Resistance Curve (smooth non-linear damping)
       const distFromCenter = Math.sqrt(normX * normX + normY * normY);
-      if (distFromCenter > 0.85) {
-        const factor = Math.max(0, 1 - (distFromCenter - 0.85) / 0.3);
-        normX *= factor;
-        normY *= factor;
-      }
+      const resistanceFactor = 1 / (1 + Math.pow(distFromCenter, 2.5) * 0.35);
 
-      // Clamped Extreme Rotation Limits: rotateX ±2.5deg, rotateY ±4deg
-      targetX.current = Math.max(-2.5, Math.min(2.5, -normY * 2.5));
-      targetY.current = Math.max(-4.0, Math.min(4.0, normX * 4.0));
+      const easedNormX = normX * resistanceFactor;
+      const easedNormY = normY * resistanceFactor;
 
-      layer2GlassRef.current.style.setProperty('--mouse-x', `${rawX}px`);
-      layer2GlassRef.current.style.setProperty('--mouse-y', `${rawY}px`);
-      layer2GlassRef.current.style.setProperty('--mouse-opacity', '1');
+      // Clamped Restrained Rotation Limits: rotateX ±2.5deg, rotateY ±4.0deg
+      targetX.current = Math.max(-2.5, Math.min(2.5, -easedNormY * 2.5));
+      targetY.current = Math.max(-4.0, Math.min(4.0, easedNormX * 4.0));
+
+      masterGlassRef.current.style.setProperty('--mouse-x', `${rawX}px`);
+      masterGlassRef.current.style.setProperty('--mouse-y', `${rawY}px`);
+      masterGlassRef.current.style.setProperty('--mouse-opacity', '1');
 
       startLoop();
     };
@@ -124,13 +130,13 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
       isHovering.current = false;
       targetX.current = 0;
       targetY.current = 0;
-      if (layer2GlassRef.current) {
-        layer2GlassRef.current.style.setProperty('--mouse-opacity', '0');
+      if (masterGlassRef.current) {
+        masterGlassRef.current.style.setProperty('--mouse-opacity', '0');
       }
       startLoop();
     };
 
-    const glassEl = layer2GlassRef.current;
+    const glassEl = masterGlassRef.current;
     if (glassEl) {
       glassEl.addEventListener('mousemove', handleMouseMove);
       glassEl.addEventListener('mouseleave', handleMouseLeave);
@@ -151,7 +157,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 flex items-center justify-center overflow-hidden">
-      {/* Layer 1: Shared Background Sapphire Glow (-80px Z-depth) */}
+      {/* Layer 1: Environmental Background Sapphire Drift (-80px Z-depth) */}
       <div
         ref={layer1BgRef}
         className="absolute inset-0 pointer-events-none will-change-transform"
@@ -225,7 +231,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             </a>
           </motion.div>
 
-          {/* 5-Layer True 3D Spatial Glass Display Object with Inertia & Corner Clip Masking */}
+          {/* Single Master 3D Spatial Titanium Glass Display Object */}
           {data.imageUrl && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -235,45 +241,45 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
               style={{ perspective: '1400px', transformStyle: 'preserve-3d' }}
             >
               <div
-                ref={layer2GlassRef}
-                className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-3 glass-panel-neon liquid-bubble-container border border-sky-500/40 shadow-2xl overflow-hidden isolate will-change-transform"
+                ref={masterGlassRef}
+                className="relative rounded-3xl p-2 sm:p-3 glass-panel-neon liquid-bubble-container border border-sky-500/35 shadow-2xl overflow-hidden isolate will-change-transform bg-clip-padding"
                 style={{
                   transformStyle: 'preserve-3d',
-                  borderRadius: '24px',
-                  boxShadow:
-                    'inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45), inset 0 -1.5px 3px 0 rgba(0, 0, 0, 0.6), 0 30px 70px -15px rgba(0, 0, 0, 0.8)',
+                  borderRadius: '28px',
+                  clipPath: 'inset(0 round 28px)',
                 }}
               >
-                {/* Curved Corner Light Diffusion Falloff Overlay */}
+                {/* Physical Glass Thickness Edge Refraction Overlay */}
                 <div
-                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.12),transparent_70%)] pointer-events-none z-20"
+                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.14),transparent_65%)] pointer-events-none z-20"
                   style={{ transform: 'translateZ(10px)' }}
                 />
 
-                {/* Layer 3: Shared Light Reflection & Sheen Layer (30px Z-depth) */}
+                {/* Layer 3: Shared Light Sheen Shift Layer (30px Z-depth) */}
                 <div
                   className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.22),transparent_65%)] pointer-events-none z-20 opacity-90"
                   style={{ transform: 'translateZ(30px)' }}
                 />
 
-                {/* Layer 4: Cohesive Display Image with Depth Shadow Coupling (50px Z-depth) */}
+                {/* Layer 4: Display Content Image (45px Z-depth, with physical internal drop shadow) */}
                 <img
                   ref={layer4ContentRef}
                   src={data.imageUrl}
                   alt="PROJECT NEON WaaS Showcase"
-                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl relative z-10 will-change-transform shadow-2xl"
+                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-2xl relative z-10 will-change-transform"
                   style={{
-                    transform: 'translateZ(50px)',
+                    transform: 'translateZ(45px)',
                     filter: 'drop-shadow(0 14px 28px rgba(0,0,0,0.55))',
+                    borderRadius: '20px',
                   }}
                 />
 
-                {/* Layer 5: Anchored Spatial Badge Overlay with Depth Coupling (80px Z-depth) */}
+                {/* Layer 5: Anchored Spatial Badge Overlay (75px Z-depth) */}
                 <div
                   ref={layer5BadgeRef}
                   className="absolute bottom-6 right-6 z-30 hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl glass-panel border border-sky-400/40 shadow-2xl will-change-transform pointer-events-none"
                   style={{
-                    transform: 'translateZ(80px)',
+                    transform: 'translateZ(75px)',
                     filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.65))',
                   }}
                 >
