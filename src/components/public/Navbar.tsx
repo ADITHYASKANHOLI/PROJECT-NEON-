@@ -10,14 +10,20 @@ import Link from 'next/link';
 interface NavbarProps {
   items: NavItem[];
   siteTitle?: string;
+  isPreviewMode?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'PROJECT NEON' }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  items,
+  siteTitle = 'PROJECT NEON',
+  isPreviewMode = false,
+}) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
+    if (isPreviewMode) return;
     const handleScroll = () => {
       if (window.scrollY > 30) {
         setScrolled(true);
@@ -27,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'PROJECT NEON
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isPreviewMode]);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -38,11 +44,15 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'PROJECT NEON
     }
   };
 
+  const headerPositionClass = isPreviewMode
+    ? 'sticky top-0 left-0 right-0 z-20 px-4 pt-3 pb-2'
+    : 'fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 pt-4 pb-2 pointer-events-none';
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 pt-4 pb-2 pointer-events-none">
+    <header className={headerPositionClass}>
       <div
         className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl transition-all duration-300 ${
-          scrolled
+          scrolled || isPreviewMode
             ? 'glass-panel-neon shadow-2xl py-3 px-6 bg-slate-950/85 backdrop-blur-2xl'
             : 'bg-transparent py-4 px-4'
         }`}
@@ -83,11 +93,13 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'PROJECT NEON
               {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />}
             </button>
 
-            <Link href="/admin">
-              <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>
-                Admin CMS
-              </GlassButton>
-            </Link>
+            {!isPreviewMode && (
+              <Link href="/admin">
+                <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>
+                  Admin CMS
+                </GlassButton>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -124,11 +136,13 @@ export const Navbar: React.FC<NavbarProps> = ({ items, siteTitle = 'PROJECT NEON
               >
                 {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />} Toggle Theme
               </button>
-              <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
-                <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>
-                  Admin CMS
-                </GlassButton>
-              </Link>
+              {!isPreviewMode && (
+                <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
+                  <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>
+                    Admin CMS
+                  </GlassButton>
+                </Link>
+              )}
             </div>
           </motion.div>
         )}

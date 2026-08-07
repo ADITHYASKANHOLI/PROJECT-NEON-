@@ -272,7 +272,11 @@ export default function AdminDashboardPage() {
           ) : workspaceMode === 'preview' ? (
             /* Large Full-Width Live Preview Workspace */
             <div className="max-w-6xl mx-auto h-[calc(100vh-140px)]">
-              <LivePreview draft={workingDraft} device={previewDevice} />
+              <LivePreview
+                draft={workingDraft}
+                device={previewDevice}
+                onClosePreview={() => setWorkspaceMode('editor')}
+              />
             </div>
           ) : (
             /* Centered Single Editor Workspace (Max Width 960px - Spacious Breathing Room) */

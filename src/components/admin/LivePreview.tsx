@@ -12,14 +12,15 @@ import { Timeline } from '@/components/public/Timeline';
 import { Testimonials } from '@/components/public/Testimonials';
 import { CTA } from '@/components/public/CTA';
 import { Footer } from '@/components/public/Footer';
-import { Laptop, Tablet, Smartphone, Sparkles } from 'lucide-react';
+import { Laptop, Tablet, Smartphone, Sparkles, X } from 'lucide-react';
 
 interface LivePreviewProps {
   draft: SiteContent;
   device: 'desktop' | 'tablet' | 'mobile';
+  onClosePreview?: () => void;
 }
 
-export const LivePreview: React.FC<LivePreviewProps> = ({ draft, device }) => {
+export const LivePreview: React.FC<LivePreviewProps> = ({ draft, device, onClosePreview }) => {
   const getDeviceWidthClass = () => {
     switch (device) {
       case 'mobile':
@@ -33,8 +34,8 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ draft, device }) => {
   };
 
   return (
-    <div className="h-full flex flex-col glass-panel rounded-3xl overflow-hidden border border-white/15 bg-slate-950/70 p-4">
-      {/* Live Preview Header */}
+    <div className="h-full flex flex-col glass-panel rounded-3xl overflow-hidden border border-white/15 bg-slate-950/70 p-4 isolate z-0 relative">
+      {/* Live Preview Header Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10 mb-3 bg-white/5 rounded-xl shrink-0">
         <div className="flex items-center gap-2 text-xs font-bold text-cyan-300">
           <Sparkles className="w-4 h-4 text-cyan-400" />
@@ -43,22 +44,37 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ draft, device }) => {
             REAL-TIME SYNC
           </span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-slate-400 font-medium">
-          {device === 'desktop' && <Laptop className="w-4 h-4 text-slate-300" />}
-          {device === 'tablet' && <Tablet className="w-4 h-4 text-slate-300" />}
-          {device === 'mobile' && <Smartphone className="w-4 h-4 text-slate-300" />}
-          <span className="capitalize">{device} Viewport</span>
+
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+            {device === 'desktop' && <Laptop className="w-4 h-4 text-slate-300" />}
+            {device === 'tablet' && <Tablet className="w-4 h-4 text-slate-300" />}
+            {device === 'mobile' && <Smartphone className="w-4 h-4 text-slate-300" />}
+            <span className="capitalize">{device} Viewport</span>
+          </div>
+
+          {onClosePreview && (
+            <button
+              onClick={onClosePreview}
+              className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white flex items-center gap-1 transition-colors cursor-pointer"
+              title="Close Live Preview and return to Editor"
+            >
+              <X className="w-3.5 h-3.5" />
+              <span>Exit Preview</span>
+            </button>
+          )}
         </div>
       </div>
 
-      {/* Frame Container with Independent Scroll */}
-      <div className="flex-1 flex justify-center items-center overflow-hidden bg-slate-900/90 rounded-2xl p-2 relative">
+      {/* Frame Container with Containing Block Isolating Fixed Positioning */}
+      <div className="flex-1 flex justify-center items-center overflow-hidden bg-slate-900/90 rounded-2xl p-2 relative isolate z-0">
         <div
-          className={`w-full overflow-y-auto overflow-x-hidden bg-[#06080e] transition-all duration-300 relative custom-scrollbar ${getDeviceWidthClass()}`}
+          className={`w-full overflow-y-auto overflow-x-hidden bg-[#06080e] transition-all duration-300 relative custom-scrollbar isolate z-0 ${getDeviceWidthClass()}`}
+          style={{ transform: 'translate3d(0, 0, 0)', contain: 'layout paint' }}
         >
           {draft ? (
             <div className="w-full min-h-full">
-              <Navbar items={draft.navigation || []} siteTitle={draft.settings?.siteTitle} />
+              <Navbar items={draft.navigation || []} siteTitle={draft.settings?.siteTitle} isPreviewMode={true} />
               <Hero data={draft.hero} />
               <About data={draft.about} />
               <Features data={draft.features} />
