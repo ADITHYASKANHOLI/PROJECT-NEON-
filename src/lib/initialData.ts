@@ -2,45 +2,45 @@ import { SiteContent } from './types';
 
 export const initialSiteContent: SiteContent = {
   settings: {
-    siteTitle: 'PROJECT NEON — Managed Website-as-a-Service Platform',
+    siteTitle: 'PROJECT NEON — Managed Website-as-a-Service Infrastructure Platform',
     siteDescription: 'Lease, manage, and continuously evolve your company’s digital advertising platform with remote Supabase CMS control.',
     themeMode: 'dark',
-    accentColor: '#06b6d4',
+    accentColor: '#38bdf8',
   },
   navigation: [
     { id: 'nav-1', label: 'Presence', url: '#about', order: 1 },
     { id: 'nav-2', label: 'WaaS System', url: '#features', order: 2 },
-    { id: 'nav-3', label: 'Impact', url: '#stats', order: 3 },
-    { id: 'nav-4', label: 'Platforms', url: '#gallery', order: 4 },
-    { id: 'nav-5', label: 'Model', url: '#timeline', order: 5 },
-    { id: 'nav-6', label: 'Outcomes', url: '#testimonials', order: 6 },
+    { id: 'nav-3', label: 'Solutions', url: '#solutions', order: 3 },
+    { id: 'nav-4', label: 'Command Center', url: '#command-center', order: 4 },
+    { id: 'nav-5', label: 'Trust & SLA', url: '#trust', order: 5 },
+    { id: 'nav-6', label: 'Impact', url: '#stats', order: 6 },
   ],
   hero: {
     badgeText: 'PROJECT NEON • MANAGED WEBSITE-AS-A-SERVICE (WAAS)',
     headline: 'YOUR DIGITAL PLATFORM,',
     highlightText: 'ALWAYS LIVE.',
-    subtitle: 'PROJECT NEON provides modern enterprises with leased, high-performance digital advertising platforms — featuring real-time remote editing, managed cloud infrastructure, and liquid glass design.',
-    primaryCtaText: 'Launch Your Digital Platform',
-    primaryCtaUrl: '#features',
-    secondaryCtaText: 'Access Admin Portal',
-    secondaryCtaUrl: '/admin',
+    subtitle: 'PROJECT NEON provides modern companies with leased, high-performance digital advertising infrastructure — featuring real-time remote editing, managed cloud infrastructure, and liquid glass design.',
+    primaryCtaText: 'Deploy Your Digital Platform',
+    primaryCtaUrl: '#solutions',
+    secondaryCtaText: 'Explore Enterprise Partnership',
+    secondaryCtaUrl: '#trust',
     imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop',
     showScrollIndicator: true,
     isVisible: true,
   },
   about: {
-    badge: 'PREMIUM DIGITAL PRESENCE',
-    title: 'High-performance digital advertising platforms without the cost of traditional web builds.',
+    badge: 'ENTERPRISE DIGITAL PRESENCE',
+    title: 'High-performance digital advertising platforms without the cost or delay of traditional web builds.',
     description: 'Instead of spending months and heavy capital on static website development, PROJECT NEON provides a complete Website-as-a-Service model. We deliver custom-crafted liquid glass platforms with continuous hosting, security maintenance, and instant remote content control.',
-    secondaryDescription: 'Designed for high-growth startups, enterprise marketing teams, and modern brands that require a digital presence that evolves continuously.',
+    secondaryDescription: 'Engineered for high-growth startups, enterprise marketing teams, and global brands that require a digital presence that evolves continuously.',
     imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
     statValue: '10X',
     statLabel: 'Faster Campaign Launch',
     isVisible: true,
   },
   features: {
-    title: 'THE WAAS SYSTEM',
-    subtitle: 'Full-spectrum managed infrastructure built for high-impact digital advertising.',
+    title: 'THE WAAS INFRASTRUCTURE SYSTEM',
+    subtitle: 'Full-spectrum managed platform built for high-impact enterprise advertising.',
     isVisible: true,
     items: [
       {
@@ -97,8 +97,8 @@ export const initialSiteContent: SiteContent = {
     ],
   },
   stats: {
-    title: 'BUSINESS IMPACT',
-    subtitle: 'Empirical performance results delivered across leased enterprise platforms.',
+    title: 'ENTERPRISE IMPACT',
+    subtitle: 'Empirical performance results delivered across leased digital platforms.',
     isVisible: true,
     items: [
       {
@@ -111,7 +111,7 @@ export const initialSiteContent: SiteContent = {
       },
       {
         id: 'stat-2',
-        number: '< 500ms',
+        number: '< 340ms',
         label: 'Remote Sync Speed',
         description: 'Instant database publishing',
         order: 2,
@@ -184,8 +184,8 @@ export const initialSiteContent: SiteContent = {
     ],
   },
   timeline: {
-    title: 'THE WAAS MODEL',
-    subtitle: 'How PROJECT NEON replaces slow traditional web development with continuous digital management.',
+    title: 'THE WAAS PARTNERSHIP MODEL',
+    subtitle: 'How PROJECT NEON replaces traditional web builds with continuous digital infrastructure management.',
     isVisible: true,
     items: [
       {
@@ -218,7 +218,7 @@ export const initialSiteContent: SiteContent = {
       {
         id: 'time-4',
         year: 'Step 04',
-        title: 'Continuous Evolution & Support',
+        title: 'Continuous Evolution & SLA',
         description: 'Hosting, security patches, performance updates, and design upgrades maintained perpetually under your lease.',
         tag: 'EVOLVE',
         order: 4,
@@ -227,7 +227,7 @@ export const initialSiteContent: SiteContent = {
     ],
   },
   testimonials: {
-    title: 'CLIENT OUTCOMES',
+    title: 'ENTERPRISE TESTIMONIALS',
     subtitle: 'Verified business results from marketing directors, CMOs, and enterprise leaders.',
     isVisible: true,
     items: [
@@ -236,7 +236,7 @@ export const initialSiteContent: SiteContent = {
         name: 'Elena Rostova',
         role: 'Chief Marketing Officer',
         company: 'Vanguard Systems',
-        quote: 'PROJECT NEON replaced our $80k annual website maintenance budget with a seamless WaaS lease. Our marketing team updates campaign pages in seconds.',
+        quote: 'PROJECT NEON replaced our $80k annual website maintenance budget with a seamless WaaS platform lease. Our marketing team updates campaign pages in seconds.',
         avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop',
         rating: 5,
         order: 1,
@@ -267,18 +267,18 @@ export const initialSiteContent: SiteContent = {
     ],
   },
   cta: {
-    title: 'TRANSFORM YOUR DIGITAL PRESENCE.',
-    subtitle: 'Lease a high-performance digital advertising platform with complete remote CMS control today.',
-    primaryCtaText: 'Request Your Digital Platform',
+    title: 'DEPLOY YOUR DIGITAL INFRASTRUCTURE.',
+    subtitle: 'Lease a high-performance digital advertising platform with real-time remote Supabase CMS control today.',
+    primaryCtaText: 'Deploy Your Digital Platform',
     primaryCtaUrl: '/admin',
-    secondaryCtaText: 'Explore Enterprise WaaS',
-    secondaryCtaUrl: '#features',
-    backgroundGlow: 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.25) 0%, rgba(0, 0, 0, 0) 70%)',
+    secondaryCtaText: 'Schedule Platform Consultation',
+    secondaryCtaUrl: '#trust',
+    backgroundGlow: 'radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.25) 0%, rgba(0, 0, 0, 0) 70%)',
     isVisible: true,
   },
   footer: {
     brandName: 'PROJECT NEON',
-    tagline: 'Managed Website-as-a-Service (WaaS) Platforms & Supabase Remote Content Architecture.',
+    tagline: 'Managed Website-as-a-Service (WaaS) Platform Infrastructure & Remote Content Control.',
     contactEmail: 'solutions@projectneon.design',
     contactAddress: '700 Montgomery St, San Francisco, CA',
     copyrightText: '© 2026 PROJECT NEON Inc. All rights reserved.',
