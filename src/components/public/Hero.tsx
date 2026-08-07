@@ -34,25 +34,25 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
     const rotateX = -offsetY * 3;
     const rotateY = offsetX * 5;
 
-    // Layer 2: Glass Body 3D Rotation + Floating Z-axis Lift
+    // Layer 2: Glass Display Object Cohesive 3D Rotation & Z-Lift
     layer2GlassRef.current.style.transform = `perspective(1400px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(20px) scale3d(1.015, 1.015, 1.015)`;
     layer2GlassRef.current.style.setProperty('--mouse-x', `${x}px`);
     layer2GlassRef.current.style.setProperty('--mouse-y', `${y}px`);
     layer2GlassRef.current.style.setProperty('--mouse-opacity', '1');
 
-    // Layer 1: Environmental Background (-80px Z-depth, 0.25x movement)
+    // Layer 1: Background Environmental Sapphire Drift (-80px Z-depth, 0.25x movement)
     if (layer1BgRef.current) {
-      layer1BgRef.current.style.transform = `translate3d(${(offsetX * 14).toFixed(2)}px, ${(offsetY * 14).toFixed(2)}px, -80px)`;
+      layer1BgRef.current.style.transform = `translate3d(${(offsetX * 12).toFixed(2)}px, ${(offsetY * 12).toFixed(2)}px, -80px)`;
     }
 
-    // Layer 4: Display Content Image (60px Z-depth)
+    // Layer 4: Cohesive Display Image (60px Z-depth, coupled shadow shift)
     if (layer4ContentRef.current) {
-      layer4ContentRef.current.style.transform = `translate3d(${(offsetX * 10).toFixed(2)}px, ${(offsetY * 10).toFixed(2)}px, 60px)`;
+      layer4ContentRef.current.style.transform = `translate3d(${(offsetX * 6).toFixed(2)}px, ${(offsetY * 6).toFixed(2)}px, 60px)`;
     }
 
-    // Layer 5: Foreground Badge Overlays (90px Z-depth)
+    // Layer 5: Anchored Spatial Badge (90px Z-depth, coupled shadow shift)
     if (layer5BadgeRef.current) {
-      layer5BadgeRef.current.style.transform = `translate3d(${(offsetX * 16).toFixed(2)}px, ${(offsetY * 16).toFixed(2)}px, 90px)`;
+      layer5BadgeRef.current.style.transform = `translate3d(${(offsetX * 9).toFixed(2)}px, ${(offsetY * 9).toFixed(2)}px, 90px)`;
     }
   };
 
@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 flex items-center justify-center overflow-hidden">
-      {/* Layer 1: Background Environmental Sapphire Glow (-80px Z-depth) */}
+      {/* Layer 1: Shared Background Sapphire Glow (-80px Z-depth) */}
       <div
         ref={layer1BgRef}
         className="absolute inset-0 pointer-events-none transition-transform duration-500 ease-out will-change-transform"
@@ -148,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             </a>
           </motion.div>
 
-          {/* 5-Layer True 3D Spatial Glass Display Object */}
+          {/* Cohesive Single Titanium Glass Display Object */}
           {data.imageUrl && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -161,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                 ref={layer2GlassRef}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-3 glass-panel-neon liquid-bubble-container border border-sky-500/40 shadow-2xl transition-all duration-400 ease-out will-change-transform"
+                className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-3 glass-panel-neon liquid-bubble-container border border-sky-500/40 shadow-2xl transition-all duration-400 ease-out will-change-transform isolate"
                 style={{
                   transformStyle: 'preserve-3d',
                   transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
@@ -169,31 +169,33 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                     'inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45), inset 0 -1.5px 3px 0 rgba(0, 0, 0, 0.6), 0 30px 70px -15px rgba(0, 0, 0, 0.8)',
                 }}
               >
-                {/* Layer 3: Glass Surface Reflection Layer (30px Z-depth) */}
+                {/* Layer 3: Shared Light Reflection & Sheen Layer (30px Z-depth) */}
                 <div
-                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.2),transparent_65%)] pointer-events-none z-20 opacity-90 transition-opacity"
+                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.22),transparent_65%)] pointer-events-none z-20 opacity-90 transition-opacity"
                   style={{ transform: 'translateZ(30px)' }}
                 />
 
-                {/* Layer 4: Display Content Showcase Image (60px Z-depth) */}
+                {/* Layer 4: Cohesive Display Image with Depth Shadow Coupling (60px Z-depth) */}
                 <img
                   ref={layer4ContentRef}
                   src={data.imageUrl}
                   alt="PROJECT NEON WaaS Showcase"
-                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl relative z-10 transition-transform duration-400 ease-out will-change-transform shadow-xl"
+                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl relative z-10 transition-transform duration-400 ease-out will-change-transform shadow-2xl"
                   style={{
                     transform: 'translateZ(60px)',
                     transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    filter: 'drop-shadow(0 14px 28px rgba(0,0,0,0.55))',
                   }}
                 />
 
-                {/* Layer 5: Floating Spatial Badge Overlay (90px Z-depth) */}
+                {/* Layer 5: Anchored Spatial Badge Overlay with Depth Coupling (90px Z-depth) */}
                 <div
                   ref={layer5BadgeRef}
-                  className="absolute bottom-6 right-6 z-30 hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl glass-panel border border-sky-400/40 shadow-xl transition-transform duration-400 ease-out pointer-events-none"
+                  className="absolute bottom-6 right-6 z-30 hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl glass-panel border border-sky-400/40 shadow-2xl transition-transform duration-400 ease-out pointer-events-none"
                   style={{
                     transform: 'translateZ(90px)',
                     transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.65))',
                   }}
                 >
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
