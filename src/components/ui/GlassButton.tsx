@@ -25,7 +25,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold tracking-wide transition-all focus:outline-none cursor-pointer select-none backdrop-blur-2xl relative overflow-hidden liquid-bubble-container shadow-md';
+    'inline-flex items-center justify-center font-semibold tracking-wide transition-all focus:outline-none cursor-pointer select-none backdrop-blur-2xl relative overflow-hidden isolate liquid-bubble-container shadow-md';
 
   const sizeStyles = {
     sm: 'px-4 py-2 text-xs gap-1.5 rounded-xl min-h-[36px]',
@@ -76,8 +76,8 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
       )}
       {...props}
     >
-      {/* Soft Edge Radial Light Diffusion Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15),transparent_65%)] pointer-events-none z-20" />
+      {/* Curved Button Corner Light Diffusion Overlay */}
+      <div className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15),transparent_65%)] pointer-events-none z-20" />
 
       {isLoading ? (
         <Loader2 className="w-4 h-4 animate-spin text-current relative z-10" />
