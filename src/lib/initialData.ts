@@ -97,7 +97,7 @@ export const initialSiteContent: SiteContent = {
   },
   stats: {
     title: 'THE METRICS',
-    subtitle: 'Empirical results engineered across global PROJECT NEON deployments.',
+    subtitle: 'Empirical demonstration metrics configured for PROJECT NEON platform deployments.',
     isVisible: true,
     items: [
       {
@@ -227,7 +227,7 @@ export const initialSiteContent: SiteContent = {
   },
   testimonials: {
     title: 'THE SIGNAL',
-    subtitle: 'Feedback from technology leaders building with PROJECT NEON.',
+    subtitle: 'Demonstration feedback from technology leaders building with PROJECT NEON.',
     isVisible: true,
     items: [
       {
