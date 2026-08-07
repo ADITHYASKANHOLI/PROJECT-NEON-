@@ -6,6 +6,7 @@ import { Hero } from '@/components/public/Hero';
 import { About } from '@/components/public/About';
 import { Features } from '@/components/public/Features';
 import { Solutions } from '@/components/public/Solutions';
+import { CommandCenter } from '@/components/public/CommandCenter';
 import { Stats } from '@/components/public/Stats';
 import { Gallery } from '@/components/public/Gallery';
 import { Timeline } from '@/components/public/Timeline';
@@ -46,6 +47,7 @@ export default async function HomePage() {
       <About data={content.about} />
       <Features data={content.features} />
       <Solutions />
+      <CommandCenter />
       <Stats data={content.stats} />
       <Gallery data={content.gallery} />
       <Timeline data={content.timeline} />
