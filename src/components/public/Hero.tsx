@@ -12,6 +12,8 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const bgAuraRef = useRef<HTMLDivElement>(null);
+  const foregroundRef = useRef<HTMLImageElement>(null);
 
   if (!data?.isVisible) return null;
 
@@ -23,27 +25,53 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // Max rotation limits: rotateX ±4deg, rotateY ±6deg
-    const rotateX = -((y - centerY) / centerY) * 4;
-    const rotateY = ((x - centerX) / centerX) * 6;
+    const offsetX = (x - centerX) / centerX;
+    const offsetY = (y - centerY) / centerY;
 
+    // Max rotation limits: rotateX ±4deg, rotateY ±6deg
+    const rotateX = -offsetY * 4;
+    const rotateY = offsetX * 6;
+
+    // Layer 2: Glass Surface 3D Tilt
     containerRef.current.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
     containerRef.current.style.setProperty('--mouse-x', `${x}px`);
     containerRef.current.style.setProperty('--mouse-y', `${y}px`);
     containerRef.current.style.setProperty('--mouse-opacity', '1');
+
+    // Layer 1: Background Sapphire Environment (0.3x parallax)
+    if (bgAuraRef.current) {
+      bgAuraRef.current.style.transform = `translate3d(${(offsetX * 18).toFixed(2)}px, ${(offsetY * 18).toFixed(2)}px, 0px)`;
+    }
+
+    // Layer 3: Foreground Content Subtraction (1.15x parallax elevation)
+    if (foregroundRef.current) {
+      foregroundRef.current.style.transform = `translate3d(${(offsetX * 8).toFixed(2)}px, ${(offsetY * 8).toFixed(2)}px, 20px)`;
+    }
   };
 
   const handleMouseLeave = () => {
-    if (!containerRef.current) return;
-    containerRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-    containerRef.current.style.setProperty('--mouse-opacity', '0');
+    if (containerRef.current) {
+      containerRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      containerRef.current.style.setProperty('--mouse-opacity', '0');
+    }
+    if (bgAuraRef.current) {
+      bgAuraRef.current.style.transform = `translate3d(0px, 0px, 0px)`;
+    }
+    if (foregroundRef.current) {
+      foregroundRef.current.style.transform = `translate3d(0px, 0px, 0px)`;
+    }
   };
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 flex items-center justify-center overflow-hidden">
-      {/* Background Executive Sapphire Glow Diffusions */}
-      <div className="neon-aura-cyan -top-20 -left-20 opacity-75" />
-      <div className="neon-aura-violet top-1/3 -right-20 opacity-75" />
+      {/* Layer 1: Background Executive Sapphire Glow Environment (0.3x Parallax) */}
+      <div
+        ref={bgAuraRef}
+        className="absolute inset-0 pointer-events-none transition-transform duration-500 ease-out will-change-transform"
+      >
+        <div className="neon-aura-cyan -top-20 -left-20 opacity-75" />
+        <div className="neon-aura-violet top-1/3 -right-20 opacity-75" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
@@ -109,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             </a>
           </motion.div>
 
-          {/* Interactive Spatial 3D Tilt Display Showcase Container */}
+          {/* Layer 2: Interactive Glass Hero Surface with Layer 3 Foreground Image */}
           {data.imageUrl && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -129,10 +157,15 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                 {/* Internal Sapphire Light Shift Overlay */}
                 <div className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.15),transparent_70%)] pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
 
+                {/* Layer 3: Foreground Content Image (1.15x elevation parallax) */}
                 <img
+                  ref={foregroundRef}
                   src={data.imageUrl}
                   alt="PROJECT NEON WaaS Showcase"
-                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl relative z-10"
+                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl relative z-10 transition-transform duration-400 ease-out will-change-transform"
+                  style={{
+                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
                 />
               </div>
             </motion.div>
