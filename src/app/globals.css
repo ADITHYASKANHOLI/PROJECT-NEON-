@@ -137,3 +137,16 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+@media (max-width: 640px) {
+  .neon-aura-cyan {
+    width: 320px;
+    height: 320px;
+    filter: blur(45px);
+  }
+  .neon-aura-violet {
+    width: 280px;
+    height: 280px;
+    filter: blur(50px);
+  }
+}
