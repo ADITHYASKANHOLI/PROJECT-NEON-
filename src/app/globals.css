@@ -4,30 +4,30 @@
   :root {
     --bg-main: #06080e;
     --bg-surface: #090d18;
-    --bg-card: rgba(8, 12, 22, 0.45);
-    --bg-glass-subtle: rgba(255, 255, 255, 0.05);
-    --bg-glass-medium: rgba(6, 182, 212, 0.1);
-    --bg-glass-strong: rgba(6, 182, 212, 0.18);
-    --border-glass-top: rgba(255, 255, 255, 0.38);
-    --border-glass-bottom: rgba(255, 255, 255, 0.06);
-    --border-glass-neon: rgba(6, 182, 212, 0.45);
+    --bg-card: rgba(8, 12, 22, 0.35);
+    --bg-glass-subtle: rgba(255, 255, 255, 0.06);
+    --bg-glass-medium: rgba(6, 182, 212, 0.12);
+    --bg-glass-strong: rgba(6, 182, 212, 0.2);
+    --border-glass-top: rgba(255, 255, 255, 0.45);
+    --border-glass-bottom: rgba(255, 255, 255, 0.08);
+    --border-glass-neon: rgba(6, 182, 212, 0.5);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --accent-cyan: #06b6d4;
     --accent-violet: #a855f7;
-    --accent-glow: rgba(6, 182, 212, 0.4);
+    --accent-glow: rgba(6, 182, 212, 0.45);
   }
 
   .light {
     --bg-main: #f0f4f8;
     --bg-surface: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.65);
+    --bg-card: rgba(255, 255, 255, 0.6);
     --bg-glass-subtle: rgba(0, 0, 0, 0.03);
     --bg-glass-medium: rgba(6, 182, 212, 0.08);
     --bg-glass-strong: rgba(6, 182, 212, 0.15);
-    --border-glass-top: rgba(255, 255, 255, 0.7);
+    --border-glass-top: rgba(255, 255, 255, 0.75);
     --border-glass-bottom: rgba(0, 0, 0, 0.08);
-    --border-glass-neon: rgba(6, 182, 212, 0.5);
+    --border-glass-neon: rgba(6, 182, 212, 0.55);
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --accent-cyan: #0891b2;
@@ -54,7 +54,7 @@ body {
   }
 }
 
-/* 💧 Apple-Style Liquid Hover Lens Bubble Overlay */
+/* 💧 Apple-Style Liquid Water Lens Bubble Overlay */
 .liquid-bubble-container {
   position: relative;
 }
@@ -65,37 +65,38 @@ body {
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    circle 140px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(6, 182, 212, 0.18) 38%,
-    rgba(168, 85, 247, 0.06) 58%,
+    circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(6, 182, 212, 0.22) 38%,
+    rgba(168, 85, 247, 0.08) 58%,
     transparent 80%
   );
   opacity: var(--mouse-opacity, 0);
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   z-index: 2;
-  backdrop-filter: contrast(108%) brightness(105%);
+  backdrop-filter: contrast(110%) brightness(106%);
+  -webkit-backdrop-filter: contrast(110%) brightness(106%);
 }
 
-/* 💎 Crystal Clear Liquid Glass Panels */
+/* 💎 High-Transparency Crystal Clear Liquid Glass Panels */
 .glass-panel {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.02) 35%,
-    rgba(6, 182, 212, 0.05) 70%,
-    rgba(168, 85, 247, 0.03) 100%
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.03) 35%,
+    rgba(6, 182, 212, 0.06) 70%,
+    rgba(168, 85, 247, 0.04) 100%
   ), var(--bg-card);
-  backdrop-filter: blur(24px) saturate(220%);
-  -webkit-backdrop-filter: blur(24px) saturate(220%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-top-color: rgba(255, 255, 255, 0.38);
-  border-left-color: rgba(255, 255, 255, 0.24);
-  border-right-color: rgba(255, 255, 255, 0.1);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px) saturate(240%);
+  -webkit-backdrop-filter: blur(20px) saturate(240%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top-color: rgba(255, 255, 255, 0.45);
+  border-left-color: rgba(255, 255, 255, 0.28);
+  border-right-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
   box-shadow: 
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45),
     inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.5),
     0 22px 50px -15px rgba(0, 0, 0, 0.6);
   position: relative;
@@ -108,34 +109,34 @@ body {
   background: linear-gradient(
     120deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.02) 40%,
-    rgba(255, 255, 255, 0.12) 50%,
-    rgba(6, 182, 212, 0.08) 54%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(6, 182, 212, 0.1) 54%,
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: liquidCrystalSheen 16s infinite linear;
+  animation: liquidCrystalSheen 14s infinite linear;
   pointer-events: none;
   border-radius: inherit;
-  opacity: 0.65;
+  opacity: 0.75;
 }
 
 .glass-panel-neon {
   background: linear-gradient(
     135deg,
-    rgba(6, 182, 212, 0.18) 0%,
-    rgba(168, 85, 247, 0.12) 45%,
-    rgba(255, 255, 255, 0.06) 100%
+    rgba(6, 182, 212, 0.2) 0%,
+    rgba(168, 85, 247, 0.14) 45%,
+    rgba(255, 255, 255, 0.08) 100%
   ), var(--bg-card);
-  backdrop-filter: blur(28px) saturate(230%);
-  -webkit-backdrop-filter: blur(28px) saturate(230%);
-  border: 1px solid rgba(6, 182, 212, 0.45);
-  border-top-color: rgba(255, 255, 255, 0.45);
-  border-left-color: rgba(6, 182, 212, 0.6);
+  backdrop-filter: blur(24px) saturate(250%);
+  -webkit-backdrop-filter: blur(24px) saturate(250%);
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  border-top-color: rgba(255, 255, 255, 0.55);
+  border-left-color: rgba(6, 182, 212, 0.7);
   box-shadow: 
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45),
-    inset 0 0 30px 0 rgba(6, 182, 212, 0.16),
-    0 25px 55px -10px rgba(6, 182, 212, 0.28);
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.55),
+    inset 0 0 35px 0 rgba(6, 182, 212, 0.2),
+    0 25px 55px -10px rgba(6, 182, 212, 0.32);
   position: relative;
 }
 
@@ -146,31 +147,31 @@ body {
   background: linear-gradient(
     120deg,
     transparent 0%,
-    rgba(6, 182, 212, 0.06) 40%,
-    rgba(255, 255, 255, 0.16) 50%,
-    rgba(168, 85, 247, 0.08) 56%,
+    rgba(6, 182, 212, 0.08) 40%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(168, 85, 247, 0.1) 56%,
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: liquidCrystalSheen 12s infinite linear;
+  animation: liquidCrystalSheen 10s infinite linear;
   pointer-events: none;
   border-radius: inherit;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .glass-pill {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.14) 0%,
-    rgba(6, 182, 212, 0.08) 100%
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(6, 182, 212, 0.1) 100%
   );
-  backdrop-filter: blur(18px) saturate(210%);
-  -webkit-backdrop-filter: blur(18px) saturate(210%);
-  border: 1px solid rgba(6, 182, 212, 0.4);
-  border-top-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(220%);
+  -webkit-backdrop-filter: blur(16px) saturate(220%);
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  border-top-color: rgba(255, 255, 255, 0.45);
   box-shadow: 
-    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.35),
-    0 10px 24px -4px rgba(6, 182, 212, 0.2);
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.4),
+    0 10px 24px -4px rgba(6, 182, 212, 0.25);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -180,26 +181,26 @@ body {
 .glass-pill:hover {
   background: linear-gradient(
     135deg,
-    rgba(6, 182, 212, 0.24) 0%,
-    rgba(168, 85, 247, 0.16) 100%
+    rgba(6, 182, 212, 0.28) 0%,
+    rgba(168, 85, 247, 0.18) 100%
   );
-  border-color: rgba(6, 182, 212, 0.7);
-  border-top-color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(6, 182, 212, 0.8);
+  border-top-color: rgba(255, 255, 255, 0.65);
   transform: translateY(-2px);
   box-shadow: 
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.5),
-    0 14px 32px -4px rgba(6, 182, 212, 0.35);
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.55),
+    0 14px 32px -4px rgba(6, 182, 212, 0.4);
 }
 
 .glass-input {
   background: linear-gradient(
     135deg,
-    rgba(15, 22, 38, 0.6) 0%,
-    rgba(8, 12, 22, 0.75) 100%
+    rgba(15, 22, 38, 0.55) 0%,
+    rgba(8, 12, 22, 0.7) 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top-color: rgba(255, 255, 255, 0.24);
-  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px);
   color: var(--text-primary);
   box-shadow: inset 0 1.5px 2px 0 rgba(0, 0, 0, 0.6);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -208,11 +209,11 @@ body {
 .glass-input:focus {
   outline: none;
   border-color: var(--accent-cyan);
-  border-top-color: rgba(255, 255, 255, 0.5);
+  border-top-color: rgba(255, 255, 255, 0.55);
   background: rgba(15, 22, 38, 0.9);
   box-shadow: 
-    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.3),
-    0 0 0 3px rgba(6, 182, 212, 0.3);
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35),
+    0 0 0 3px rgba(6, 182, 212, 0.35);
 }
 
 .glass-card-hover {
@@ -224,11 +225,11 @@ body {
 
 .glass-card-hover:hover {
   transform: translateY(-5px) scale(1.008);
-  border-color: rgba(6, 182, 212, 0.6);
-  border-top-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(6, 182, 212, 0.7);
+  border-top-color: rgba(255, 255, 255, 0.6);
   box-shadow: 
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.45),
-    0 26px 55px -10px rgba(6, 182, 212, 0.3);
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.5),
+    0 26px 55px -10px rgba(6, 182, 212, 0.35);
 }
 
 /* Application Desktop Custom Scrollbars */
@@ -240,11 +241,11 @@ body {
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.6);
+  background: rgba(6, 182, 212, 0.7);
 }
 
 /* Ambient Neon Aura Backdrops */
@@ -252,7 +253,7 @@ body {
   position: absolute;
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, rgba(168, 85, 247, 0.08) 45%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(168, 85, 247, 0.1) 45%, rgba(0, 0, 0, 0) 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -262,7 +263,7 @@ body {
   position: absolute;
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, rgba(6, 182, 212, 0.06) 50%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(0, 0, 0, 0) 70%);
   filter: blur(90px);
   pointer-events: none;
   z-index: 0;

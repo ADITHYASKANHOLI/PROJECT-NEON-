@@ -44,6 +44,19 @@ export const Navbar: React.FC<NavbarProps> = ({
     }
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+    e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+    e.currentTarget.style.setProperty('--mouse-opacity', '1');
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.setProperty('--mouse-opacity', '0');
+  };
+
   const headerPositionClass = isPreviewMode
     ? 'sticky top-0 left-0 right-0 z-30 px-3 sm:px-6 pt-3 pb-2'
     : 'fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 pt-3 sm:pt-4 pb-2 pointer-events-none';
@@ -51,10 +64,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className={headerPositionClass}>
       <div
-        className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl sm:rounded-3xl transition-all duration-300 ${
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className={`max-w-7xl mx-auto pointer-events-auto rounded-2xl sm:rounded-3xl liquid-bubble-container transition-all duration-300 ${
           scrolled || isPreviewMode
             ? 'glass-panel-neon shadow-2xl py-2.5 px-4 sm:px-6 bg-slate-950/85 backdrop-blur-2xl border border-cyan-500/30'
-            : 'bg-transparent py-3 px-3 sm:px-4'
+            : 'glass-panel py-3 px-4 sm:px-6'
         }`}
       >
         <div className="flex items-center justify-between">
@@ -76,7 +91,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <a
                   key={item.id}
                   href={item.url}
-                  className="px-4 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-400 hover:bg-white/10 rounded-full transition-all"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  className="px-4 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-400 hover:bg-white/10 rounded-full liquid-bubble-container transition-all"
                 >
                   {item.label}
                 </a>
@@ -87,7 +104,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-cyan-500/20 text-slate-300 hover:text-white transition-colors"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-cyan-500/20 text-slate-300 hover:text-white liquid-bubble-container transition-colors"
               title="Toggle Theme"
             >
               {isDark ? <Sun className="w-4 h-4 text-cyan-400" /> : <Moon className="w-4 h-4 text-purple-400" />}
