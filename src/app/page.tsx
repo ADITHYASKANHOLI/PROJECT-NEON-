@@ -5,6 +5,7 @@ import { Navbar } from '@/components/public/Navbar';
 import { Hero } from '@/components/public/Hero';
 import { About } from '@/components/public/About';
 import { Features } from '@/components/public/Features';
+import { Solutions } from '@/components/public/Solutions';
 import { Stats } from '@/components/public/Stats';
 import { Gallery } from '@/components/public/Gallery';
 import { Timeline } from '@/components/public/Timeline';
@@ -16,10 +17,10 @@ export const revalidate = 0; // Dynamic rendering for instant live publish updat
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await fetchPublishedContentFromDB();
-  const siteTitle = content.settings?.siteTitle || 'PROJECT NEON — Next-Gen AI Technology Platform';
+  const siteTitle = content.settings?.siteTitle || 'PROJECT NEON — Managed Website-as-a-Service Platform';
   const siteDescription =
     content.settings?.siteDescription ||
-    'PROJECT NEON is a futuristic AI technology platform and dynamic content engine powered by Next.js 16 and Supabase.';
+    'Lease, manage, and continuously evolve your company’s digital advertising platform with remote Supabase CMS control.';
 
   return {
     title: siteTitle,
@@ -44,6 +45,7 @@ export default async function HomePage() {
       <Hero data={content.hero} />
       <About data={content.about} />
       <Features data={content.features} />
+      <Solutions />
       <Stats data={content.stats} />
       <Gallery data={content.gallery} />
       <Timeline data={content.timeline} />
