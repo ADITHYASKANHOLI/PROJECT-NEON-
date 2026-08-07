@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { HeroSection } from '@/lib/types';
 import { GlassButton } from '@/components/ui/GlassButton';
@@ -11,7 +11,33 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ data }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   if (!data?.isVisible) return null;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Max rotation limits: rotateX ±4deg, rotateY ±6deg
+    const rotateX = -((y - centerY) / centerY) * 4;
+    const rotateY = ((x - centerX) / centerX) * 6;
+
+    containerRef.current.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
+    containerRef.current.style.setProperty('--mouse-x', `${x}px`);
+    containerRef.current.style.setProperty('--mouse-y', `${y}px`);
+    containerRef.current.style.setProperty('--mouse-opacity', '1');
+  };
+
+  const handleMouseLeave = () => {
+    if (!containerRef.current) return;
+    containerRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    containerRef.current.style.setProperty('--mouse-opacity', '0');
+  };
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-24 flex items-center justify-center overflow-hidden">
@@ -83,19 +109,30 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             </a>
           </motion.div>
 
-          {/* Visual Showcase Graphic Container */}
+          {/* Interactive Spatial 3D Tilt Display Showcase Container */}
           {data.imageUrl && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="pt-6 sm:pt-10"
+              className="pt-6 sm:pt-10 perspective-1000"
             >
-              <div className="relative rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 glass-panel-neon overflow-hidden border border-sky-500/30 max-w-4xl mx-auto shadow-2xl">
+              <div
+                ref={containerRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                className="relative rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 glass-panel-neon liquid-bubble-container border border-sky-500/30 max-w-4xl mx-auto shadow-2xl transition-transform duration-400 ease-out will-change-transform"
+                style={{
+                  transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                {/* Internal Sapphire Light Shift Overlay */}
+                <div className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.15),transparent_70%)] pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+
                 <img
                   src={data.imageUrl}
                   alt="PROJECT NEON WaaS Showcase"
-                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl"
+                  className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-xl sm:rounded-2xl relative z-10"
                 />
               </div>
             </motion.div>
