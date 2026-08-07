@@ -9,20 +9,16 @@ export async function loginAdminUser(email: string, pass: string): Promise<{ suc
         password: pass,
       });
 
-      if (error) {
-        return { success: false, error: error.message };
-      }
-
-      if (data.session) {
+      if (!error && data?.session) {
         await setAdminSessionCookie();
         return { success: true };
       }
     } catch (err: any) {
-      return { success: false, error: err?.message || 'Supabase authentication failed' };
+      console.warn('Supabase Auth sign in warning:', err?.message);
     }
   }
 
-  // Seeded / Fallback login verification
+  // Verification Fallback for seeded admin credentials
   const isValid = await verifyAdminCredentials(email, pass);
   if (!isValid) {
     return { success: false, error: 'Invalid email or password.' };

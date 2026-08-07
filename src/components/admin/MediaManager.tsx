@@ -93,62 +93,75 @@ export const MediaManager: React.FC = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+    <div className="space-y-8">
+      {/* Header & Search */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
         <div>
-          <h3 className="text-lg font-bold text-white">Media Assets Library</h3>
-          <p className="text-xs text-slate-400">Manage photography assets, avatars, and hero visual graphics.</p>
+          <h3 className="text-xl font-bold text-white">Media Assets Vault</h3>
+          <p className="text-xs text-slate-400 mt-1">Manage photography assets, avatars, and hero visual graphics.</p>
         </div>
-        <div className="w-full sm:w-64">
+        <div className="w-full sm:w-72">
           <GlassInput
             icon={<Search className="w-4 h-4" />}
-            placeholder="Search media..."
+            placeholder="Search media assets..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>
 
-      {/* Add New Media Form */}
-      <div className="p-4 rounded-2xl glass-panel border border-white/15 space-y-4">
-        <h4 className="text-xs font-bold text-indigo-300 uppercase tracking-wider">Add Custom Image Asset</h4>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <GlassInput
-            placeholder="Image Title (Optional)"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-          />
-          <GlassInput
-            placeholder="Image Direct URL (https://...)"
-            value={newUrl}
-            onChange={(e) => setNewUrl(e.target.value)}
-          />
-          <GlassButton variant="primary" size="md" onClick={handleAddMedia} icon={<Plus className="w-4 h-4" />}>
-            Add Image Asset
-          </GlassButton>
+      {/* Add New Media Asset Card */}
+      <div className="p-6 rounded-3xl glass-panel border border-white/15 space-y-4">
+        <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Add Custom Image Asset</h4>
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
+          <div className="sm:col-span-4">
+            <GlassInput
+              placeholder="Image Title (Optional)"
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+            />
+          </div>
+          <div className="sm:col-span-5">
+            <GlassInput
+              placeholder="Image Direct URL (https://...)"
+              value={newUrl}
+              onChange={(e) => setNewUrl(e.target.value)}
+            />
+          </div>
+          <div className="sm:col-span-3 flex items-end">
+            <GlassButton
+              variant="primary"
+              size="md"
+              className="w-full"
+              onClick={handleAddMedia}
+              icon={<Plus className="w-4 h-4" />}
+            >
+              Add Asset
+            </GlassButton>
+          </div>
         </div>
       </div>
 
-      {/* Media Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Spacious Media Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filtered.map((item) => (
           <div
             key={item.id}
-            className="group glass-panel rounded-2xl p-3 border border-white/10 space-y-3 relative overflow-hidden"
+            className="group glass-panel rounded-2xl p-3 border border-white/10 space-y-3 relative overflow-hidden transition-all duration-300 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10"
           >
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-900">
-              <img src={item.url} alt={item.title} className="w-full h-full object-cover" />
-              <span className="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-indigo-300">
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-950">
+              <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <span className="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-950/80 backdrop-blur-md text-cyan-400 border border-white/10">
                 {item.category}
               </span>
             </div>
 
-            <div className="flex items-center justify-between">
-              <h5 className="text-xs font-bold text-white truncate max-w-[140px]">{item.title}</h5>
-              <div className="flex items-center gap-1">
+            <div className="flex items-center justify-between gap-2 pt-1 px-1">
+              <h5 className="text-xs font-bold text-white truncate">{item.title}</h5>
+              <div className="flex items-center gap-1 shrink-0">
                 <button
                   onClick={() => handleCopy(item.url, item.id)}
-                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
+                  className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white transition-colors cursor-pointer"
                   title="Copy Image URL"
                 >
                   {copiedId === item.id ? (
@@ -159,7 +172,7 @@ export const MediaManager: React.FC = () => {
                 </button>
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="p-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 transition-colors"
+                  className="p-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 transition-colors cursor-pointer"
                   title="Delete Asset"
                 >
                   <Trash2 className="w-3.5 h-3.5" />

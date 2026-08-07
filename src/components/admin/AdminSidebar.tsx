@@ -80,21 +80,25 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
 
   return (
     <aside
-      className={`h-screen flex flex-col justify-between glass-panel border-r border-cyan-500/20 bg-slate-950/95 transition-all duration-300 z-30 shrink-0 ${
+      className={`h-full flex flex-col justify-between glass-panel border-r border-white/10 bg-[#06080e]/95 transition-all duration-300 z-30 shrink-0 select-none ${
         collapsed ? 'w-20' : 'w-64'
       }`}
     >
       {/* Brand Header */}
-      <div>
-        <div className="p-5 flex items-center justify-between border-b border-white/10">
+      <div className="flex flex-col h-full">
+        <div className="h-16 px-5 flex items-center justify-between border-b border-white/10 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-cyan-500/30">
-              <Sparkles className="w-5 h-5" />
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-cyan-500/25">
+              <Sparkles className="w-4 h-4" />
             </div>
             {!collapsed && (
-              <div>
-                <h2 className="text-sm font-black tracking-wider text-white uppercase">PROJECT <span className="text-cyan-400">NEON</span></h2>
-                <p className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">SUPABASE CMS</p>
+              <div className="leading-none">
+                <span className="text-xs font-black tracking-widest text-white uppercase block">
+                  PROJECT <span className="text-cyan-400">NEON</span>
+                </span>
+                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1 block">
+                  SUPABASE CMS
+                </span>
               </div>
             )}
           </div>
@@ -102,17 +106,18 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
           <button
             onClick={onToggleCollapse}
             className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+            title={collapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
           >
             {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
           </button>
         </div>
 
-        {/* Menu Navigation */}
-        <nav className="p-3 space-y-6 overflow-y-auto max-h-[calc(100vh-160px)]">
+        {/* Independent Vertical Scroll Navigation */}
+        <nav className="flex-1 p-3 space-y-6 overflow-y-auto custom-scrollbar">
           {menuGroups.map((group, idx) => (
             <div key={idx} className="space-y-1">
               {!collapsed && (
-                <h4 className="px-3 text-[10px] font-extrabold tracking-widest text-slate-400 uppercase mb-2">
+                <h4 className="px-3 text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-2">
                   {group.title}
                 </h4>
               )}
@@ -123,47 +128,47 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                   <button
                     key={item.id}
                     onClick={() => onTabChange(item.id)}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       isActive
-                        ? 'bg-cyan-600/90 text-white shadow-md shadow-cyan-600/30 border border-cyan-400/40'
-                        : 'text-slate-300 hover:text-white hover:bg-white/10 border border-transparent'
+                        ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shadow-sm shadow-cyan-500/10'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
                     } ${collapsed ? 'justify-center px-0' : ''}`}
                     title={collapsed ? item.label : undefined}
                   >
-                    <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-slate-400'}`} />
-                    {!collapsed && <span>{item.label}</span>}
+                    <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-cyan-400' : 'text-slate-400'}`} />
+                    {!collapsed && <span className="truncate">{item.label}</span>}
                   </button>
                 );
               })}
             </div>
           ))}
         </nav>
-      </div>
 
-      {/* Footer Controls */}
-      <div className="p-3 border-t border-white/10 space-y-2">
-        <Link
-          href="/"
-          target="_blank"
-          className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors ${
-            collapsed ? 'justify-center px-0' : ''
-          }`}
-          title="View Public Website"
-        >
-          <ExternalLink className="w-4 h-4 text-cyan-400 shrink-0" />
-          {!collapsed && <span>Public Website</span>}
-        </Link>
+        {/* Footer Actions */}
+        <div className="p-3 border-t border-white/10 space-y-1 shrink-0 bg-slate-950/40">
+          <Link
+            href="/"
+            target="_blank"
+            className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-colors ${
+              collapsed ? 'justify-center px-0' : ''
+            }`}
+            title="Open Public Website"
+          >
+            <ExternalLink className="w-4 h-4 text-cyan-400 shrink-0" />
+            {!collapsed && <span>Public Website</span>}
+          </Link>
 
-        <button
-          onClick={onLogout}
-          className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors cursor-pointer ${
-            collapsed ? 'justify-center px-0' : ''
-          }`}
-          title="Log Out"
-        >
-          <LogOut className="w-4 h-4 shrink-0" />
-          {!collapsed && <span>Log Out</span>}
-        </button>
+          <button
+            onClick={onLogout}
+            className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors cursor-pointer ${
+              collapsed ? 'justify-center px-0' : ''
+            }`}
+            title="Log Out"
+          >
+            <LogOut className="w-4 h-4 shrink-0" />
+            {!collapsed && <span>Log Out</span>}
+          </button>
+        </div>
       </div>
     </aside>
   );

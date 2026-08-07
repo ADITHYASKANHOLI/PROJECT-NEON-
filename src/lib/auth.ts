@@ -1,7 +1,8 @@
 import { cookies } from 'next/headers';
 
 export const ADMIN_CREDENTIALS = {
-  email: 'admin@aura.design',
+  email: 'admin@projectneon.design',
+  secondaryEmail: 'admin@aura.design',
   password: 'admin123',
 };
 
@@ -9,7 +10,9 @@ const SESSION_COOKIE_NAME = 'aura_admin_session';
 const MOCK_TOKEN = 'aura_secure_jwt_token_2026_hackathon_super_admin';
 
 export async function verifyAdminCredentials(email: string, pass: string): Promise<boolean> {
-  return email.toLowerCase() === ADMIN_CREDENTIALS.email.toLowerCase() && pass === ADMIN_CREDENTIALS.password;
+  const normalized = email.toLowerCase();
+  const validEmail = normalized === ADMIN_CREDENTIALS.email.toLowerCase() || normalized === ADMIN_CREDENTIALS.secondaryEmail.toLowerCase();
+  return validEmail && pass === ADMIN_CREDENTIALS.password;
 }
 
 export async function setAdminSessionCookie() {

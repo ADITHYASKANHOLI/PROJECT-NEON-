@@ -48,26 +48,26 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({
     if (!isoString) return 'Never';
     try {
       const date = new Date(isoString);
-      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     } catch {
       return isoString;
     }
   };
 
   return (
-    <header className="glass-panel border-b border-white/10 px-6 py-4 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-20 bg-slate-950/80 backdrop-blur-xl">
-      {/* Title & Status Badge */}
-      <div className="flex items-center gap-4">
+    <header className="h-16 border-b border-white/10 px-6 flex items-center justify-between gap-6 shrink-0 bg-[#06080e]/90 backdrop-blur-xl z-20 select-none">
+      {/* Title & Metadata */}
+      <div className="flex items-center gap-4 min-w-0">
         <div>
-          <h1 className="text-xl font-bold text-white capitalize">{activeTabTitle}</h1>
-          <div className="flex items-center gap-3 text-xs text-slate-400 mt-0.5">
+          <h1 className="text-base font-bold text-white capitalize truncate">{activeTabTitle}</h1>
+          <div className="flex items-center gap-3 text-[11px] text-slate-400">
             <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-indigo-400" />
+              <Clock className="w-3 h-3 text-cyan-400" />
               Saved: {formatTime(lastSavedAt)}
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <CheckCircle2 className="w-3 h-3 text-emerald-400" />
               Published: {formatTime(lastPublishedAt)}
             </span>
           </div>
@@ -75,80 +75,83 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({
 
         {/* Live Status Pill */}
         {hasUnsavedChanges ? (
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-300 border border-amber-500/30 animate-pulse">
-            <AlertTriangle className="w-3.5 h-3.5" /> Unsaved Changes
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/30">
+            <AlertTriangle className="w-3 h-3" /> Unsaved
           </span>
         ) : (
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-            <CheckCircle2 className="w-3.5 h-3.5" /> All Changes Saved
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            <CheckCircle2 className="w-3 h-3" /> Saved
           </span>
         )}
       </div>
 
-      {/* Device Viewport Selector (If Preview is active) */}
-      {showPreview && (
-        <div className="hidden lg:flex items-center gap-1 bg-white/5 border border-white/10 rounded-xl p-1 backdrop-blur-md">
-          <button
-            onClick={() => onDeviceChange('desktop')}
-            className={`p-1.5 rounded-lg text-xs font-medium flex items-center gap-1 transition-colors ${
-              previewDevice === 'desktop' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
-            }`}
-            title="Desktop View"
-          >
-            <Laptop className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => onDeviceChange('tablet')}
-            className={`p-1.5 rounded-lg text-xs font-medium flex items-center gap-1 transition-colors ${
-              previewDevice === 'tablet' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
-            }`}
-            title="Tablet View"
-          >
-            <Tablet className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => onDeviceChange('mobile')}
-            className={`p-1.5 rounded-lg text-xs font-medium flex items-center gap-1 transition-colors ${
-              previewDevice === 'mobile' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
-            }`}
-            title="Mobile View"
-          >
-            <Smartphone className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+      {/* Right Action Controls */}
+      <div className="flex items-center gap-3 shrink-0">
+        {/* Device Viewport Selector */}
+        {showPreview && (
+          <div className="hidden lg:flex items-center gap-1 bg-white/5 border border-white/10 rounded-xl p-1">
+            <button
+              onClick={() => onDeviceChange('desktop')}
+              className={`p-1.5 rounded-lg text-xs transition-colors ${
+                previewDevice === 'desktop' ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+              title="Desktop Viewport"
+            >
+              <Laptop className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onDeviceChange('tablet')}
+              className={`p-1.5 rounded-lg text-xs transition-colors ${
+                previewDevice === 'tablet' ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+              title="Tablet Viewport"
+            >
+              <Tablet className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => onDeviceChange('mobile')}
+              className={`p-1.5 rounded-lg text-xs transition-colors ${
+                previewDevice === 'mobile' ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+              title="Mobile Viewport"
+            >
+              <Smartphone className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
-      {/* Actions */}
-      <div className="flex items-center gap-3">
+        {/* Hide/Show Live Preview */}
         <button
           onClick={onTogglePreview}
-          className={`p-2.5 rounded-xl border text-xs font-semibold flex items-center gap-2 transition-all ${
+          className={`px-3 py-2 rounded-xl border text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${
             showPreview
-              ? 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40 shadow-lg shadow-indigo-500/10'
+              ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30 shadow-sm shadow-cyan-500/10'
               : 'bg-white/5 text-slate-300 border-white/10 hover:bg-white/10'
           }`}
           title="Toggle Split Screen Live Preview"
         >
-          {showPreview ? <Eye className="w-4 h-4 text-indigo-400" /> : <EyeOff className="w-4 h-4" />}
+          {showPreview ? <Eye className="w-4 h-4 text-cyan-400" /> : <EyeOff className="w-4 h-4" />}
           <span className="hidden sm:inline">{showPreview ? 'Hide Preview' : 'Live Preview'}</span>
         </button>
 
+        {/* Save Draft */}
         <GlassButton
           variant="secondary"
           size="sm"
           isLoading={isSaving}
           onClick={onSaveDraft}
-          icon={<Save className="w-4 h-4 text-indigo-400" />}
+          icon={<Save className="w-3.5 h-3.5 text-cyan-400" />}
         >
           Save Draft
         </GlassButton>
 
+        {/* Publish Live */}
         <GlassButton
           variant="primary"
           size="sm"
           isLoading={isPublishing}
           onClick={onPublishLive}
-          icon={<Send className="w-4 h-4" />}
+          icon={<Send className="w-3.5 h-3.5" />}
         >
           Publish Live
         </GlassButton>

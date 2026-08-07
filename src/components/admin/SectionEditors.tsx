@@ -5,8 +5,8 @@ import { SiteContent, FeatureItem, StatItem, GalleryItem, MilestoneItem, Testimo
 import { GlassInput } from '@/components/ui/GlassInput';
 import { GlassToggle } from '@/components/ui/GlassToggle';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { availableIconNames, DynamicIcon } from '@/components/ui/IconPicker';
-import { Plus, Trash2, ArrowUp, ArrowDown, Sparkles, FolderOpen } from 'lucide-react';
+import { availableIconNames } from '@/components/ui/IconPicker';
+import { Plus, Trash2 } from 'lucide-react';
 
 interface EditorProps {
   draft: SiteContent;
@@ -26,17 +26,20 @@ export const HeroEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Hero Section Content</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Hero Section Content</h3>
+          <p className="text-xs text-slate-400 mt-1">Configure headline typography, CTAs, and background visual assets.</p>
+        </div>
         <GlassToggle
           checked={hero.isVisible}
           onChange={(v) => update('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Headline Prefix"
           value={hero.headline}
@@ -55,7 +58,7 @@ export const HeroEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         onChange={(e) => update('badgeText', e.target.value)}
       />
 
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
           Subtitle Statement
         </label>
@@ -63,11 +66,11 @@ export const HeroEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
           rows={3}
           value={hero.subtitle}
           onChange={(e) => update('subtitle', e.target.value)}
-          className="w-full glass-input rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500"
+          className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Primary CTA Text"
           value={hero.primaryCtaText}
@@ -80,7 +83,7 @@ export const HeroEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Secondary CTA Text"
           value={hero.secondaryCtaText}
@@ -99,11 +102,13 @@ export const HeroEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         onChange={(e) => update('imageUrl', e.target.value)}
       />
 
-      <GlassToggle
-        checked={hero.showScrollIndicator}
-        onChange={(v) => update('showScrollIndicator', v)}
-        label="Show Animated Scroll Down Indicator"
-      />
+      <div className="pt-2 border-t border-white/10">
+        <GlassToggle
+          checked={hero.showScrollIndicator}
+          onChange={(v) => update('showScrollIndicator', v)}
+          label="Show Animated Scroll Down Indicator"
+        />
+      </div>
     </div>
   );
 };
@@ -120,17 +125,20 @@ export const AboutEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">About Section Content</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">About Section Content</h3>
+          <p className="text-xs text-slate-400 mt-1">Manage philosophy statements, key descriptions, and satisfaction metrics.</p>
+        </div>
         <GlassToggle
           checked={about.isVisible}
           onChange={(v) => update('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Section Badge Tag"
           value={about.badge}
@@ -143,7 +151,7 @@ export const AboutEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
           Primary Description
         </label>
@@ -151,11 +159,11 @@ export const AboutEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
           rows={3}
           value={about.description}
           onChange={(e) => update('description', e.target.value)}
-          className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
+          className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
         />
       </div>
 
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
           Secondary Description
         </label>
@@ -163,7 +171,7 @@ export const AboutEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
           rows={2}
           value={about.secondaryDescription}
           onChange={(e) => update('secondaryDescription', e.target.value)}
-          className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
+          className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
         />
       </div>
 
@@ -173,7 +181,7 @@ export const AboutEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         onChange={(e) => update('imageUrl', e.target.value)}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Metric Badge Value"
           value={about.statValue}
@@ -227,17 +235,20 @@ export const FeaturesEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Features & Services</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Features & Services</h3>
+          <p className="text-xs text-slate-400 mt-1">Manage feature cards, dynamic icons, and badge tags.</p>
+        </div>
         <GlassToggle
           checked={features.isVisible}
           onChange={(v) => updateHeader('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Section Title"
           value={features.title}
@@ -250,9 +261,9 @@ export const FeaturesEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="space-y-4 pt-4">
+      <div className="space-y-6 pt-2">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
+          <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
             Feature Cards List ({features.items.length})
           </h4>
           <GlassButton variant="secondary" size="sm" onClick={addItem} icon={<Plus className="w-3.5 h-3.5" />}>
@@ -260,79 +271,81 @@ export const FeaturesEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
           </GlassButton>
         </div>
 
-        {features.items.map((item, idx) => (
-          <div key={item.id} className="p-4 rounded-2xl glass-panel border border-white/10 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">
-                  #{idx + 1}
-                </span>
-                <span className="text-sm font-bold text-white">{item.title}</span>
+        <div className="space-y-4">
+          {features.items.map((item, idx) => (
+            <div key={item.id} className="p-6 rounded-2xl glass-panel border border-white/10 space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">
+                    #{idx + 1}
+                  </span>
+                  <span className="text-sm font-bold text-white">{item.title}</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <GlassToggle
+                    checked={item.isVisible}
+                    onChange={(v) => updateItem(item.id, 'isVisible', v)}
+                  />
+                  <button
+                    onClick={() => deleteItem(item.id)}
+                    className="p-1.5 rounded-lg text-rose-400 hover:bg-rose-500/10 transition-colors cursor-pointer"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <GlassToggle
-                  checked={item.isVisible}
-                  onChange={(v) => updateItem(item.id, 'isVisible', v)}
-                />
-                <button
-                  onClick={() => deleteItem(item.id)}
-                  className="p-1.5 rounded-lg text-rose-400 hover:bg-rose-500/10 transition-colors"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <GlassInput
-                label="Card Title"
-                value={item.title}
-                onChange={(e) => updateItem(item.id, 'title', e.target.value)}
-              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <GlassInput
+                  label="Card Title"
+                  value={item.title}
+                  onChange={(e) => updateItem(item.id, 'title', e.target.value)}
+                />
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    Select Icon
+                  </label>
+                  <select
+                    value={item.iconName}
+                    onChange={(e) => updateItem(item.id, 'iconName', e.target.value)}
+                    className="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm text-slate-100 bg-slate-900"
+                  >
+                    {availableIconNames.map((name) => (
+                      <option key={name} value={name}>
+                        {name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               <div className="space-y-1.5">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Select Icon
+                  Description
                 </label>
-                <select
-                  value={item.iconName}
-                  onChange={(e) => updateItem(item.id, 'iconName', e.target.value)}
-                  className="w-full glass-input rounded-xl px-3 py-2 text-sm text-slate-100 bg-slate-900"
-                >
-                  {availableIconNames.map((name) => (
-                    <option key={name} value={name}>
-                      {name}
-                    </option>
-                  ))}
-                </select>
+                <textarea
+                  rows={2}
+                  value={item.description}
+                  onChange={(e) => updateItem(item.id, 'description', e.target.value)}
+                  className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <GlassInput
+                  label="Badge Tag (Optional)"
+                  value={item.badge || ''}
+                  onChange={(e) => updateItem(item.id, 'badge', e.target.value)}
+                />
+                <GlassInput
+                  label="Link Text (Optional)"
+                  value={item.linkText || ''}
+                  onChange={(e) => updateItem(item.id, 'linkText', e.target.value)}
+                />
               </div>
             </div>
-
-            <div className="space-y-1.5">
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Description
-              </label>
-              <textarea
-                rows={2}
-                value={item.description}
-                onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <GlassInput
-                label="Badge Tag (Optional)"
-                value={item.badge || ''}
-                onChange={(e) => updateItem(item.id, 'badge', e.target.value)}
-              />
-              <GlassInput
-                label="Link Text (Optional)"
-                value={item.linkText || ''}
-                onChange={(e) => updateItem(item.id, 'linkText', e.target.value)}
-              />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -368,17 +381,20 @@ export const StatsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Statistics Section</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Statistics Section</h3>
+          <p className="text-xs text-slate-400 mt-1">Configure empirical metrics counters and labels.</p>
+        </div>
         <GlassToggle
           checked={stats.isVisible}
           onChange={(v) => updateHeader('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Section Title"
           value={stats.title}
@@ -391,10 +407,10 @@ export const StatsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="space-y-4 pt-4">
+      <div className="space-y-4 pt-2">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
-            Counters ({stats.items.length})
+          <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
+            Metric Counters ({stats.items.length})
           </h4>
           <GlassButton variant="secondary" size="sm" onClick={addItem} icon={<Plus className="w-3.5 h-3.5" />}>
             Add Metric
@@ -402,17 +418,17 @@ export const StatsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         </div>
 
         {stats.items.map((item) => (
-          <div key={item.id} className="p-4 rounded-2xl glass-panel border border-white/10 space-y-4">
+          <div key={item.id} className="p-5 rounded-2xl glass-panel border border-white/10 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-sm font-bold text-white">{item.number} — {item.label}</span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <GlassToggle
                   checked={item.isVisible}
                   onChange={(v) => updateItem(item.id, 'isVisible', v)}
                 />
                 <button
                   onClick={() => deleteItem(item.id)}
-                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg"
+                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -421,7 +437,7 @@ export const StatsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <GlassInput
-                label="Number Value (e.g. $1.4B+)"
+                label="Number Value (e.g. $2.1B+)"
                 value={item.number}
                 onChange={(e) => updateItem(item.id, 'number', e.target.value)}
               />
@@ -474,17 +490,20 @@ export const GalleryEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Showcase Gallery</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Showcase Gallery</h3>
+          <p className="text-xs text-slate-400 mt-1">Manage project showcase items, images, and category tags.</p>
+        </div>
         <GlassToggle
           checked={gallery.isVisible}
           onChange={(v) => updateHeader('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Section Title"
           value={gallery.title}
@@ -497,9 +516,9 @@ export const GalleryEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="space-y-4 pt-4">
+      <div className="space-y-4 pt-2">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
+          <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
             Gallery Projects ({gallery.items.length})
           </h4>
           <GlassButton variant="secondary" size="sm" onClick={addItem} icon={<Plus className="w-3.5 h-3.5" />}>
@@ -508,20 +527,20 @@ export const GalleryEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         </div>
 
         {gallery.items.map((item) => (
-          <div key={item.id} className="p-4 rounded-2xl glass-panel border border-white/10 space-y-4">
+          <div key={item.id} className="p-5 rounded-2xl glass-panel border border-white/10 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img src={item.imageUrl} alt={item.title} className="w-10 h-10 rounded-lg object-cover" />
                 <span className="text-sm font-bold text-white">{item.title}</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <GlassToggle
                   checked={item.isVisible}
                   onChange={(v) => updateItem(item.id, 'isVisible', v)}
                 />
                 <button
                   onClick={() => deleteItem(item.id)}
-                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg"
+                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -555,7 +574,7 @@ export const GalleryEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
                 rows={2}
                 value={item.description}
                 onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
+                className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
               />
             </div>
           </div>
@@ -596,17 +615,20 @@ export const TimelineEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Timeline Journey</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Timeline Journey</h3>
+          <p className="text-xs text-slate-400 mt-1">Configure chronological roadmap milestones and badges.</p>
+        </div>
         <GlassToggle
           checked={timeline.isVisible}
           onChange={(v) => updateHeader('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Section Title"
           value={timeline.title}
@@ -619,9 +641,9 @@ export const TimelineEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="space-y-4 pt-4">
+      <div className="space-y-4 pt-2">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
+          <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
             Milestone Entries ({timeline.items.length})
           </h4>
           <GlassButton variant="secondary" size="sm" onClick={addItem} icon={<Plus className="w-3.5 h-3.5" />}>
@@ -630,19 +652,19 @@ export const TimelineEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         </div>
 
         {timeline.items.map((item) => (
-          <div key={item.id} className="p-4 rounded-2xl glass-panel border border-white/10 space-y-4">
+          <div key={item.id} className="p-5 rounded-2xl glass-panel border border-white/10 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-sm font-bold text-white">
                 {item.year} — {item.title}
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <GlassToggle
                   checked={item.isVisible}
                   onChange={(v) => updateItem(item.id, 'isVisible', v)}
                 />
                 <button
                   onClick={() => deleteItem(item.id)}
-                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg"
+                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -675,7 +697,7 @@ export const TimelineEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
                 rows={2}
                 value={item.description}
                 onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
+                className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
               />
             </div>
           </div>
@@ -721,17 +743,20 @@ export const TestimonialsEditor: React.FC<EditorProps> = ({ draft, onChange }) =
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Testimonials Section</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Testimonials Section</h3>
+          <p className="text-xs text-slate-400 mt-1">Manage executive feedback quotes, avatars, and designations.</p>
+        </div>
         <GlassToggle
           checked={testimonials.isVisible}
           onChange={(v) => updateHeader('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Section Title"
           value={testimonials.title}
@@ -744,9 +769,9 @@ export const TestimonialsEditor: React.FC<EditorProps> = ({ draft, onChange }) =
         />
       </div>
 
-      <div className="space-y-4 pt-4">
+      <div className="space-y-4 pt-2">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
+          <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
             Quotes ({testimonials.items.length})
           </h4>
           <GlassButton variant="secondary" size="sm" onClick={addItem} icon={<Plus className="w-3.5 h-3.5" />}>
@@ -755,20 +780,20 @@ export const TestimonialsEditor: React.FC<EditorProps> = ({ draft, onChange }) =
         </div>
 
         {testimonials.items.map((item) => (
-          <div key={item.id} className="p-4 rounded-2xl glass-panel border border-white/10 space-y-4">
+          <div key={item.id} className="p-5 rounded-2xl glass-panel border border-white/10 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img src={item.avatarUrl} alt={item.name} className="w-8 h-8 rounded-full object-cover" />
                 <span className="text-sm font-bold text-white">{item.name} — {item.company}</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <GlassToggle
                   checked={item.isVisible}
                   onChange={(v) => updateItem(item.id, 'isVisible', v)}
                 />
                 <button
                   onClick={() => deleteItem(item.id)}
-                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg"
+                  className="p-1.5 text-rose-400 hover:bg-rose-500/10 rounded-lg cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -807,7 +832,7 @@ export const TestimonialsEditor: React.FC<EditorProps> = ({ draft, onChange }) =
                 rows={2}
                 value={item.quote}
                 onChange={(e) => updateItem(item.id, 'quote', e.target.value)}
-                className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
+                className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
               />
             </div>
           </div>
@@ -841,9 +866,12 @@ export const NavEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Header Navigation Links</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Header Navigation Links</h3>
+          <p className="text-xs text-slate-400 mt-1">Configure public navbar shortcuts and URLs.</p>
+        </div>
         <GlassButton variant="secondary" size="sm" onClick={addItem} icon={<Plus className="w-3.5 h-3.5" />}>
           Add Link
         </GlassButton>
@@ -851,7 +879,7 @@ export const NavEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
 
       <div className="space-y-3">
         {nav.map((item) => (
-          <div key={item.id} className="flex items-center gap-4 p-3 rounded-xl glass-panel border border-white/10">
+          <div key={item.id} className="flex items-center gap-4 p-4 rounded-xl glass-panel border border-white/10">
             <GlassInput
               className="flex-1"
               value={item.label}
@@ -864,7 +892,7 @@ export const NavEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
             />
             <button
               onClick={() => deleteItem(item.id)}
-              className="p-2 text-rose-400 hover:bg-rose-500/10 rounded-lg shrink-0"
+              className="p-2 text-rose-400 hover:bg-rose-500/10 rounded-lg shrink-0 cursor-pointer"
             >
               <Trash2 className="w-4 h-4" />
             </button>
@@ -883,17 +911,20 @@ export const FooterEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Footer Content</h3>
+    <div className="space-y-8">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <h3 className="text-xl font-bold text-white">Footer Content</h3>
+          <p className="text-xs text-slate-400 mt-1">Manage footer brand statements, contact email, and copyright.</p>
+        </div>
         <GlassToggle
           checked={footer.isVisible}
           onChange={(v) => update('isVisible', v)}
-          label="Visible on Public Website"
+          label="Visible on Website"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Brand Name"
           value={footer.brandName}
@@ -906,7 +937,7 @@ export const FooterEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <GlassInput
           label="Contact Email"
           value={footer.contactEmail}
@@ -936,9 +967,10 @@ export const SettingsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="border-b border-white/10 pb-4">
-        <h3 className="text-lg font-bold text-white">Global Site Settings</h3>
+    <div className="space-y-8">
+      <div className="border-b border-white/10 pb-5">
+        <h3 className="text-xl font-bold text-white">Global Site Settings</h3>
+        <p className="text-xs text-slate-400 mt-1">SEO metadata, theme defaults, and accent color tokens.</p>
       </div>
 
       <GlassInput
@@ -947,7 +979,7 @@ export const SettingsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
         onChange={(e) => update('siteTitle', e.target.value)}
       />
 
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
           Meta Description (SEO)
         </label>
@@ -955,7 +987,7 @@ export const SettingsEditor: React.FC<EditorProps> = ({ draft, onChange }) => {
           rows={3}
           value={settings.siteDescription}
           onChange={(e) => update('siteDescription', e.target.value)}
-          className="w-full glass-input rounded-xl p-3 text-sm text-slate-100"
+          className="w-full glass-input rounded-xl p-3.5 text-sm text-slate-100"
         />
       </div>
 

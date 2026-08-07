@@ -85,7 +85,7 @@ export default function AdminDashboardPage() {
     }
   };
 
-  // Handle Working Draft Changes (Triggered instantly by editors)
+  // Handle Working Draft Changes (Triggered instantly by form editors)
   const handleDraftChange = (newDraft: SiteContent) => {
     setWorkingDraft(newDraft);
     setHasUnsavedChanges(true);
@@ -116,7 +116,7 @@ export default function AdminDashboardPage() {
     }
   };
 
-  // Publish Draft Live to Public Website API (Hackathon WOW #3)
+  // Publish Draft Live to Public Website API
   const handlePublishLive = async () => {
     if (hasUnsavedChanges) {
       await handleSaveDraft();
@@ -147,16 +147,16 @@ export default function AdminDashboardPage() {
 
   if (isAuthLoading || !workingDraft || !storeData) {
     return (
-      <div className="min-h-screen bg-[#07090e] text-slate-100 flex items-center justify-center">
+      <div className="h-screen bg-[#06080e] text-slate-100 flex items-center justify-center">
         <div className="text-center space-y-3">
-          <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-xs text-slate-400 font-semibold tracking-wider uppercase">Loading CMS Workspace...</p>
+          <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-xs text-slate-400 font-semibold tracking-wider uppercase">Loading PROJECT NEON CMS...</p>
         </div>
       </div>
     );
   }
 
-  // Render Section Editor based on Active Tab
+  // Render Active Section Editor
   const renderEditorContent = () => {
     switch (activeTab) {
       case 'overview':
@@ -197,11 +197,11 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex overflow-hidden">
+    <div className="h-screen w-screen bg-[#06080e] text-slate-100 flex overflow-hidden">
       {/* Toast Notifications */}
       <ToastContainer toasts={toasts} onDismiss={dismissToast} />
 
-      {/* Sidebar */}
+      {/* Application Sidebar (Independent vertical scroll) */}
       <AdminSidebar
         activeTab={activeTab}
         onTabChange={setActiveTab}
@@ -210,9 +210,9 @@ export default function AdminDashboardPage() {
         onToggleCollapse={() => setCollapsed(!collapsed)}
       />
 
-      {/* Main Workspace Area */}
-      <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
-        {/* Header Bar */}
+      {/* Main Workspace Frame */}
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
+        {/* Sticky Header */}
         <AdminHeader
           activeTabTitle={activeTab}
           hasUnsavedChanges={hasUnsavedChanges}
@@ -228,20 +228,20 @@ export default function AdminDashboardPage() {
           onDeviceChange={setPreviewDevice}
         />
 
-        {/* Content & Live Preview Split Screen */}
-        <div className="flex-1 flex overflow-hidden p-6 gap-6">
-          {/* Left Panel — CMS Editor */}
+        {/* Content Editor & Live Preview Split Screen Container */}
+        <div className="flex-1 flex overflow-hidden p-6 gap-6 bg-[#06080e]">
+          {/* Main Editor Workspace Panel */}
           <div
-            className={`h-full overflow-y-auto pr-2 space-y-6 transition-all duration-300 ${
-              showPreview ? 'w-full lg:w-1/2' : 'w-full max-w-4xl mx-auto'
+            className={`h-full overflow-y-auto custom-scrollbar space-y-6 transition-all duration-300 ${
+              showPreview ? 'w-full lg:w-1/2' : 'w-full max-w-5xl mx-auto'
             }`}
           >
-            <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-white/15 bg-slate-950/70">
+            <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-white/15 bg-slate-950/70 shadow-2xl">
               {renderEditorContent()}
             </div>
           </div>
 
-          {/* Right Panel — Split Screen Live Preview (Hackathon WOW #2 & WOW #3) */}
+          {/* Live Preview Panel (Independent Scroll) */}
           {showPreview && (
             <div className="hidden lg:block w-1/2 h-full">
               <LivePreview draft={workingDraft} device={previewDevice} />
