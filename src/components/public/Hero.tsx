@@ -18,7 +18,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
   const layer4ContentRef = useRef<HTMLImageElement>(null);
   const layer5BadgeRef = useRef<HTMLDivElement>(null);
 
-  // Optical Realism Physics State (Zero React re-renders)
+  // Cinematic Optical Realism Physics State (Zero React re-renders)
   const targetX = useRef(0);
   const targetY = useRef(0);
   const currentX = useRef(0);
@@ -28,8 +28,8 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
 
   useEffect(() => {
     const updatePhysics = () => {
-      // Physical Inertia Damping Factor (0.07 for heavy titanium glass mass response)
-      const lerpFactor = 0.07;
+      // Damping Factor 0.065 for heavy titanium glass physical inertia
+      const lerpFactor = 0.065;
       currentX.current += (targetX.current - currentX.current) * lerpFactor;
       currentY.current += (targetY.current - currentY.current) * lerpFactor;
 
@@ -37,56 +37,55 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
       const rotY = currentY.current;
       const tiltMagnitude = Math.abs(rotX) + Math.abs(rotY);
 
-      // Master Glass Container 3D Rotation + Floating Z-axis Lift
+      // Master Glass Container 3D Rotation + Floating Suspended Shadow
       if (masterGlassRef.current) {
-        // Dynamic Drop-Shadow Shift & Shadow Intensity Variation
-        const shadowX = (-rotY * 4.5).toFixed(2);
-        const shadowY = (rotX * 4.5 + 30).toFixed(2);
-        const shadowBlur = (60 + tiltMagnitude * 4).toFixed(1);
+        // Suspended Spatial Shadow Shift
+        const shadowX = (-rotY * 3.5).toFixed(2);
+        const shadowY = (rotX * 3.5 + 28).toFixed(2);
+        const shadowBlur = (65 + tiltMagnitude * 3).toFixed(1);
 
         masterGlassRef.current.style.transform = `perspective(1400px) rotateX(${rotX.toFixed(3)}deg) rotateY(${rotY.toFixed(3)}deg) translateZ(16px) scale3d(1.012, 1.012, 1.012)`;
         masterGlassRef.current.style.boxShadow = `
-          inset 0 2px 3px 0 rgba(255, 255, 255, 0.45),
-          inset 0 -2px 4px 0 rgba(0, 0, 0, 0.65),
-          inset 0 0 20px 0 rgba(255, 255, 255, 0.04),
-          ${shadowX}px ${shadowY}px ${shadowBlur}px -12px rgba(0, 0, 0, 0.85),
-          0 0 50px -10px rgba(56, 189, 248, 0.24)
+          inset 0 2px 3px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -2px 4px 0 rgba(0, 0, 0, 0.6),
+          inset 0 0 20px 0 rgba(255, 255, 255, 0.03),
+          ${shadowX}px ${shadowY}px ${shadowBlur}px -12px rgba(0, 0, 0, 0.82),
+          0 0 45px -10px rgba(56, 189, 248, 0.2)
         `;
       }
 
-      // Fresnel Edge Reflection (View-Angle Based Specular Light Trapping)
+      // Fresnel Specular Edge Reflection Opacity Calibration (0.25 to 0.75 max)
       if (fresnelLayerRef.current) {
-        // As glass tilts away from viewer, edge reflection intensity increases naturally (Fresnel Law)
-        const fresnelOpacity = Math.min(0.95, 0.35 + tiltMagnitude * 0.12);
+        const fresnelOpacity = Math.min(0.75, 0.25 + tiltMagnitude * 0.08);
         fresnelLayerRef.current.style.opacity = fresnelOpacity.toFixed(2);
       }
 
       // Layer 1: Environmental Background Sapphire Drift (-80px Z-depth)
       if (layer1BgRef.current) {
-        const bgShiftX = (rotY / 4) * 8;
-        const bgShiftY = (-rotX / 2.5) * 8;
+        const bgShiftX = (rotY / 4) * 7;
+        const bgShiftY = (-rotX / 2.5) * 7;
         layer1BgRef.current.style.transform = `translate3d(${bgShiftX.toFixed(2)}px, ${bgShiftY.toFixed(2)}px, -80px)`;
       }
 
       // Layer 4: Display Content Image (45px Z-depth)
       if (layer4ContentRef.current) {
-        const contentShiftX = (rotY / 4) * 4;
-        const contentShiftY = (-rotX / 2.5) * 4;
+        const contentShiftX = (rotY / 4) * 3.5;
+        const contentShiftY = (-rotX / 2.5) * 3.5;
         layer4ContentRef.current.style.transform = `translate3d(${contentShiftX.toFixed(2)}px, ${contentShiftY.toFixed(2)}px, 45px)`;
       }
 
       // Layer 5: Anchored Spatial Badge (75px Z-depth)
       if (layer5BadgeRef.current) {
-        const badgeShiftX = (rotY / 4) * 7;
-        const badgeShiftY = (-rotX / 2.5) * 7;
+        const badgeShiftX = (rotY / 4) * 6;
+        const badgeShiftY = (-rotX / 2.5) * 6;
         layer5BadgeRef.current.style.transform = `translate3d(${badgeShiftX.toFixed(2)}px, ${badgeShiftY.toFixed(2)}px, 75px)`;
       }
 
       // Continue rAF loop if hovering or settling
       if (
         isHovering.current ||
-        Math.abs(targetX.current - currentX.current) > 0.008 ||
-        Math.abs(targetY.current - currentY.current) > 0.008
+        Math.abs(targetX.current - currentX.current) > 0.005 ||
+        Math.abs(targetY.current - currentY.current) > 0.005
       ) {
         animFrameId.current = requestAnimationFrame(updatePhysics);
       } else {
@@ -247,7 +246,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
             </a>
           </motion.div>
 
-          {/* Master 3D Spatial Titanium Glass Display Object with Fresnel Reflection & 4mm Thickness */}
+          {/* Master 3D Spatial Titanium Glass Display Object — Cinematic Hardware Calibration */}
           {data.imageUrl && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -265,22 +264,22 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                   clipPath: 'inset(0 round 28px)',
                 }}
               >
-                {/* Physical 4mm Glass Thickness Edge & Inner Depth Gradient Overlay */}
+                {/* Molded Curved Glass Edge Light Falloff Overlay */}
                 <div
-                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.16),transparent_60%)] pointer-events-none z-20"
+                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.14),transparent_60%)] pointer-events-none z-20"
                   style={{ transform: 'translateZ(10px)' }}
                 />
 
-                {/* View-Angle Based Fresnel Specular Edge Reflection Layer (18px Z-depth) */}
+                {/* Calibrated View-Angle Fresnel Edge Reflection Layer (18px Z-depth) */}
                 <div
                   ref={fresnelLayerRef}
-                  className="absolute inset-0 rounded-[inherit] bg-[linear-gradient(135deg,rgba(255,255,255,0.25)_0%,rgba(56,189,248,0.12)_35%,transparent_70%,rgba(255,255,255,0.18)_100%)] pointer-events-none z-20 transition-opacity duration-200"
-                  style={{ transform: 'translateZ(18px)', opacity: 0.35 }}
+                  className="absolute inset-0 rounded-[inherit] bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(56,189,248,0.08)_35%,transparent_70%,rgba(255,255,255,0.12)_100%)] pointer-events-none z-20 transition-opacity duration-200"
+                  style={{ transform: 'translateZ(18px)', opacity: 0.25 }}
                 />
 
-                {/* Layer 3: Shared Dynamic Light Sheen Shift Layer (30px Z-depth) */}
+                {/* Layer 3: Shared Light Sheen Shift Layer (30px Z-depth) */}
                 <div
-                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.24),transparent_65%)] pointer-events-none z-20 opacity-90"
+                  className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(56,189,248,0.2),transparent_65%)] pointer-events-none z-20 opacity-85"
                   style={{ transform: 'translateZ(30px)' }}
                 />
 
