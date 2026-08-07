@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { LiquidGlassFilter } from "@/components/ui/LiquidGlassFilter";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -103,7 +104,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#06080e] text-slate-100">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#06080e] text-slate-100">
+        <LiquidGlassFilter />
+        {children}
+      </body>
     </html>
   );
 }
