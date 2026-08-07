@@ -24,20 +24,20 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all focus:outline-none rounded-xl cursor-pointer select-none backdrop-blur-md';
+  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all focus:outline-none cursor-pointer select-none backdrop-blur-xl relative overflow-hidden';
   
   const sizeStyles = {
-    sm: 'px-3 py-1.5 text-xs gap-1.5 rounded-lg',
+    sm: 'px-3.5 py-1.5 text-xs gap-1.5 rounded-xl',
     md: 'px-5 py-2.5 text-sm gap-2 rounded-xl',
-    lg: 'px-7 py-3.5 text-base gap-2.5 rounded-2xl font-semibold',
+    lg: 'px-7 py-3.5 text-base gap-2.5 rounded-2xl font-bold',
   };
 
   const variantStyles = {
-    primary: 'bg-indigo-600/80 hover:bg-indigo-500/90 text-white border border-indigo-400/40 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/35',
-    secondary: 'bg-white/10 hover:bg-white/15 text-white border border-white/15 hover:border-white/30 shadow-sm',
+    primary: 'bg-gradient-to-r from-cyan-500/90 via-cyan-600/90 to-purple-600/90 hover:from-cyan-400 hover:to-purple-500 text-white border border-cyan-400/40 border-t-white/50 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40',
+    secondary: 'bg-white/10 hover:bg-white/15 text-white border border-white/20 border-t-white/40 shadow-sm shadow-slate-950/40',
     ghost: 'bg-transparent hover:bg-white/10 text-slate-300 hover:text-white border border-transparent',
-    danger: 'bg-rose-600/80 hover:bg-rose-500/90 text-white border border-rose-400/30 shadow-md shadow-rose-600/20',
-    success: 'bg-emerald-600/80 hover:bg-emerald-500/90 text-white border border-emerald-400/30 shadow-md shadow-emerald-600/20',
+    danger: 'bg-gradient-to-r from-rose-600/80 to-rose-500/80 hover:from-rose-500 text-white border border-rose-400/30 border-t-white/40 shadow-md shadow-rose-600/25',
+    success: 'bg-gradient-to-r from-emerald-600/80 to-emerald-500/80 hover:from-emerald-500 text-white border border-emerald-400/30 border-t-white/40 shadow-md shadow-emerald-600/25',
   };
 
   return (
