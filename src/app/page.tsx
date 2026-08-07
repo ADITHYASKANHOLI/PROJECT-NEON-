@@ -7,6 +7,7 @@ import { About } from '@/components/public/About';
 import { Features } from '@/components/public/Features';
 import { Solutions } from '@/components/public/Solutions';
 import { CommandCenter } from '@/components/public/CommandCenter';
+import { TrustSection } from '@/components/public/TrustSection';
 import { Stats } from '@/components/public/Stats';
 import { Gallery } from '@/components/public/Gallery';
 import { Timeline } from '@/components/public/Timeline';
@@ -41,13 +42,14 @@ export default async function HomePage() {
   const content = await fetchPublishedContentFromDB();
 
   return (
-    <main className="min-h-screen relative bg-[#06080e] text-slate-100 overflow-x-hidden">
+    <main className="min-h-screen relative bg-[#05070a] text-slate-100 overflow-x-hidden">
       <Navbar items={content.navigation || []} siteTitle={content.settings?.siteTitle || 'PROJECT NEON'} />
       <Hero data={content.hero} />
       <About data={content.about} />
       <Features data={content.features} />
       <Solutions />
       <CommandCenter />
+      <TrustSection />
       <Stats data={content.stats} />
       <Gallery data={content.gallery} />
       <Timeline data={content.timeline} />
