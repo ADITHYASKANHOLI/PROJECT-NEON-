@@ -16,19 +16,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://project-neon-three-sage.vercel.app"),
   title: {
-    default: "PROJECT NEON — Next-Gen AI Technology Platform",
+    default: "PROJECT NEON — Managed Website-as-a-Service Platform",
     template: "%s | PROJECT NEON",
   },
   description:
-    "PROJECT NEON is a futuristic AI technology platform and dynamic content management engine powered by Next.js 16 and Supabase.",
+    "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
   keywords: [
     "PROJECT NEON",
-    "AI Platform",
-    "Next.js",
+    "Website-as-a-Service",
+    "WaaS Platform",
+    "Managed Web Infrastructure",
+    "Digital Advertising Platform",
+    "Next.js 16",
     "Supabase",
-    "CMS",
-    "Futuristic Web Application",
-    "Digital Studio",
   ],
   authors: [{ name: "PROJECT NEON Team" }],
   creator: "PROJECT NEON",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "PROJECT NEON — Next-Gen AI Technology Platform",
+    title: "PROJECT NEON — Managed Website-as-a-Service Platform",
     description:
-      "PROJECT NEON is a futuristic AI technology platform and dynamic content management engine powered by Next.js 16 and Supabase.",
+      "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
     url: "https://project-neon-three-sage.vercel.app",
     siteName: "PROJECT NEON",
     locale: "en_US",
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PROJECT NEON — Next-Gen AI Technology Platform",
+    title: "PROJECT NEON — Managed Website-as-a-Service Platform",
     description:
-      "PROJECT NEON is a futuristic AI technology platform and dynamic content management engine powered by Next.js 16 and Supabase.",
+      "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
     creator: "@projectneon",
     images: [
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "PROJECT NEON",
     url: "https://project-neon-three-sage.vercel.app",
     description:
-      "PROJECT NEON is a futuristic AI technology platform and dynamic content management engine powered by Next.js 16 and Supabase.",
+      "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
     publisher: {
       "@type": "Organization",
       name: "PROJECT NEON",
@@ -104,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#06080e] text-slate-100">
+      <body className="min-h-full flex flex-col bg-[#05070a] text-slate-100">
         <LiquidGlassFilter />
         {children}
       </body>

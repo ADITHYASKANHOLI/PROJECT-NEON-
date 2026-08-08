@@ -19,7 +19,7 @@ export const CTA: React.FC<CTAProps> = ({ data }) => {
     data?.subtitle ||
     'Lease a high-performance digital advertising platform with real-time remote Supabase CMS control today.';
   const primaryText = data?.primaryCtaText || 'Deploy Your Digital Platform';
-  const primaryUrl = data?.primaryCtaUrl || '/admin';
+  const primaryUrl = data?.primaryCtaUrl || '#solutions';
   const secondaryText = data?.secondaryCtaText || 'Schedule Platform Consultation';
   const secondaryUrl = data?.secondaryCtaUrl || '#trust';
 

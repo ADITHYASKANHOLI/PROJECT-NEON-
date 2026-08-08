@@ -170,16 +170,16 @@ export const CommandCenter: React.FC = () => {
 
             {/* CTA Button */}
             <div className="pt-2">
-              <Link href="/admin" className="block w-full">
+              <a href="#workflow" className="block w-full">
                 <GlassButton
                   variant="primary"
                   size="lg"
                   className="w-full justify-center"
                   icon={<ShieldCheck className="w-5 h-5" />}
                 >
-                  Access Your Digital Command Center
+                  Explore Enterprise Command Center
                 </GlassButton>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>

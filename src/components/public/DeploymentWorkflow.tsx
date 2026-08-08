@@ -145,7 +145,7 @@ export const DeploymentWorkflow: React.FC = () => {
 
         {/* Section Action CTA */}
         <div className="mt-16 text-center">
-          <Link href="/admin">
+          <a href="#solutions">
             <GlassButton
               variant="primary"
               size="lg"
@@ -154,7 +154,7 @@ export const DeploymentWorkflow: React.FC = () => {
             >
               Initiate Your Digital Platform Deployment
             </GlassButton>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

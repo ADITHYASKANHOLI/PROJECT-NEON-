@@ -150,16 +150,16 @@ export const Solutions: React.FC = () => {
 
                 {/* Card Action Button */}
                 <div className="pt-4">
-                  <Link href="/admin" className="w-full block">
+                  <a href="#trust" className="w-full block">
                     <GlassButton
                       variant={tier.isPopular ? 'primary' : 'secondary'}
                       size="md"
                       className="w-full justify-center"
                       icon={<ArrowRight className="w-4 h-4" />}
                     >
-                      Discuss Your Digital Platform
+                      Request Platform Consultation
                     </GlassButton>
-                  </Link>
+                  </a>
                 </div>
               </GlassCard>
             </motion.div>

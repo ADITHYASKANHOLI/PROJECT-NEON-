@@ -127,16 +127,16 @@ export const TrustSection: React.FC = () => {
 
         {/* CTA Button */}
         <div className="text-center">
-          <Link href="/admin">
+          <a href="#solutions">
             <GlassButton
               variant="primary"
               size="lg"
               className="px-10 justify-center"
               icon={<ArrowRight className="w-5 h-5" />}
             >
-              Partner With PROJECT NEON
+              Schedule Enterprise Discussion
             </GlassButton>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

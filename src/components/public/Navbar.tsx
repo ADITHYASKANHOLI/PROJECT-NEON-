@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavItem } from '@/lib/types';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { Sparkles, Sun, Moon, Shield, Menu, X, ArrowRight } from 'lucide-react';
+import { Sparkles, Sun, Moon, Menu, X, ArrowRight, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 interface NavbarProps {
@@ -112,13 +112,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isDark ? <Sun className="w-4 h-4 text-sky-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
             </button>
 
-            {!isPreviewMode && (
-              <Link href="/admin">
-                <GlassButton variant="primary" size="sm" icon={<Shield className="w-3.5 h-3.5" />}>
-                  Admin CMS
-                </GlassButton>
-              </Link>
-            )}
+            <a href="#solutions">
+              <GlassButton variant="primary" size="sm" icon={<Rocket className="w-3.5 h-3.5" />}>
+                Deploy Platform
+              </GlassButton>
+            </a>
           </div>
 
           {/* Mobile Right Controls */}
@@ -161,15 +159,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <ArrowRight className="w-4 h-4 text-slate-500" />
                 </a>
               ))}
-              {!isPreviewMode && (
-                <div className="pt-2 border-t border-white/10 mt-1">
-                  <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
-                    <GlassButton variant="primary" size="md" className="w-full justify-center" icon={<Shield className="w-4 h-4" />}>
-                      Access Admin CMS
-                    </GlassButton>
-                  </Link>
-                </div>
-              )}
+              <div className="pt-2 border-t border-white/10 mt-1">
+                <a href="#solutions" onClick={() => setMobileMenuOpen(false)}>
+                  <GlassButton variant="primary" size="md" className="w-full justify-center" icon={<Rocket className="w-4 h-4" />}>
+                    Deploy Platform
+                  </GlassButton>
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
