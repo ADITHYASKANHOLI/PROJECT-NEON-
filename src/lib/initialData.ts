@@ -2,9 +2,9 @@ import { SiteContent } from './types';
 
 export const initialSiteContent: SiteContent = {
   settings: {
-    siteTitle: 'BIOCORE — Biocore Research LLP Translational Deep-Science Platform',
+    siteTitle: 'BIOCORE | Biocore Research LLP — Translational Deep-Science',
     siteDescription:
-      'Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, testing & certification, sustainable technology, and commercialization.',
+      'Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biotechnology, life sciences, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.',
     themeMode: 'dark',
     accentColor: '#10b981',
   },

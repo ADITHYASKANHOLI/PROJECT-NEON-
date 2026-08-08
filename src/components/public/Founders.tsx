@@ -72,7 +72,7 @@ export const Founders: React.FC = () => {
                 <div className="relative group w-full max-w-[280px] sm:max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl bg-slate-950">
                   <img
                     src="/founder-aditya-kanholi.jpg"
-                    alt="Aditya S Kanholi — Co-Founder, Biocore Research LLP"
+                    alt="Aditya S Kanholi, Co-Founder of Biocore Research LLP"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     loading="eager"
                   />

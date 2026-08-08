@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/auth/'],
     },
+    sitemap: 'https://project-neon-three-sage.vercel.app/sitemap.xml',
   };
 }
