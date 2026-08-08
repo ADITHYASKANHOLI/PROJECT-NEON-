@@ -48,7 +48,7 @@ export const TrustSection: React.FC = () => {
   return (
     <section id="quality-trust" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
       {/* Background Glow */}
-      <div className="neon-aura-cyan top-1/2 left-1/4 -translate-y-1/2 opacity-70" />
+      <div className="biocore-aura-green top-1/2 left-1/4 -translate-y-1/2 opacity-70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -70,7 +70,7 @@ export const TrustSection: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-tight"
           >
-            ENGINEERED FOR RIGOR, REPEATABILITY & <span className="text-teal-400">QUALITY</span>
+            ENGINEERED FOR RIGOR, REPEATABILITY & <span className="text-emerald-400">QUALITY</span>
           </motion.h2>
 
           <motion.p
@@ -94,7 +94,7 @@ export const TrustSection: React.FC = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: idx * 0.1 }}
             >
-              <GlassCard className="p-6 sm:p-8 h-full flex flex-col justify-between hover:border-teal-500/30">
+              <GlassCard className="p-6 sm:p-8 h-full flex flex-col justify-between hover:border-emerald-500/30">
                 <div className="space-y-4">
                   <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 w-fit">{pillar.icon}</div>
                   <h3 className="text-xl font-bold text-white tracking-wide">{pillar.title}</h3>
@@ -114,7 +114,7 @@ export const TrustSection: React.FC = () => {
           viewport={{ once: true, margin: '-50px' }}
           className="mb-12"
         >
-          <GlassCard className="glass-panel-neon p-6 sm:p-8 border-teal-500/40">
+          <GlassCard className="glass-panel-biocore p-6 sm:p-8 border-emerald-500/40">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
               {operationalMetrics.map((m, i) => (
                 <div key={i} className="space-y-1">

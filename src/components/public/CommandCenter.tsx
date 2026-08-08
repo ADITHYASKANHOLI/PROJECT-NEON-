@@ -97,14 +97,14 @@ export const CommandCenter: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <GlassCard className="glass-panel-neon border-teal-500/40 p-6 sm:p-8 shadow-2xl space-y-6">
+            <GlassCard className="glass-panel-biocore border-emerald-500/40 p-6 sm:p-8 shadow-2xl space-y-6">
               {/* Telemetry Console Top Bar */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1.5">
                     <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-teal-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-sky-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-400/80" />
+                    <div className="w-3 h-3 rounded-full bg-orange-500/80" />
                   </div>
                   <span className="text-xs font-mono text-slate-400">BIOCORE-TELEMETRY-NODE // v4.2</span>
                 </div>

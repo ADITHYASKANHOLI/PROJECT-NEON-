@@ -42,6 +42,20 @@ export const metadata: Metadata = {
   authors: [{ name: "Biocore Research LLP" }],
   creator: "Biocore Research LLP",
   publisher: "Biocore Research LLP",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
   formatDetection: {
     email: false,
     address: false,
@@ -109,7 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#05070a] text-slate-100">
+      <body className="min-h-full flex flex-col bg-[#050a07] text-slate-100">
         <LiquidGlassFilter />
         {children}
       </body>

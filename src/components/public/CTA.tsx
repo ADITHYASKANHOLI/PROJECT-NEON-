@@ -30,10 +30,10 @@ export const CTA: React.FC<CTAProps> = ({ data }) => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl glass-panel-neon p-8 sm:p-12 md:p-16 text-center space-y-6 sm:space-y-8 relative overflow-hidden bg-gradient-to-r from-slate-950 via-teal-950/60 to-slate-950 border border-teal-500/40 shadow-2xl"
+          className="rounded-3xl glass-panel-biocore p-8 sm:p-12 md:p-16 text-center space-y-6 sm:space-y-8 relative overflow-hidden bg-gradient-to-r from-slate-950 via-emerald-950/60 to-slate-950 border border-emerald-500/40 shadow-2xl"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill border border-teal-500/30 text-xs font-semibold text-teal-300 uppercase">
-            <Sparkles className="w-4 h-4 text-teal-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill border border-emerald-500/30 text-xs font-semibold text-emerald-300 uppercase">
+            <Sparkles className="w-4 h-4 text-emerald-400" />
             <span>STRATEGIC COLLABORATION</span>
           </div>
 

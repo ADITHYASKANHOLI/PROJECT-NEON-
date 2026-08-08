@@ -64,7 +64,7 @@ export const Solutions: React.FC = () => {
   return (
     <section id="sustainability" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
       {/* Background Glow */}
-      <div className="neon-aura-violet top-1/3 right-1/4 -translate-y-1/2 opacity-70" />
+      <div className="biocore-aura-orange top-1/3 right-1/4 -translate-y-1/2 opacity-70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -73,9 +73,9 @@ export const Solutions: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wider uppercase"
           >
-            <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
             <span>SUSTAINABLE & ENVIRONMENTAL TECH</span>
           </motion.div>
 
@@ -86,7 +86,7 @@ export const Solutions: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-tight"
           >
-            SUSTAINABLE TECHNOLOGY & <span className="text-teal-400">ENVIRONMENTAL INNOVATION</span>
+            SUSTAINABLE TECHNOLOGY & <span className="text-emerald-400">ENVIRONMENTAL INNOVATION</span>
           </motion.h2>
 
           <motion.p
@@ -112,8 +112,8 @@ export const Solutions: React.FC = () => {
               className="flex"
             >
               <GlassCard
-                className={`w-full flex flex-col justify-between relative hover:border-teal-500/40 ${
-                  domain.isPopular ? 'glass-panel-neon border-teal-500/50 shadow-2xl' : ''
+                className={`w-full flex flex-col justify-between relative hover:border-emerald-500/40 ${
+                  domain.isPopular ? 'glass-panel-biocore border-emerald-500/50 shadow-2xl' : ''
                 }`}
               >
                 <div>

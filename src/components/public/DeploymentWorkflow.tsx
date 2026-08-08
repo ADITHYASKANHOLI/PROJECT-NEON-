@@ -97,7 +97,7 @@ export const DeploymentWorkflow: React.FC = () => {
         {/* Spatial Timeline Grid */}
         <div className="relative">
           {/* Spatial Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-500/40 via-sky-500/20 to-transparent -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500/40 via-orange-500/20 to-transparent -translate-x-1/2" />
 
           <div className="space-y-8 sm:space-y-12">
             {stages.map((stage, idx) => {

@@ -155,7 +155,7 @@ export const About: React.FC<AboutProps> = ({ data }) => {
                   <span className="text-xs font-semibold text-slate-200">Registered Deep-Science Scope</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400">
+                  <div className="p-2 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-400">
                     <Globe className="w-4 h-4" />
                   </div>
                   <span className="text-xs font-semibold text-slate-200">Translational Technology Pipeline</span>

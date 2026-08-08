@@ -19,8 +19,8 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
     <section id="testimonials" className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-slate-950/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20 inline-block">
-            EXECUTIVE VOICES
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 inline-block">
+            PARTNER VOICES
           </span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
             {data.title}
@@ -42,7 +42,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
               <GlassCard className="h-full p-6 sm:p-8 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <Quote className="w-8 h-8 text-cyan-400/40" />
+                    <Quote className="w-8 h-8 text-emerald-400/40" />
                     <div className="flex items-center gap-1">
                       {[...Array(item.rating || 5)].map((_, i) => (
                         <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -58,12 +58,12 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
                   <img
                     src={item.avatarUrl}
                     alt={item.name}
-                    className="w-10 h-10 rounded-full object-cover border border-cyan-500/30"
+                    className="w-10 h-10 rounded-full object-cover border border-emerald-500/30"
                   />
                   <div>
                     <h3 className="text-sm font-bold text-white">{item.name}</h3>
                     <p className="text-[11px] sm:text-xs text-slate-400">
-                      {item.role} • <span className="text-cyan-400 font-medium">{item.company}</span>
+                      {item.role} • <span className="text-emerald-400 font-medium">{item.company}</span>
                     </p>
                   </div>
                 </div>

@@ -18,7 +18,7 @@ export const Stats: React.FC<StatsProps> = ({ data }) => {
     <section id="stats" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20 inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 inline-block">
             IMPACT METRICS
           </span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
@@ -39,7 +39,7 @@ export const Stats: React.FC<StatsProps> = ({ data }) => {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               <GlassCard className="p-5 sm:p-8 text-center space-y-2 flex flex-col justify-center h-full">
-                <div className="text-2xl sm:text-4xl md:text-5xl font-black text-cyan-400 tracking-tight">
+                <div className="text-2xl sm:text-4xl md:text-5xl font-black bg-gradient-to-r from-emerald-400 to-orange-400 bg-clip-text text-transparent tracking-tight">
                   {item.number}
                 </div>
                 <div className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">

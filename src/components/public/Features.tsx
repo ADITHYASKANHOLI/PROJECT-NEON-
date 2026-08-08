@@ -133,7 +133,7 @@ export const Features: React.FC<FeaturesProps> = ({ data }) => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
             >
-              <GlassCard hoverEffect className="h-full p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-teal-500/40">
+              <GlassCard hoverEffect className="h-full p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-emerald-500/40">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
                     {item.icon}

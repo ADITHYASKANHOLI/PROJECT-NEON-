@@ -35,7 +35,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
 
   const variantStyles = {
     primary:
-      'bg-gradient-to-r from-slate-900 via-blue-950 to-sky-600 hover:from-blue-900 hover:to-sky-500 text-white border border-white/12 border-t-white/30 shadow-lg shadow-blue-950/40 hover:shadow-sky-500/30',
+      'bg-gradient-to-r from-emerald-700 via-teal-600 to-orange-600 hover:from-emerald-600 hover:to-orange-500 text-white border border-white/15 border-t-white/35 shadow-lg shadow-emerald-950/40 hover:shadow-emerald-500/30',
     secondary:
       'bg-white/8 hover:bg-white/14 text-white border border-white/12 border-t-white/25 shadow-sm shadow-slate-950/40',
     ghost:
