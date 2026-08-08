@@ -287,7 +287,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                 <img
                   ref={layer4ContentRef}
                   src={data.imageUrl}
-                  alt="PROJECT NEON WaaS Showcase"
+                  alt="Biocore Research LLP Deep Science Showcase"
                   className="w-full h-auto max-h-[320px] sm:max-h-[500px] object-cover rounded-2xl relative z-10 will-change-transform"
                   style={{
                     transform: 'translateZ(45px)',
@@ -306,7 +306,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                   }}
                 >
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span className="text-xs font-mono text-white font-bold">MANAGED WAAS INFRASTRUCTURE</span>
+                  <span className="text-xs font-mono text-white font-bold">BIOCORE DEEP-SCIENCE INFRASTRUCTURE</span>
                 </div>
               </div>
             </motion.div>

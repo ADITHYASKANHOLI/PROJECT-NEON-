@@ -16,53 +16,61 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://project-neon-three-sage.vercel.app"),
   title: {
-    default: "PROJECT NEON — Managed Website-as-a-Service Platform",
-    template: "%s | PROJECT NEON",
+    default: "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
+    template: "%s | BIOCORE",
   },
   description:
-    "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
+    "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
   keywords: [
-    "PROJECT NEON",
-    "Website-as-a-Service",
-    "WaaS Platform",
-    "Managed Web Infrastructure",
-    "Digital Advertising Platform",
-    "Next.js 16",
-    "Supabase",
+    "BIOCORE",
+    "Biocore Research LLP",
+    "Life Sciences",
+    "Biotechnology",
+    "Bioengineering",
+    "Biosensors",
+    "Microchips",
+    "Scientific Instrumentation",
+    "Laboratory Testing",
+    "Analytical Services",
+    "Sustainable Technology",
+    "Zero-Waste Systems",
+    "Biofuels",
+    "Agrochemicals",
+    "Technology Transfer",
   ],
-  authors: [{ name: "PROJECT NEON Team" }],
-  creator: "PROJECT NEON",
-  publisher: "PROJECT NEON",
+  authors: [{ name: "Biocore Research LLP" }],
+  creator: "Biocore Research LLP",
+  publisher: "Biocore Research LLP",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "PROJECT NEON — Managed Website-as-a-Service Platform",
+    title: "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
     description:
-      "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
+      "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
     url: "https://project-neon-three-sage.vercel.app",
-    siteName: "PROJECT NEON",
+    siteName: "BIOCORE",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+        url: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
         width: 1200,
         height: 630,
-        alt: "PROJECT NEON Visual Identity",
+        alt: "Biocore Research LLP Primary Identity",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PROJECT NEON — Managed Website-as-a-Service Platform",
+    title: "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
     description:
-      "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
-    creator: "@projectneon",
+      "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
+    creator: "@biocoreresearch",
     images: [
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
     ],
   },
   robots: {
@@ -81,16 +89,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "PROJECT NEON",
+    "@type": "Organization",
+    name: "Biocore Research LLP",
+    alternateName: "BIOCORE",
     url: "https://project-neon-three-sage.vercel.app",
     description:
-      "PROJECT NEON is a high-performance Website-as-a-Service (WaaS) infrastructure platform providing companies with managed digital advertising platforms.",
-    publisher: {
-      "@type": "Organization",
-      name: "PROJECT NEON",
-      logo: "https://project-neon-three-sage.vercel.app/favicon.ico",
-    },
+      "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
+    logo: "https://project-neon-three-sage.vercel.app/favicon.ico",
   };
 
   return (

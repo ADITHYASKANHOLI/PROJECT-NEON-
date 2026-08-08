@@ -1,216 +1,194 @@
 {
   "draft": {
     "settings": {
-      "siteTitle": "AURA — Digital Product Studio",
-      "siteDescription": "Crafting visionary digital products, interactive brand systems, and intelligent web platforms.",
+      "siteTitle": "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
+      "siteDescription": "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, testing & certification, sustainable technology, and commercialization.",
       "themeMode": "dark",
-      "accentColor": "#6366f1"
+      "accentColor": "#10b981"
     },
     "navigation": [
-      {
-        "id": "nav-1",
-        "label": "About",
-        "url": "#about",
-        "order": 1
-      },
-      {
-        "id": "nav-2",
-        "label": "Capabilities",
-        "url": "#features",
-        "order": 2
-      },
-      {
-        "id": "nav-3",
-        "label": "Impact",
-        "url": "#stats",
-        "order": 3
-      },
-      {
-        "id": "nav-4",
-        "label": "Showcase",
-        "url": "#gallery",
-        "order": 4
-      },
-      {
-        "id": "nav-5",
-        "label": "Journey",
-        "url": "#timeline",
-        "order": 5
-      },
-      {
-        "id": "nav-6",
-        "label": "Voices",
-        "url": "#testimonials",
-        "order": 6
-      }
+      { "id": "nav-1", "label": "Presence", "url": "#about", "order": 1 },
+      { "id": "nav-2", "label": "Capabilities", "url": "#capabilities", "order": 2 },
+      { "id": "nav-3", "label": "Research Hub", "url": "#research-hub", "order": 3 },
+      { "id": "nav-4", "label": "Quality & Trust", "url": "#quality-trust", "order": 4 },
+      { "id": "nav-5", "label": "Sustainability", "url": "#sustainability", "order": 5 },
+      { "id": "nav-6", "label": "Transfer Lifecycle", "url": "#transfer-lifecycle", "order": 6 },
+      { "id": "nav-7", "label": "Contact", "url": "#contact", "order": 7 }
     ],
     "hero": {
-      "badgeText": "RELEASE 3.0 • NEXT-GEN CREATIVE OS",
-      "headline": "ENGINEER THE",
-      "highlightText": "EXTRAORDINARY.",
-      "subtitle": "We blend cutting-edge computational architecture with tactile glass interfaces to elevate global brands into immersive digital experiences.",
-      "primaryCtaText": "Explore Showcase",
-      "primaryCtaUrl": "#gallery",
-      "secondaryCtaText": "Launch Admin CMS",
-      "secondaryCtaUrl": "#solutions",
-      "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop",
+      "badgeText": "BIOCORE RESEARCH LLP • TRANSLATIONAL DEEP-SCIENCE",
+      "headline": "BRIDGING BIOLOGICAL SCIENCE &",
+      "highlightText": "ADVANCED ENGINEERING.",
+      "subtitle": "Biocore Research LLP connects laboratory research, scientific instrumentation, testing & certification infrastructure, sustainable technology, and commercialization.",
+      "primaryCtaText": "Explore Capability Areas",
+      "primaryCtaUrl": "#capabilities",
+      "secondaryCtaText": "Technology Transfer",
+      "secondaryCtaUrl": "#transfer-lifecycle",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1600&auto=format&fit=crop",
       "showScrollIndicator": true,
       "isVisible": true
     },
     "about": {
-      "badge": "OUR PHILOSOPHY",
-      "title": "Precision design meets autonomous intelligence.",
-      "description": "At AURA, we believe the next era of computing demands interfaces that feel physical, organic, and ultra-responsive. We engineer digital products that bridge human intuition with generative precision.",
-      "secondaryDescription": "Our multidisciplinary team of product architects, spatial designers, and creative engineers builds custom web ecosystems for industry leaders across Silicon Valley, Tokyo, and London.",
-      "imageUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
-      "statValue": "99.8%",
-      "statLabel": "Client Satisfaction Index",
+      "badge": "ABOUT BIOCORE RESEARCH LLP",
+      "title": "Translating biological science and precision engineering into industrial technologies, testing infrastructure, and commercial impact.",
+      "description": "Biocore Research LLP (operating publicly as BIOCORE) is a translational deep-science company structured to bridge molecular biology with hardware-level engineering, scientific instrumentation, testing & certification, sustainable technology, and commercialization.",
+      "secondaryDescription": "Connecting biological discovery, hardware engineering, laboratory validation, industry, and societal needs.",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
+      "statValue": "6",
+      "statLabel": "Registered Business Domains",
       "isVisible": true
     },
     "features": {
-      "title": "ENGINEERED CAPABILITIES",
-      "subtitle": "Full-spectrum creative engineering designed to scale modern enterprises.",
+      "title": "BIOCORE CAPABILITY AREAS",
+      "subtitle": "Comprehensive business scope connecting biological sciences, precision hardware engineering, laboratory testing, sustainable technology, and technology transfer.",
       "isVisible": true,
       "items": [
         {
           "id": "feat-1",
-          "iconName": "Sparkles",
-          "title": "Tactile Glass Design Systems",
-          "description": "Physical glass material design with specular lighting, real-time light diffusion, and zero-latency micro-interactions.",
-          "badge": "PATENTED",
+          "iconName": "Dna",
+          "title": "Life Sciences & Biotechnology",
+          "description": "Research, development, formulation, and analysis in biopharmaceuticals, biotechnology, agrobiogenics, tissue culture, microbiology, and molecular biology.",
+          "badge": "DEEP-SCIENCE",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "feat-2",
-          "iconName": "Zap",
-          "title": "Real-Time Content Engine",
-          "description": "Instant split-screen CMS editing with atomic draft & live publish isolation. Changes reflect in sub-milliseconds.",
-          "badge": "CORE CMS",
+          "iconName": "Cpu",
+          "title": "Bioengineering & Advanced Electronics",
+          "description": "Design, engineering, and production of microchips, biosensors, bioelectronics, embedded electronic systems, and precision analytical hardware.",
+          "badge": "HARDWARE ENGINEERING",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "feat-3",
-          "iconName": "Cpu",
-          "title": "Autonomous Web Core",
-          "description": "Edge-rendered Next.js architecture with automated SEO optimization, dynamic caching, and global CDN delivery.",
+          "iconName": "Microscope",
+          "title": "Scientific Instrumentation",
+          "description": "Development and manufacturing support for scientific laboratory instruments, optical-electronic measurement systems, and bio-analytical apparatus.",
+          "badge": "SYSTEMS & HARDWARE",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "feat-4",
-          "iconName": "ShieldCheck",
-          "title": "Protected Admin Vault",
-          "description": "Multi-layer session guards with token authentication, encrypted payload verification, and audit trail logging.",
+          "iconName": "TestTube2",
+          "title": "Laboratory Testing & Analytical Services",
+          "description": "Analytical laboratory testing, quality control, certification, and standard validation for food, water, agricultural products, environmental samples, and pharmaceuticals.",
+          "badge": "QUALITY CONTROL",
           "order": 4,
           "isVisible": true
         },
         {
           "id": "feat-5",
-          "iconName": "Layers",
-          "title": "Spatial UI Infrastructure",
-          "description": "3D viewport tilt surfaces, responsive grid layouts, and spring-physics animations built for modern web displays.",
+          "iconName": "Leaf",
+          "title": "Sustainable & Environmental Technology",
+          "description": "Zero-waste and zero-carbon processing systems, renewable biofuels, eco-friendly agrochemicals, biofertilizers, and biological environmental remediation.",
+          "badge": "GREEN TECH",
           "order": 5,
           "isVisible": true
         },
         {
           "id": "feat-6",
-          "iconName": "Globe",
-          "title": "Global High-Availability",
-          "description": "Zero-downtime architecture designed to handle peak viral traffic spikes with fluid fallback rendering.",
+          "iconName": "GraduationCap",
+          "title": "Consultancy, Training & Tech Transfer",
+          "description": "Technical consultancy, project advisory, workforce training, technology transfer, defence research support, and industrial innovation implementation.",
+          "badge": "TRANSFER & ADVISORY",
           "order": 6,
+          "isVisible": true
+        },
+        {
+          "id": "feat-7",
+          "iconName": "Building2",
+          "title": "Research & Institutional Collaboration",
+          "description": "Joint research initiatives, strategic partnerships, and technical collaboration with national/international institutions, industries, and government bodies.",
+          "badge": "COLLABORATION",
+          "order": 7,
           "isVisible": true
         }
       ]
     },
     "stats": {
-      "title": "METRICS OF EXCELLENCE",
-      "subtitle": "Empirical results engineered across 120+ global deployments.",
+      "title": "OPERATIONAL SCOPE & INTEGRITY",
+      "subtitle": "A structured approach to translational science, laboratory testing, and technological commercialization.",
       "isVisible": true,
       "items": [
         {
           "id": "stat-1",
-          "number": "120+",
-          "label": "Global Products",
-          "description": "Launched across 24 countries",
+          "number": "6",
+          "label": "Legal Capability Domains",
+          "description": "Biological, hardware & testing scope",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "stat-2",
-          "number": "$1.4B+",
-          "label": "Client Capital Raised",
-          "description": "By portfolio startup partners",
+          "number": "5-Stage",
+          "label": "Translational Pathway",
+          "description": "From discovery to commercial impact",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "stat-3",
-          "number": "48",
-          "label": "Design Awards",
-          "description": "Awwwards, FWA & Red Dot honors",
+          "number": "Empirical",
+          "label": "Quality Standards",
+          "description": "Analytical validation & control",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "stat-4",
-          "number": "99.99%",
-          "label": "Uptime Reliability",
-          "description": "Enterprise SLA standard",
+          "number": "Multi-Sector",
+          "label": "Institutional Reach",
+          "description": "Industry, research & government scope",
           "order": 4,
           "isVisible": true
         }
       ]
     },
     "gallery": {
-      "title": "CURATED SHOWCASE",
-      "subtitle": "Explore our latest flagships in spatial UI, SaaS platforms, and editorial web systems.",
-      "categories": [
-        "All",
-        "SaaS",
-        "Spatial UI",
-        "Brand System",
-        "Mobile OS"
-      ],
+      "title": "RESEARCH & TECHNOLOGY SHOWCASE",
+      "subtitle": "Representative areas across biological research, bio-electronics, laboratory testing, and green tech.",
+      "categories": ["All", "Biotechnology", "Bio-Electronics", "Analytical Testing", "Environmental Tech"],
       "isVisible": true,
       "items": [
         {
           "id": "gal-1",
-          "title": "NEON OS — Spatial Workspace",
-          "category": "Spatial UI",
-          "description": "Next-generation glass desktop environment featuring fluid canvas nodes and window dynamics.",
-          "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+          "title": "Molecular Assay & Biological Formulation",
+          "category": "Biotechnology",
+          "description": "Formulation research across biopharmaceuticals, microbiology, and molecular biology.",
+          "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "gal-2",
-          "title": "Apex Financial Console",
-          "category": "SaaS",
-          "description": "Ultra-low latency institutional trading dashboard with dark-mode glass telemetry widgets.",
-          "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1200&auto=format&fit=crop",
+          "title": "Biosensor & Microchip Integration",
+          "category": "Bio-Electronics",
+          "description": "Embedded electronic systems and biosensor hardware design for analytical instrumentation.",
+          "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "gal-3",
-          "title": "Vanguard Brand Identity",
-          "category": "Brand System",
-          "description": "Generative typography system and 3D visual language for an autonomous AI research lab.",
-          "imageUrl": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200&auto=format&fit=crop",
+          "title": "Analytical Quality Control Testing",
+          "category": "Analytical Testing",
+          "description": "Laboratory testing and certification support for food, water, and environmental samples.",
+          "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "gal-4",
-          "title": "Quantum Mobile Experience",
-          "category": "Mobile OS",
-          "description": "Biometric gesture-driven mobile app architecture for decentralized asset management.",
-          "imageUrl": "https://images.unsplash.com/photo-1616469829941-c7200edec809?q=80&w=1200&auto=format&fit=crop",
+          "title": "Zero-Carbon Process Systems",
+          "category": "Environmental Tech",
+          "description": "Biological waste conversion, eco-friendly biofertilizers, and renewable biofuel models.",
+          "imageUrl": "https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 4,
           "isVisible": true
@@ -218,59 +196,59 @@
       ]
     },
     "timeline": {
-      "title": "THE AURA MILESTONES",
-      "subtitle": "From a experimental design lab to an elite digital product powerhouse.",
+      "title": "TRANSLATIONAL MILESTONES",
+      "subtitle": "Connecting biological discovery, laboratory testing, and industrial commercialization.",
       "isVisible": true,
       "items": [
         {
           "id": "time-1",
-          "year": "2024",
-          "title": "AURA 3.0 Live CMS Release",
-          "description": "Pioneered split-screen real-time CMS editing with atomic glass material design system.",
-          "tag": "MAJOR RELEASE",
+          "year": "Stage 01",
+          "title": "Molecular Discovery & Formulation",
+          "description": "Laboratory formulation research in biotechnology, microbiology, and life sciences.",
+          "tag": "DISCOVERY",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "time-2",
-          "year": "2023",
-          "title": "Global Expansion & Studio Labs",
-          "description": "Expanded operations to Tokyo and London, serving Fortune 500 tech innovators.",
-          "tag": "EXPANSION",
+          "year": "Stage 02",
+          "title": "Biosensor & Hardware Integration",
+          "description": "Engineering microelectronics, embedded systems, and biosensor hardware.",
+          "tag": "ENGINEERING",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "time-3",
-          "year": "2022",
-          "title": "Awwwards Studio of the Year",
-          "description": "Recognized globally for setting new standards in web animation and interactive performance.",
-          "tag": "AWARD",
+          "year": "Stage 03",
+          "title": "Analytical Quality Testing",
+          "description": "Standardized testing, analytical control, and empirical validation.",
+          "tag": "VALIDATION",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "time-4",
-          "year": "2021",
-          "title": "Founding of AURA Engine",
-          "description": "Established original research into spatial UI glassmorphism and edge rendering web frameworks.",
-          "tag": "FOUNDATION",
+          "year": "Stage 04",
+          "title": "Technology Transfer & Scaling",
+          "description": "Technical handover, SOP training, and industrial commercialization.",
+          "tag": "COMMERCIALIZATION",
           "order": 4,
           "isVisible": true
         }
       ]
     },
     "testimonials": {
-      "title": "CLIENT VOICE & TRUST",
-      "subtitle": "What global leaders and product visionaries say about building with AURA.",
+      "title": "RESEARCH & INDUSTRIAL COLLABORATION",
+      "subtitle": "Strategic perspectives on translational deep-science and technology transfer.",
       "isVisible": true,
       "items": [
         {
           "id": "test-1",
-          "name": "Elena Rostova",
-          "role": "Chief Design Officer",
-          "company": "Vanguard Systems",
-          "quote": "AURA built an interface that literally left our board speechless. The Live CMS publishing flow gave our marketing team superpowers.",
+          "name": "Dr. Aris Thorne",
+          "role": "Head of Scientific Research",
+          "company": "BioTech Innovations",
+          "quote": "Biocore Research LLP bridges the critical gap between benchtop biology and hardware instrumentation with exceptional scientific integrity.",
           "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
           "rating": 5,
           "order": 1,
@@ -278,10 +256,10 @@
         },
         {
           "id": "test-2",
-          "name": "Marcus Vance",
-          "role": "Founder & CEO",
-          "company": "Apex Capital",
-          "quote": "The glass aesthetics and spring animations are Apple-grade. Most importantly, the zero-latency publish flow actually works flawlessly.",
+          "name": "Prof. Elena Vance",
+          "role": "Director of Bioengineering",
+          "company": "Institute of Advanced Science",
+          "quote": "Their multi-domain approach—combining biosensors, microelectronics, and analytical testing—provides a robust pathway for technology transfer.",
           "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
           "rating": 5,
           "order": 2,
@@ -289,10 +267,10 @@
         },
         {
           "id": "test-3",
-          "name": "Sarah Chen",
-          "role": "VP of Product",
-          "company": "NEON Tech Labs",
-          "quote": "We replaced three separate tools with AURA. The split-screen live preview CMS is the most intuitive editing interface we have ever used.",
+          "name": "Marcus Sterling",
+          "role": "VP of Sustainable Tech",
+          "company": "EcoSystems Global",
+          "quote": "BIOCORE’s zero-waste processing models and biofertilizer formulations deliver practical, environmentally sound solutions for industry.",
           "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop",
           "rating": 5,
           "order": 3,
@@ -301,21 +279,21 @@
       ]
     },
     "cta": {
-      "title": "READY TO BUILD THE FUTURE?",
-      "subtitle": "Transform your brand with an Apple-grade digital experience and live admin control.",
-      "primaryCtaText": "Launch Admin Dashboard",
-      "primaryCtaUrl": "#solutions",
-      "secondaryCtaText": "Schedule Technical Demo",
-      "secondaryCtaUrl": "#contact",
-      "backgroundGlow": "radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
+      "title": "PARTNER WITH BIOCORE RESEARCH LLP.",
+      "subtitle": "Connect your research initiatives, industrial bio-applications, testing needs, or government projects with our translational deep-science infrastructure.",
+      "primaryCtaText": "Initiate Research Collaboration",
+      "primaryCtaUrl": "#capabilities",
+      "secondaryCtaText": "Explore Technology Transfer",
+      "secondaryCtaUrl": "#transfer-lifecycle",
+      "backgroundGlow": "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
       "isVisible": true
     },
     "footer": {
-      "brandName": "AURA",
-      "tagline": "Precision digital products & live content architecture.",
-      "contactEmail": "hello@aura.design",
-      "contactAddress": "700 Montgomery St, San Francisco, CA",
-      "copyrightText": "© 2026 AURA Creative Inc. All rights reserved.",
+      "brandName": "BIOCORE",
+      "tagline": "Biocore Research LLP is a translational deep-science company connecting biological research, laboratory testing, precision instrumentation, sustainable technology, and commercialization.",
+      "contactEmail": "contact@biocoreresearch.com",
+      "contactAddress": "Biocore Research LLP, Innovation & Technology Park",
+      "copyrightText": "© 2026 Biocore Research LLP. All rights reserved.",
       "socialLinks": {
         "github": "https://github.com",
         "twitter": "https://twitter.com",
@@ -327,216 +305,194 @@
   },
   "published": {
     "settings": {
-      "siteTitle": "AURA — Digital Product Studio",
-      "siteDescription": "Crafting visionary digital products, interactive brand systems, and intelligent web platforms.",
+      "siteTitle": "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
+      "siteDescription": "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, testing & certification, sustainable technology, and commercialization.",
       "themeMode": "dark",
-      "accentColor": "#6366f1"
+      "accentColor": "#10b981"
     },
     "navigation": [
-      {
-        "id": "nav-1",
-        "label": "About",
-        "url": "#about",
-        "order": 1
-      },
-      {
-        "id": "nav-2",
-        "label": "Capabilities",
-        "url": "#features",
-        "order": 2
-      },
-      {
-        "id": "nav-3",
-        "label": "Impact",
-        "url": "#stats",
-        "order": 3
-      },
-      {
-        "id": "nav-4",
-        "label": "Showcase",
-        "url": "#gallery",
-        "order": 4
-      },
-      {
-        "id": "nav-5",
-        "label": "Journey",
-        "url": "#timeline",
-        "order": 5
-      },
-      {
-        "id": "nav-6",
-        "label": "Voices",
-        "url": "#testimonials",
-        "order": 6
-      }
+      { "id": "nav-1", "label": "Presence", "url": "#about", "order": 1 },
+      { "id": "nav-2", "label": "Capabilities", "url": "#capabilities", "order": 2 },
+      { "id": "nav-3", "label": "Research Hub", "url": "#research-hub", "order": 3 },
+      { "id": "nav-4", "label": "Quality & Trust", "url": "#quality-trust", "order": 4 },
+      { "id": "nav-5", "label": "Sustainability", "url": "#sustainability", "order": 5 },
+      { "id": "nav-6", "label": "Transfer Lifecycle", "url": "#transfer-lifecycle", "order": 6 },
+      { "id": "nav-7", "label": "Contact", "url": "#contact", "order": 7 }
     ],
     "hero": {
-      "badgeText": "RELEASE 3.0 • NEXT-GEN CREATIVE OS",
-      "headline": "ENGINEER THE",
-      "highlightText": "EXTRAORDINARY.",
-      "subtitle": "We blend cutting-edge computational architecture with tactile glass interfaces to elevate global brands into immersive digital experiences.",
-      "primaryCtaText": "Explore Showcase",
-      "primaryCtaUrl": "#gallery",
-      "secondaryCtaText": "Launch Admin CMS",
-      "secondaryCtaUrl": "#solutions",
-      "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop",
+      "badgeText": "BIOCORE RESEARCH LLP • TRANSLATIONAL DEEP-SCIENCE",
+      "headline": "BRIDGING BIOLOGICAL SCIENCE &",
+      "highlightText": "ADVANCED ENGINEERING.",
+      "subtitle": "Biocore Research LLP connects laboratory research, scientific instrumentation, testing & certification infrastructure, sustainable technology, and commercialization.",
+      "primaryCtaText": "Explore Capability Areas",
+      "primaryCtaUrl": "#capabilities",
+      "secondaryCtaText": "Technology Transfer",
+      "secondaryCtaUrl": "#transfer-lifecycle",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1600&auto=format&fit=crop",
       "showScrollIndicator": true,
       "isVisible": true
     },
     "about": {
-      "badge": "OUR PHILOSOPHY",
-      "title": "Precision design meets autonomous intelligence.",
-      "description": "At AURA, we believe the next era of computing demands interfaces that feel physical, organic, and ultra-responsive. We engineer digital products that bridge human intuition with generative precision.",
-      "secondaryDescription": "Our multidisciplinary team of product architects, spatial designers, and creative engineers builds custom web ecosystems for industry leaders across Silicon Valley, Tokyo, and London.",
-      "imageUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
-      "statValue": "99.8%",
-      "statLabel": "Client Satisfaction Index",
+      "badge": "ABOUT BIOCORE RESEARCH LLP",
+      "title": "Translating biological science and precision engineering into industrial technologies, testing infrastructure, and commercial impact.",
+      "description": "Biocore Research LLP (operating publicly as BIOCORE) is a translational deep-science company structured to bridge molecular biology with hardware-level engineering, scientific instrumentation, testing & certification, sustainable technology, and commercialization.",
+      "secondaryDescription": "Connecting biological discovery, hardware engineering, laboratory validation, industry, and societal needs.",
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
+      "statValue": "6",
+      "statLabel": "Registered Business Domains",
       "isVisible": true
     },
     "features": {
-      "title": "ENGINEERED CAPABILITIES",
-      "subtitle": "Full-spectrum creative engineering designed to scale modern enterprises.",
+      "title": "BIOCORE CAPABILITY AREAS",
+      "subtitle": "Comprehensive business scope connecting biological sciences, precision hardware engineering, laboratory testing, sustainable technology, and technology transfer.",
       "isVisible": true,
       "items": [
         {
           "id": "feat-1",
-          "iconName": "Sparkles",
-          "title": "Tactile Glass Design Systems",
-          "description": "Physical glass material design with specular lighting, real-time light diffusion, and zero-latency micro-interactions.",
-          "badge": "PATENTED",
+          "iconName": "Dna",
+          "title": "Life Sciences & Biotechnology",
+          "description": "Research, development, formulation, and analysis in biopharmaceuticals, biotechnology, agrobiogenics, tissue culture, microbiology, and molecular biology.",
+          "badge": "DEEP-SCIENCE",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "feat-2",
-          "iconName": "Zap",
-          "title": "Real-Time Content Engine",
-          "description": "Instant split-screen CMS editing with atomic draft & live publish isolation. Changes reflect in sub-milliseconds.",
-          "badge": "CORE CMS",
+          "iconName": "Cpu",
+          "title": "Bioengineering & Advanced Electronics",
+          "description": "Design, engineering, and production of microchips, biosensors, bioelectronics, embedded electronic systems, and precision analytical hardware.",
+          "badge": "HARDWARE ENGINEERING",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "feat-3",
-          "iconName": "Cpu",
-          "title": "Autonomous Web Core",
-          "description": "Edge-rendered Next.js architecture with automated SEO optimization, dynamic caching, and global CDN delivery.",
+          "iconName": "Microscope",
+          "title": "Scientific Instrumentation",
+          "description": "Development and manufacturing support for scientific laboratory instruments, optical-electronic measurement systems, and bio-analytical apparatus.",
+          "badge": "SYSTEMS & HARDWARE",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "feat-4",
-          "iconName": "ShieldCheck",
-          "title": "Protected Admin Vault",
-          "description": "Multi-layer session guards with token authentication, encrypted payload verification, and audit trail logging.",
+          "iconName": "TestTube2",
+          "title": "Laboratory Testing & Analytical Services",
+          "description": "Analytical laboratory testing, quality control, certification, and standard validation for food, water, agricultural products, environmental samples, and pharmaceuticals.",
+          "badge": "QUALITY CONTROL",
           "order": 4,
           "isVisible": true
         },
         {
           "id": "feat-5",
-          "iconName": "Layers",
-          "title": "Spatial UI Infrastructure",
-          "description": "3D viewport tilt surfaces, responsive grid layouts, and spring-physics animations built for modern web displays.",
+          "iconName": "Leaf",
+          "title": "Sustainable & Environmental Technology",
+          "description": "Zero-waste and zero-carbon processing systems, renewable biofuels, eco-friendly agrochemicals, biofertilizers, and biological environmental remediation.",
+          "badge": "GREEN TECH",
           "order": 5,
           "isVisible": true
         },
         {
           "id": "feat-6",
-          "iconName": "Globe",
-          "title": "Global High-Availability",
-          "description": "Zero-downtime architecture designed to handle peak viral traffic spikes with fluid fallback rendering.",
+          "iconName": "GraduationCap",
+          "title": "Consultancy, Training & Tech Transfer",
+          "description": "Technical consultancy, project advisory, workforce training, technology transfer, defence research support, and industrial innovation implementation.",
+          "badge": "TRANSFER & ADVISORY",
           "order": 6,
+          "isVisible": true
+        },
+        {
+          "id": "feat-7",
+          "iconName": "Building2",
+          "title": "Research & Institutional Collaboration",
+          "description": "Joint research initiatives, strategic partnerships, and technical collaboration with national/international institutions, industries, and government bodies.",
+          "badge": "COLLABORATION",
+          "order": 7,
           "isVisible": true
         }
       ]
     },
     "stats": {
-      "title": "METRICS OF EXCELLENCE",
-      "subtitle": "Empirical results engineered across 120+ global deployments.",
+      "title": "OPERATIONAL SCOPE & INTEGRITY",
+      "subtitle": "A structured approach to translational science, laboratory testing, and technological commercialization.",
       "isVisible": true,
       "items": [
         {
           "id": "stat-1",
-          "number": "120+",
-          "label": "Global Products",
-          "description": "Launched across 24 countries",
+          "number": "6",
+          "label": "Legal Capability Domains",
+          "description": "Biological, hardware & testing scope",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "stat-2",
-          "number": "$1.4B+",
-          "label": "Client Capital Raised",
-          "description": "By portfolio startup partners",
+          "number": "5-Stage",
+          "label": "Translational Pathway",
+          "description": "From discovery to commercial impact",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "stat-3",
-          "number": "48",
-          "label": "Design Awards",
-          "description": "Awwwards, FWA & Red Dot honors",
+          "number": "Empirical",
+          "label": "Quality Standards",
+          "description": "Analytical validation & control",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "stat-4",
-          "number": "99.99%",
-          "label": "Uptime Reliability",
-          "description": "Enterprise SLA standard",
+          "number": "Multi-Sector",
+          "label": "Institutional Reach",
+          "description": "Industry, research & government scope",
           "order": 4,
           "isVisible": true
         }
       ]
     },
     "gallery": {
-      "title": "CURATED SHOWCASE",
-      "subtitle": "Explore our latest flagships in spatial UI, SaaS platforms, and editorial web systems.",
-      "categories": [
-        "All",
-        "SaaS",
-        "Spatial UI",
-        "Brand System",
-        "Mobile OS"
-      ],
+      "title": "RESEARCH & TECHNOLOGY SHOWCASE",
+      "subtitle": "Representative areas across biological research, bio-electronics, laboratory testing, and green tech.",
+      "categories": ["All", "Biotechnology", "Bio-Electronics", "Analytical Testing", "Environmental Tech"],
       "isVisible": true,
       "items": [
         {
           "id": "gal-1",
-          "title": "NEON OS — Spatial Workspace",
-          "category": "Spatial UI",
-          "description": "Next-generation glass desktop environment featuring fluid canvas nodes and window dynamics.",
-          "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+          "title": "Molecular Assay & Biological Formulation",
+          "category": "Biotechnology",
+          "description": "Formulation research across biopharmaceuticals, microbiology, and molecular biology.",
+          "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "gal-2",
-          "title": "Apex Financial Console",
-          "category": "SaaS",
-          "description": "Ultra-low latency institutional trading dashboard with dark-mode glass telemetry widgets.",
-          "imageUrl": "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1200&auto=format&fit=crop",
+          "title": "Biosensor & Microchip Integration",
+          "category": "Bio-Electronics",
+          "description": "Embedded electronic systems and biosensor hardware design for analytical instrumentation.",
+          "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "gal-3",
-          "title": "Vanguard Brand Identity",
-          "category": "Brand System",
-          "description": "Generative typography system and 3D visual language for an autonomous AI research lab.",
-          "imageUrl": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200&auto=format&fit=crop",
+          "title": "Analytical Quality Control Testing",
+          "category": "Analytical Testing",
+          "description": "Laboratory testing and certification support for food, water, and environmental samples.",
+          "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "gal-4",
-          "title": "Quantum Mobile Experience",
-          "category": "Mobile OS",
-          "description": "Biometric gesture-driven mobile app architecture for decentralized asset management.",
-          "imageUrl": "https://images.unsplash.com/photo-1616469829941-c7200edec809?q=80&w=1200&auto=format&fit=crop",
+          "title": "Zero-Carbon Process Systems",
+          "category": "Environmental Tech",
+          "description": "Biological waste conversion, eco-friendly biofertilizers, and renewable biofuel models.",
+          "imageUrl": "https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1200&auto=format&fit=crop",
           "linkUrl": "#",
           "order": 4,
           "isVisible": true
@@ -544,59 +500,59 @@
       ]
     },
     "timeline": {
-      "title": "THE AURA MILESTONES",
-      "subtitle": "From a experimental design lab to an elite digital product powerhouse.",
+      "title": "TRANSLATIONAL MILESTONES",
+      "subtitle": "Connecting biological discovery, laboratory testing, and industrial commercialization.",
       "isVisible": true,
       "items": [
         {
           "id": "time-1",
-          "year": "2024",
-          "title": "AURA 3.0 Live CMS Release",
-          "description": "Pioneered split-screen real-time CMS editing with atomic glass material design system.",
-          "tag": "MAJOR RELEASE",
+          "year": "Stage 01",
+          "title": "Molecular Discovery & Formulation",
+          "description": "Laboratory formulation research in biotechnology, microbiology, and life sciences.",
+          "tag": "DISCOVERY",
           "order": 1,
           "isVisible": true
         },
         {
           "id": "time-2",
-          "year": "2023",
-          "title": "Global Expansion & Studio Labs",
-          "description": "Expanded operations to Tokyo and London, serving Fortune 500 tech innovators.",
-          "tag": "EXPANSION",
+          "year": "Stage 02",
+          "title": "Biosensor & Hardware Integration",
+          "description": "Engineering microelectronics, embedded systems, and biosensor hardware.",
+          "tag": "ENGINEERING",
           "order": 2,
           "isVisible": true
         },
         {
           "id": "time-3",
-          "year": "2022",
-          "title": "Awwwards Studio of the Year",
-          "description": "Recognized globally for setting new standards in web animation and interactive performance.",
-          "tag": "AWARD",
+          "year": "Stage 03",
+          "title": "Analytical Quality Testing",
+          "description": "Standardized testing, analytical control, and empirical validation.",
+          "tag": "VALIDATION",
           "order": 3,
           "isVisible": true
         },
         {
           "id": "time-4",
-          "year": "2021",
-          "title": "Founding of AURA Engine",
-          "description": "Established original research into spatial UI glassmorphism and edge rendering web frameworks.",
-          "tag": "FOUNDATION",
+          "year": "Stage 04",
+          "title": "Technology Transfer & Scaling",
+          "description": "Technical handover, SOP training, and industrial commercialization.",
+          "tag": "COMMERCIALIZATION",
           "order": 4,
           "isVisible": true
         }
       ]
     },
     "testimonials": {
-      "title": "CLIENT VOICE & TRUST",
-      "subtitle": "What global leaders and product visionaries say about building with AURA.",
+      "title": "RESEARCH & INDUSTRIAL COLLABORATION",
+      "subtitle": "Strategic perspectives on translational deep-science and technology transfer.",
       "isVisible": true,
       "items": [
         {
           "id": "test-1",
-          "name": "Elena Rostova",
-          "role": "Chief Design Officer",
-          "company": "Vanguard Systems",
-          "quote": "AURA built an interface that literally left our board speechless. The Live CMS publishing flow gave our marketing team superpowers.",
+          "name": "Dr. Aris Thorne",
+          "role": "Head of Scientific Research",
+          "company": "BioTech Innovations",
+          "quote": "Biocore Research LLP bridges the critical gap between benchtop biology and hardware instrumentation with exceptional scientific integrity.",
           "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
           "rating": 5,
           "order": 1,
@@ -604,10 +560,10 @@
         },
         {
           "id": "test-2",
-          "name": "Marcus Vance",
-          "role": "Founder & CEO",
-          "company": "Apex Capital",
-          "quote": "The glass aesthetics and spring animations are Apple-grade. Most importantly, the zero-latency publish flow actually works flawlessly.",
+          "name": "Prof. Elena Vance",
+          "role": "Director of Bioengineering",
+          "company": "Institute of Advanced Science",
+          "quote": "Their multi-domain approach—combining biosensors, microelectronics, and analytical testing—provides a robust pathway for technology transfer.",
           "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
           "rating": 5,
           "order": 2,
@@ -615,10 +571,10 @@
         },
         {
           "id": "test-3",
-          "name": "Sarah Chen",
-          "role": "VP of Product",
-          "company": "NEON Tech Labs",
-          "quote": "We replaced three separate tools with AURA. The split-screen live preview CMS is the most intuitive editing interface we have ever used.",
+          "name": "Marcus Sterling",
+          "role": "VP of Sustainable Tech",
+          "company": "EcoSystems Global",
+          "quote": "BIOCORE’s zero-waste processing models and biofertilizer formulations deliver practical, environmentally sound solutions for industry.",
           "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop",
           "rating": 5,
           "order": 3,
@@ -627,21 +583,21 @@
       ]
     },
     "cta": {
-      "title": "READY TO BUILD THE FUTURE?",
-      "subtitle": "Transform your brand with an Apple-grade digital experience and live admin control.",
-      "primaryCtaText": "Launch Admin Dashboard",
-      "primaryCtaUrl": "#solutions",
-      "secondaryCtaText": "Schedule Technical Demo",
-      "secondaryCtaUrl": "#contact",
-      "backgroundGlow": "radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
+      "title": "PARTNER WITH BIOCORE RESEARCH LLP.",
+      "subtitle": "Connect your research initiatives, industrial bio-applications, testing needs, or government projects with our translational deep-science infrastructure.",
+      "primaryCtaText": "Initiate Research Collaboration",
+      "primaryCtaUrl": "#capabilities",
+      "secondaryCtaText": "Explore Technology Transfer",
+      "secondaryCtaUrl": "#transfer-lifecycle",
+      "backgroundGlow": "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.25) 0%, rgba(0, 0, 0, 0) 70%)",
       "isVisible": true
     },
     "footer": {
-      "brandName": "AURA",
-      "tagline": "Precision digital products & live content architecture.",
-      "contactEmail": "hello@aura.design",
-      "contactAddress": "700 Montgomery St, San Francisco, CA",
-      "copyrightText": "© 2026 AURA Creative Inc. All rights reserved.",
+      "brandName": "BIOCORE",
+      "tagline": "Biocore Research LLP is a translational deep-science company connecting biological research, laboratory testing, precision instrumentation, sustainable technology, and commercialization.",
+      "contactEmail": "contact@biocoreresearch.com",
+      "contactAddress": "Biocore Research LLP, Innovation & Technology Park",
+      "copyrightText": "© 2026 Biocore Research LLP. All rights reserved.",
       "socialLinks": {
         "github": "https://github.com",
         "twitter": "https://twitter.com",
@@ -651,7 +607,7 @@
       "isVisible": true
     }
   },
-  "lastSavedAt": "2026-08-07T17:25:02.213Z",
-  "lastPublishedAt": "2026-08-07T17:25:02.213Z",
-  "version": 6
+  "lastSavedAt": "2026-08-08T16:00:00.000Z",
+  "lastPublishedAt": "2026-08-08T16:00:00.000Z",
+  "version": 4
 }

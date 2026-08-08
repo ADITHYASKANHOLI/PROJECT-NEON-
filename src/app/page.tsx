@@ -20,10 +20,11 @@ export const revalidate = 0; // Dynamic rendering for instant live publish updat
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await fetchPublishedContentFromDB();
-  const siteTitle = content.settings?.siteTitle || 'PROJECT NEON — Managed Website-as-a-Service Platform';
+  const siteTitle =
+    content.settings?.siteTitle || 'BIOCORE — Biocore Research LLP Translational Deep-Science Platform';
   const siteDescription =
     content.settings?.siteDescription ||
-    'Lease, manage, and continuously evolve your company’s digital advertising platform with remote Supabase CMS control.';
+    'Biocore Research LLP (BIOCORE) connects biological science, advanced engineering, laboratory testing, sustainable technology, and commercialization.';
 
   return {
     title: siteTitle,
@@ -44,13 +45,13 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen relative bg-[#05070a] text-slate-100 overflow-x-hidden">
-      <Navbar items={content.navigation || []} siteTitle={content.settings?.siteTitle || 'PROJECT NEON'} />
+      <Navbar items={content.navigation || []} siteTitle={content.settings?.siteTitle || 'BIOCORE'} />
       <Hero data={content.hero} />
       <About data={content.about} />
       <Features data={content.features} />
-      <Solutions />
       <CommandCenter />
       <TrustSection />
+      <Solutions />
       <DeploymentWorkflow />
       <Stats data={content.stats} />
       <Gallery data={content.gallery} />

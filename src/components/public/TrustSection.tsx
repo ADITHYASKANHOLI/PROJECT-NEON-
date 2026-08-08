@@ -4,48 +4,51 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { ShieldCheck, Server, RefreshCw, Users, CheckCircle2, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { ShieldCheck, TestTube2, Microscope, Users, ArrowRight, Sparkles } from 'lucide-react';
 
 export const TrustSection: React.FC = () => {
-  const pillars = [
+  const qualityPillars = [
     {
-      id: 'availability',
-      icon: <Server className="w-6 h-6 text-sky-400" />,
-      title: 'Always Available',
-      description: 'Managed hosting infrastructure engineered for continuous 24/7 business presence and high-traffic campaign spikes.',
+      id: 'empirical',
+      icon: <TestTube2 className="w-6 h-6 text-emerald-400" />,
+      title: 'Empirical Analytical Standards',
+      description:
+        'Every biological formulation, testing service, and instrumentation module is subject to empirical validation protocols.',
     },
     {
-      id: 'security',
-      icon: <ShieldCheck className="w-6 h-6 text-blue-400" />,
-      title: 'Secure by Design',
-      description: 'Protected Supabase authentication, database-enforced Row Level Security (RLS), encrypted sessions, and enterprise guards.',
+      id: 'integrity',
+      icon: <ShieldCheck className="w-6 h-6 text-sky-400" />,
+      title: 'Data Integrity & Quality Control',
+      description:
+        'Strict analytical accuracy, standardized sample preparation, and quality control covering food, water, environmental, and bio-materials.',
     },
     {
-      id: 'evolution',
-      icon: <RefreshCw className="w-6 h-6 text-amber-400" />,
-      title: 'Continuously Evolving',
-      description: 'Digital platforms are not static assets. Campaigns, branding, and customer experiences continuously improve under your lease.',
+      id: 'engineering',
+      icon: <Microscope className="w-6 h-6 text-teal-400" />,
+      title: 'Hardware & Sensor Reliability',
+      description:
+        'Precision design of biosensors, microchips, and bioelectronics built to withstand industrial and laboratory environments.',
     },
     {
-      id: 'partnership',
-      icon: <Users className="w-6 h-6 text-slate-300" />,
-      title: 'Human-Managed Technology',
-      description: 'A dedicated technology partnership with specialized engineering support, not just automated software.',
+      id: 'institutional',
+      icon: <Users className="w-6 h-6 text-indigo-400" />,
+      title: 'Institutional & Technical Partnership',
+      description:
+        'Collaborative research framework supporting universities, government agencies, defence research initiatives, and industrial partners.',
     },
   ];
 
-  const metrics = [
-    { label: 'Platform Status', value: 'Operational', highlight: true },
-    { label: 'Infrastructure', value: 'Cloud Managed' },
-    { label: 'Updates', value: 'Remote Publishing' },
-    { label: 'Support SLA', value: 'Continuous Partnership' },
+  const operationalMetrics = [
+    { label: 'Operational Scope', value: 'Translational Science', highlight: true },
+    { label: 'Research Focus', value: 'Biology + Engineering' },
+    { label: 'Quality Framework', value: 'Empirical Testing' },
+    { label: 'Collaboration', value: 'Institutional & Industry' },
   ];
 
   return (
-    <section id="trust" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
-      {/* Background Executive Sapphire Glow */}
-      <div className="neon-aura-cyan top-1/2 left-1/4 -translate-y-1/2" />
+    <section id="quality-trust" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
+      {/* Background Glow */}
+      <div className="neon-aura-cyan top-1/2 left-1/4 -translate-y-1/2 opacity-70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -54,9 +57,10 @@ export const TrustSection: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wider uppercase"
           >
-            ENTERPRISE TRUST & RELIABILITY
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <span>SCIENTIFIC INTEGRITY & QUALITY</span>
           </motion.div>
 
           <motion.h2
@@ -64,9 +68,9 @@ export const TrustSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase"
+            className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-tight"
           >
-            BUILT FOR BUSINESSES THAT <span className="text-sky-400">CANNOT PAUSE</span>
+            ENGINEERED FOR RIGOR, REPEATABILITY & <span className="text-teal-400">QUALITY</span>
           </motion.h2>
 
           <motion.p
@@ -74,15 +78,15 @@ export const TrustSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg text-slate-300 font-light"
+            className="text-sm sm:text-base md:text-lg text-slate-300 font-light leading-relaxed"
           >
-            PROJECT NEON delivers mission-critical digital advertising infrastructure engineered for security, continuous availability, and long-term brand authority.
+            Biocore Research LLP is dedicated to scientific credibility, empirical testing standards, and robust bio-engineering principles.
           </motion.p>
         </div>
 
-        {/* Four Executive Pillars Grid */}
+        {/* Four Quality Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12 sm:mb-16">
-          {pillars.map((pillar, idx) => (
+          {qualityPillars.map((pillar, idx) => (
             <motion.div
               key={pillar.id}
               initial={{ opacity: 0, y: 25 }}
@@ -90,7 +94,7 @@ export const TrustSection: React.FC = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: idx * 0.1 }}
             >
-              <GlassCard className="p-6 sm:p-8 h-full flex flex-col justify-between">
+              <GlassCard className="p-6 sm:p-8 h-full flex flex-col justify-between hover:border-teal-500/30">
                 <div className="space-y-4">
                   <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 w-fit">{pillar.icon}</div>
                   <h3 className="text-xl font-bold text-white tracking-wide">{pillar.title}</h3>
@@ -103,16 +107,16 @@ export const TrustSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Executive Metrics Bar */}
+        {/* Operational Scope Metrics Bar */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           className="mb-12"
         >
-          <GlassCard className="glass-panel-neon p-6 sm:p-8 border-sky-500/40">
+          <GlassCard className="glass-panel-neon p-6 sm:p-8 border-teal-500/40">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              {metrics.map((m, i) => (
+              {operationalMetrics.map((m, i) => (
                 <div key={i} className="space-y-1">
                   <span className="text-xs text-slate-400 font-medium uppercase tracking-wider block">{m.label}</span>
                   <div className="flex items-center justify-center gap-2">
@@ -125,7 +129,7 @@ export const TrustSection: React.FC = () => {
           </GlassCard>
         </motion.div>
 
-        {/* CTA Button */}
+        {/* Section Action CTA */}
         <div className="text-center">
           <a href="#solutions">
             <GlassButton
@@ -134,7 +138,7 @@ export const TrustSection: React.FC = () => {
               className="px-10 justify-center"
               icon={<ArrowRight className="w-5 h-5" />}
             >
-              Schedule Enterprise Discussion
+              Explore Sustainable Technology Solutions
             </GlassButton>
           </a>
         </div>

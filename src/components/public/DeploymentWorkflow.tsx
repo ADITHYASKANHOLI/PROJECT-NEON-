@@ -4,62 +4,61 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { GlassButton } from '@/components/ui/GlassButton';
-import { Compass, Cpu, Layers, ShieldCheck, RefreshCw, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Compass, Cpu, TestTube2, GraduationCap, RefreshCw, ArrowRight, Sparkles } from 'lucide-react';
 
 export const DeploymentWorkflow: React.FC = () => {
   const stages = [
     {
       id: 'stage-1',
       number: '01',
-      icon: <Compass className="w-6 h-6 text-sky-400" />,
-      title: 'Discovery & Digital Strategy',
+      icon: <Compass className="w-6 h-6 text-emerald-400" />,
+      title: 'Discovery & Molecular Strategy',
       badge: 'STAGE 01',
       description:
-        'We align with your executive team to analyze brand identity, target demographics, campaign goals, and enterprise conversion objectives.',
+        'Understanding target biological pathways, formulation objectives, market requirements, and scientific scope.',
     },
     {
       id: 'stage-2',
       number: '02',
-      icon: <Cpu className="w-6 h-6 text-blue-400" />,
-      title: 'Platform Architecture',
+      icon: <Cpu className="w-6 h-6 text-sky-400" />,
+      title: 'Instrumentation & System Architecture',
       badge: 'STAGE 02',
       description:
-        'We configure your dedicated cloud environment, PostgreSQL database schemas, Row Level Security (RLS) policies, and high-availability edge nodes.',
+        'Engineering hardware support, microchips, biosensors, bioelectronics, and scientific apparatus architectures.',
     },
     {
       id: 'stage-3',
       number: '03',
-      icon: <Layers className="w-6 h-6 text-indigo-400" />,
-      title: 'Brand Experience Deployment',
+      icon: <TestTube2 className="w-6 h-6 text-teal-400" />,
+      title: 'Laboratory Testing & Empirical Validation',
       badge: 'STAGE 03',
       description:
-        'We deploy your bespoke liquid glass digital platform populated with structured brand media, marketing messaging, and conversion architecture.',
+        'Conducting rigorous analytical testing, quality control, stability assays, and biological validation.',
     },
     {
       id: 'stage-4',
       number: '04',
-      icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
-      title: 'Client Command Center Activation',
+      icon: <GraduationCap className="w-6 h-6 text-blue-400" />,
+      title: 'Technology Transfer & Training Handover',
       badge: 'STAGE 04',
       description:
-        'Your marketing team receives isolated Supabase Auth portal access to remotely publish announcements, campaign updates, and brand assets live in seconds.',
+        'Executing technical transfer, operational training, SOP documentation, and IP protocol handover to industrial partners.',
     },
     {
       id: 'stage-5',
       number: '05',
-      icon: <RefreshCw className="w-6 h-6 text-amber-400" />,
-      title: 'Continuous Evolution & SLA',
+      icon: <RefreshCw className="w-6 h-6 text-indigo-400" />,
+      title: 'Industrial Scaling & Continuous Optimization',
       badge: 'STAGE 05',
       description:
-        'PROJECT NEON continuously manages cloud hosting, security compliance, performance optimizations, and design system upgrades under your platform lease.',
+        'Supporting industrial bio-manufacturing, field implementation, continuous quality monitoring, and ongoing research collaboration.',
     },
   ];
 
   return (
-    <section id="workflow" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
-      {/* Background Executive Sapphire Ambient Glow */}
-      <div className="neon-aura-violet top-1/2 right-1/4 -translate-y-1/2" />
+    <section id="transfer-lifecycle" className="py-20 sm:py-28 md:py-36 relative z-10 overflow-hidden">
+      {/* Background Glow */}
+      <div className="neon-aura-violet top-1/2 right-1/4 -translate-y-1/2 opacity-70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -68,9 +67,10 @@ export const DeploymentWorkflow: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-wider uppercase"
           >
-            ENTERPRISE DEPLOYMENT LIFECYCLE
+            <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+            <span>TRANSLATIONAL LIFECYCLE</span>
           </motion.div>
 
           <motion.h2
@@ -78,9 +78,9 @@ export const DeploymentWorkflow: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase"
+            className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-tight"
           >
-            FROM PARTNERSHIP TO <span className="text-sky-400">LIVE PLATFORM</span>
+            FROM LABORATORY RESEARCH TO <span className="text-teal-400">COMMERCIAL IMPACT</span>
           </motion.h2>
 
           <motion.p
@@ -88,16 +88,16 @@ export const DeploymentWorkflow: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg text-slate-300 font-light"
+            className="text-sm sm:text-base md:text-lg text-slate-300 font-light leading-relaxed"
           >
-            We do not build static websites. We deploy and continuously operate managed digital advertising infrastructure for growing enterprises.
+            A structured 5-stage translational pathway connecting biological science, hardware engineering, laboratory testing, and industrial commercialization.
           </motion.p>
         </div>
 
         {/* Spatial Timeline Grid */}
         <div className="relative">
-          {/* Spatial Connecting Glass Node Line (Desktop) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-500/40 via-blue-500/20 to-transparent -translate-x-1/2" />
+          {/* Spatial Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-500/40 via-sky-500/20 to-transparent -translate-x-1/2" />
 
           <div className="space-y-8 sm:space-y-12">
             {stages.map((stage, idx) => {
@@ -115,10 +115,10 @@ export const DeploymentWorkflow: React.FC = () => {
                 >
                   {/* Glass Card Side */}
                   <div className="w-full lg:w-1/2">
-                    <GlassCard className="p-6 sm:p-8 space-y-4 relative">
+                    <GlassCard className="p-6 sm:p-8 space-y-4 relative hover:border-teal-500/30">
                       <div className="flex items-center justify-between">
                         <div className="p-3 rounded-2xl bg-white/5 border border-white/10">{stage.icon}</div>
-                        <span className="text-[11px] font-mono font-bold tracking-widest px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/30">
+                        <span className="text-[11px] font-mono font-bold tracking-widest px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/30">
                           {stage.badge}
                         </span>
                       </div>
@@ -131,8 +131,8 @@ export const DeploymentWorkflow: React.FC = () => {
                   </div>
 
                   {/* Center Node Indicator */}
-                  <div className="hidden lg:flex items-center justify-center w-12 h-12 rounded-full glass-panel border border-sky-400/40 shrink-0 shadow-xl z-20 bg-slate-950">
-                    <span className="text-xs font-mono font-bold text-sky-400">{stage.number}</span>
+                  <div className="hidden lg:flex items-center justify-center w-12 h-12 rounded-full glass-panel border border-teal-400/40 shrink-0 shadow-xl z-20 bg-slate-950">
+                    <span className="text-xs font-mono font-bold text-teal-400">{stage.number}</span>
                   </div>
 
                   {/* Empty Side for Layout Balance */}
@@ -145,14 +145,14 @@ export const DeploymentWorkflow: React.FC = () => {
 
         {/* Section Action CTA */}
         <div className="mt-16 text-center">
-          <a href="#solutions">
+          <a href="#contact">
             <GlassButton
               variant="primary"
               size="lg"
               className="px-10 justify-center"
               icon={<ArrowRight className="w-5 h-5" />}
             >
-              Initiate Your Digital Platform Deployment
+              Initiate Technology Transfer Discussion
             </GlassButton>
           </a>
         </div>
