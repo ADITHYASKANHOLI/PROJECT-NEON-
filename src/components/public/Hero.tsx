@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { HeroSection } from '@/lib/types';
 import { GlassButton } from '@/components/ui/GlassButton';
+import { BiocoreLogo } from '@/components/ui/BiocoreLogo';
 import { ArrowRight, ChevronDown, Sparkles } from 'lucide-react';
 
 interface HeroProps {
@@ -325,11 +326,7 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                     filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.65))',
                   }}
                 >
-                  <img src="/biocore-emblem.png" alt="BIOCORE Emblem" className="h-7 w-auto object-contain shrink-0" />
-                  <div className="flex flex-col text-left leading-none">
-                    <span className="text-xs font-mono text-white font-bold tracking-wider uppercase">BIOCORE</span>
-                    <span className="text-[10px] font-serif italic text-emerald-400 mt-0.5">Advancing Science, Enriching Life</span>
-                  </div>
+                  <BiocoreLogo size="sm" showTagline={true} />
                 </div>
               </div>
             </motion.div>
