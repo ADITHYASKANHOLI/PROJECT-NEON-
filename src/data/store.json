@@ -13,7 +13,8 @@
       { "id": "nav-4", "label": "Quality & Trust", "url": "#quality-trust", "order": 4 },
       { "id": "nav-5", "label": "Sustainability", "url": "#sustainability", "order": 5 },
       { "id": "nav-6", "label": "Transfer Lifecycle", "url": "#transfer-lifecycle", "order": 6 },
-      { "id": "nav-7", "label": "Contact", "url": "#contact", "order": 7 }
+      { "id": "nav-7", "label": "Founders", "url": "#founders", "order": 7 },
+      { "id": "nav-8", "label": "Contact", "url": "#contact", "order": 8 }
     ],
     "hero": {
       "badgeText": "BIOCORE • ADVANCING SCIENCE, ENRICHING LIFE",

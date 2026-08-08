@@ -9,6 +9,7 @@ import { Solutions } from '@/components/public/Solutions';
 import { CommandCenter } from '@/components/public/CommandCenter';
 import { TrustSection } from '@/components/public/TrustSection';
 import { DeploymentWorkflow } from '@/components/public/DeploymentWorkflow';
+import { Founders } from '@/components/public/Founders';
 import { Stats } from '@/components/public/Stats';
 import { Gallery } from '@/components/public/Gallery';
 import { Timeline } from '@/components/public/Timeline';
@@ -53,6 +54,7 @@ export default async function HomePage() {
       <TrustSection />
       <Solutions />
       <DeploymentWorkflow />
+      <Founders />
       <Stats data={content.stats} />
       <Gallery data={content.gallery} />
       <Timeline data={content.timeline} />
