@@ -4,83 +4,44 @@ import React from 'react';
 
 interface BiocoreLogoProps {
   size?: 'sm' | 'md' | 'lg';
+  showTagline?: boolean;
   showLegalEntity?: boolean;
   className?: string;
+  darkContainer?: boolean;
 }
 
 export const BiocoreLogo: React.FC<BiocoreLogoProps> = ({
   size = 'md',
+  showTagline = true,
   showLegalEntity = true,
   className = '',
+  darkContainer = true,
 }) => {
-  const iconSizes = {
-    sm: 'w-7 h-7',
-    md: 'w-9 h-9',
-    lg: 'w-12 h-12',
+  // Height mappings for maintaining original proportions
+  const heightMap = {
+    sm: 'h-8 sm:h-9',
+    md: 'h-10 sm:h-12',
+    lg: 'h-14 sm:h-16',
   };
 
-  const textSizes = {
-    sm: 'text-base',
-    md: 'text-xl',
-    lg: 'text-3xl',
-  };
-
-  const subtitleSizes = {
-    sm: 'text-[9px]',
-    md: 'text-[10px]',
-    lg: 'text-[12px]',
-  };
-
-  return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
-      {/* Primary Symbol Emblem: Molecular DNA Double Helix + Bio-Electronic Node Hexagon */}
-      <div
-        className={`${iconSizes[size]} rounded-xl bg-gradient-to-br from-emerald-500 via-teal-600 to-sky-700 p-0.5 flex items-center justify-center shadow-lg shadow-teal-500/25 border border-emerald-400/40 relative overflow-hidden shrink-0`}
-      >
-        <svg
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full p-1 text-white"
-        >
-          {/* Hexagonal Outer Crystal Node */}
-          <polygon
-            points="20,4 34,12 34,28 20,36 6,28 6,12"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinejoin="round"
-            className="opacity-90"
-          />
-          {/* Internal DNA Double Helix & Molecular Node Core */}
-          <path
-            d="M13 14C17 17 23 23 27 26M27 14C23 17 17 23 13 26"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-          />
-          <circle cx="20" cy="20" r="3" fill="currentColor" />
-          <circle cx="13" cy="14" r="2" fill="#38bdf8" />
-          <circle cx="27" cy="14" r="2" fill="#34d399" />
-          <circle cx="13" cy="26" r="2" fill="#34d399" />
-          <circle cx="27" cy="26" r="2" fill="#38bdf8" />
-        </svg>
-      </div>
-
-      {/* Brand Typography */}
-      <div className="flex flex-col leading-none">
-        <span
-          className={`${textSizes[size]} font-black tracking-wider text-white uppercase font-sans`}
-        >
-          BIO<span className="text-teal-400">CORE</span>
-        </span>
-        {showLegalEntity && (
-          <span
-            className={`${subtitleSizes[size]} font-mono font-medium tracking-widest text-slate-300 uppercase mt-0.5`}
-          >
-            Biocore Research LLP
-          </span>
-        )}
-      </div>
+  const imageContainer = (
+    <div className={`relative inline-flex items-center select-none ${className}`}>
+      {/* Official BIOCORE Logo Image */}
+      <img
+        src="/biocore-logo.png"
+        alt="BIOCORE — Advancing Science, Enriching Life"
+        className={`${heightMap[size]} w-auto object-contain transition-transform group-hover:scale-[1.02]`}
+      />
     </div>
   );
+
+  if (darkContainer) {
+    return (
+      <div className="inline-flex items-center px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-white/20 shadow-md hover:bg-white transition-all group">
+        {imageContainer}
+      </div>
+    );
+  }
+
+  return imageContainer;
 };

@@ -299,14 +299,13 @@ export const Hero: React.FC<HeroProps> = ({ data }) => {
                 {/* Layer 5: Anchored Spatial Badge Overlay (75px Z-depth) */}
                 <div
                   ref={layer5BadgeRef}
-                  className="absolute bottom-6 right-6 z-30 hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl glass-panel border border-sky-400/40 shadow-2xl will-change-transform pointer-events-none"
+                  className="absolute bottom-6 right-6 z-30 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-white/30 shadow-2xl will-change-transform pointer-events-none"
                   style={{
                     transform: 'translateZ(75px)',
                     filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.65))',
                   }}
                 >
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span className="text-xs font-mono text-white font-bold">BIOCORE DEEP-SCIENCE INFRASTRUCTURE</span>
+                  <img src="/biocore-logo.png" alt="BIOCORE — Advancing Science, Enriching Life" className="h-7 sm:h-8 w-auto object-contain" />
                 </div>
               </div>
             </motion.div>

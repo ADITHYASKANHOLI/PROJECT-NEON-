@@ -16,14 +16,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://project-neon-three-sage.vercel.app"),
   title: {
-    default: "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
+    default: "BIOCORE — Advancing Science, Enriching Life | Biocore Research LLP",
     template: "%s | BIOCORE",
   },
   description:
-    "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
+    "BIOCORE (Biocore Research LLP) — Advancing Science, Enriching Life. A translational deep-science company connecting biological research, laboratory testing, precision instrumentation, sustainable technology, and commercialization.",
   keywords: [
     "BIOCORE",
     "Biocore Research LLP",
+    "Advancing Science Enriching Life",
     "Life Sciences",
     "Biotechnology",
     "Bioengineering",
@@ -47,31 +48,29 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
+    title: "BIOCORE — Advancing Science, Enriching Life | Biocore Research LLP",
     description:
-      "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
+      "BIOCORE (Biocore Research LLP) — Advancing Science, Enriching Life. A translational deep-science company connecting biological research, laboratory testing, precision instrumentation, sustainable technology, and commercialization.",
     url: "https://project-neon-three-sage.vercel.app",
     siteName: "BIOCORE",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
+        url: "/biocore-logo.png",
         width: 1200,
         height: 630,
-        alt: "Biocore Research LLP Primary Identity",
+        alt: "BIOCORE — Advancing Science, Enriching Life",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BIOCORE — Biocore Research LLP Translational Deep-Science Platform",
+    title: "BIOCORE — Advancing Science, Enriching Life | Biocore Research LLP",
     description:
-      "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
+      "BIOCORE (Biocore Research LLP) — Advancing Science, Enriching Life. A translational deep-science company connecting biological research, laboratory testing, precision instrumentation, sustainable technology, and commercialization.",
     creator: "@biocoreresearch",
-    images: [
-      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200&auto=format&fit=crop",
-    ],
+    images: ["/biocore-logo.png"],
   },
   robots: {
     index: true,
@@ -92,10 +91,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@type": "Organization",
     name: "Biocore Research LLP",
     alternateName: "BIOCORE",
+    slogan: "Advancing Science, Enriching Life",
     url: "https://project-neon-three-sage.vercel.app",
     description:
       "Biocore Research LLP (BIOCORE) is a translational deep-science company connecting biological science, advanced engineering, scientific instrumentation, laboratory testing, sustainable technology, and commercialization.",
-    logo: "https://project-neon-three-sage.vercel.app/favicon.ico",
+    logo: "https://project-neon-three-sage.vercel.app/biocore-logo.png",
   };
 
   return (

@@ -18,7 +18,7 @@ export const initialSiteContent: SiteContent = {
     { id: 'nav-7', label: 'Contact', url: '#contact', order: 7 },
   ],
   hero: {
-    badgeText: 'BIOCORE RESEARCH LLP • TRANSLATIONAL DEEP-SCIENCE',
+    badgeText: 'BIOCORE • ADVANCING SCIENCE, ENRICHING LIFE',
     headline: 'BRIDGING BIOLOGICAL SCIENCE &',
     highlightText: 'ADVANCED ENGINEERING.',
     subtitle:
